@@ -228,7 +228,7 @@ gulp.task('dev', gulp.series(
         const testFile = basename.slice(-8) === '_test.js' ? file :
           file.replace(basename.slice(-3), '_test.js')
 
-        console.log('Ruuning tests in', testFile)
+        console.log('Running tests in', testFile)
         mocha(testFile, false)()
 
         // lint this file
