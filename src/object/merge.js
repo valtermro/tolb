@@ -1,29 +1,30 @@
 import curry2 from '../_internal/curry2'
 
 /**
- * Merges two objects together.
+ * Merges the items of an onject into another.
  *
- * If both objects have the same key, the value in the last object will be used.
+ * As the source object is passed first, if both objects have the same key,
+ * the value in the first one will be used.
  *
  * @function
- * @param {Object} obj1 - The first source object
- * @param {Object} obj2 - The second source object
- * @return {Object} And object with value from both `obj1` and `obj2`
+ * @param {Object} source - The object with the values to merge in
+ * @param {Object} target - The object that will receive the values in `source`
+ * @return {Object} A new object with values from both `source` and `target`
  * @example
  *
- *   const foo = { foo: 1, bar: 2 }
- *   const bar = { baz: 3, bar: 4 }
+ *   const obj1 = { foo: 1, bar: 2 }
+ *   const obj2 = { baz: 3, bar: 4 }
  *
- *   merge(foo, bar) //=> { foo: 1, bar: 4, baz: 3 }
+ *   merge(obj1, obj2) //=> { baz: 3, bar: 2, foo: 1 }
  */
-export default curry2((obj1, obj2) => {
+export default curry2((source, target) => {
   const result = {}
 
-  for (const k in obj1)
-    result[k] = obj1[k]
+  for (const k in target)
+    result[k] = target[k]
 
-  for (const k in obj2)
-    result[k] = obj2[k]
+  for (const k in source)
+    result[k] = source[k]
 
   return result
 })

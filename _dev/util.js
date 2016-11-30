@@ -13,9 +13,9 @@ module.exports.makeString = function (length) {
   return result
 }
 
-module.exports.makeObject = function (length) {
+module.exports.makeObject = function (length, start = 0) {
   const result = {}
-  for (let i = 0; i < length; i++)
+  for (let i = start; i < start + length; i++)
     result[`key-${i}`] = i + 1
   Object.freeze(result)
   return result
