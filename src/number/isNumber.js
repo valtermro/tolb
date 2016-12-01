@@ -1,4 +1,4 @@
-import isNaN from './isNaN'
+import isNaN from './isNaN';
 
 /**
  * Checks if a given object is a number.
@@ -19,6 +19,6 @@ import isNaN from './isNaN'
  */
 export default function isNumber(subject) {
   if (isNaN(subject) || !isFinite(subject))
-    return false
-  return typeof subject === 'number'
+    return false;
+  return typeof subject === 'number';
 }

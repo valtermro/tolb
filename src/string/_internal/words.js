@@ -6,5 +6,5 @@
  * @return {Array} The list of words in `str`
  */
 export default function words(str) {
-  return str.match(/[0-9]+|[A-Z][a-z]+|[A-Z]|[a-z]+/g) || []
+  return str.match(/[0-9]+|[A-Z][a-z]+|[A-Z]|[a-z]+/g) || [];
 }

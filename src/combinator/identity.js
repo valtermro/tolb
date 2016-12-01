@@ -12,5 +12,5 @@
  *   indentity(obj) === identity(obj) //=> true
  */
 export default function identity(v) {
-  return v
+  return v;
 }

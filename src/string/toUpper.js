@@ -9,5 +9,5 @@
  *   toUpper('foo') //=> 'FOO'
  */
 export default function toUpper(str) {
-  return str.toUpperCase()
+  return str.toUpperCase();
 }

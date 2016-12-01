@@ -1,4 +1,4 @@
-import curry3 from '../_internal/curry3'
+import curry3 from '../_internal/curry3';
 
 /**
  * Returns the equivalent of a normalized value (range from 0 to 1) in a specified
@@ -15,5 +15,5 @@ import curry3 from '../_internal/curry3'
  *   lerp(10, 50, 0.125) //=> 15
  */
 export default curry3((min, max, value) => {
-  return (max - min) * value + min
-})
+  return (max - min) * value + min;
+});

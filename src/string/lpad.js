@@ -1,5 +1,5 @@
-import curry3 from '../_internal/curry3'
-import strRepeat from '../_internal/strRepeat'
+import curry3 from '../_internal/curry3';
+import strRepeat from '../_internal/strRepeat';
 
 /**
  * Fills a string with a given character until it reaches a specified length.
@@ -21,8 +21,8 @@ import strRepeat from '../_internal/strRepeat'
  *   lpad(4, '-', 'abcde') //=> 'abcd'
  */
 export default curry3((length, fill, str) => {
-  const diff = length - str.length
+  const diff = length - str.length;
   if (diff < 1)
-    return str
-  return `${strRepeat(diff, fill)}${str}`
-})
+    return str;
+  return `${strRepeat(diff, fill)}${str}`;
+});

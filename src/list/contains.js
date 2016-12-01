@@ -1,5 +1,5 @@
-import curry2 from '../_internal/curry2'
-import equals from '../assert/equals'
+import curry2 from '../_internal/curry2';
+import equals from '../assert/equals';
 
 /**
  * The `List` type definition for this method.
@@ -27,15 +27,15 @@ import equals from '../assert/equals'
  */
 export default curry2((value, list) => {
   if (typeof list === 'string')
-    return list.indexOf(value) >= 0
+    return list.indexOf(value) >= 0;
 
-  const length = list.length
+  const length = list.length;
   for (let i = 0; i < length; i++) {
     if (typeof value === 'number' || typeof value === 'object')
-      return equals(list[i], value)
+      return equals(list[i], value);
 
     if (list[i] === value)
-      return true
+      return true;
   }
-  return false
-})
+  return false;
+});

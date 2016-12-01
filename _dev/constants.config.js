@@ -1,1 +1,1 @@
-module.exports.MAX_ARITY = 8
+module.exports.MAX_ARITY = 8;

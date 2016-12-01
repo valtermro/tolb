@@ -11,9 +11,9 @@
  * @return {Array} A copy of `list` with its values in reverse order
  */
 export default function reverse(list) {
-  const length = list.length
-  const result = new Array(length)
+  const length = list.length;
+  const result = new Array(length);
   for (let i = length - 1, k = 0; i >= 0; i--)
-    result[k++] = list[i]
-  return result
+    result[k++] = list[i];
+  return result;
 }

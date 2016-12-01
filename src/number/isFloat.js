@@ -17,6 +17,6 @@
  */
 export default function isFloat(subject) {
   if (typeof subject !== 'number' || !isFinite(subject))
-    return false
-  return Math.floor(subject) !== subject
+    return false;
+  return Math.floor(subject) !== subject;
 }

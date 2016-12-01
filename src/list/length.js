@@ -13,5 +13,5 @@
  * @return {number} The list's length
  */
 export default function length(list) {
-  return list.length
+  return list.length;
 }

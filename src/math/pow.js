@@ -1,4 +1,4 @@
-import curry2 from '../_internal/curry2'
+import curry2 from '../_internal/curry2';
 
 /**
  * Raises a value to a given power.
@@ -14,5 +14,5 @@ import curry2 from '../_internal/curry2'
  *   pow(2, 10) //=> 100
  */
 export default curry2(function pow(power, base) {
-  return Math.pow(base, power)
-})
+  return Math.pow(base, power);
+});

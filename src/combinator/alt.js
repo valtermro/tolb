@@ -1,4 +1,4 @@
-import curry2 from '../_internal/curry2'
+import curry2 from '../_internal/curry2';
 
 /**
  * Takes two functions (f and g) and returns a new function that takes one
@@ -21,6 +21,6 @@ import curry2 from '../_internal/curry2'
  */
 export default curry2((f, g) => {
   return function (v) {
-    return f(v) || g(v)
-  }
-})
+    return f(v) || g(v);
+  };
+});

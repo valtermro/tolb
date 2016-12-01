@@ -1,4 +1,4 @@
-import curry2 from '../_internal/curry2'
+import curry2 from '../_internal/curry2';
 
 /**
  * Adds two numbers.
@@ -18,5 +18,5 @@ import curry2 from '../_internal/curry2'
  *   add(2, -3) //=> -1
  */
 export default curry2((y, x) => {
-  return x + y
-})
+  return x + y;
+});

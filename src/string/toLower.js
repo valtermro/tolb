@@ -9,5 +9,5 @@
  *   toLower('FOO') //=> 'foo'
  */
 export default function toLower(str) {
-  return str.toLowerCase()
+  return str.toLowerCase();
 }

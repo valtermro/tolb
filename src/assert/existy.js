@@ -16,5 +16,5 @@
  *   existy(undefined) //=> false
  */
 export default function existy(subject) {
-  return subject != null
+  return subject != null;
 }

@@ -1,4 +1,4 @@
-import curry3 from '../_internal/curry3'
+import curry3 from '../_internal/curry3';
 
 /**
  * Takes three functions (join, f and g) and returns a function that takes one
@@ -20,6 +20,6 @@ import curry3 from '../_internal/curry3'
  */
 export default curry3((join, f, g) => {
   return function (v) {
-    return join(f(v), g(v))
-  }
-})
+    return join(f(v), g(v));
+  };
+});

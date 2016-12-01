@@ -1,4 +1,4 @@
-import words from './_internal/words'
+import words from './_internal/words';
 
 /**
  * Converts a given string to snake_case.
@@ -13,5 +13,5 @@ import words from './_internal/words'
  *   toSnake('foo bar') //=> foo_bar
  */
 export default function toSnake(str) {
-  return words(str).join('_').toLowerCase()
+  return words(str).join('_').toLowerCase();
 }

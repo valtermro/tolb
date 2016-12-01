@@ -1,4 +1,4 @@
-import curry2 from '../_internal/curry2'
+import curry2 from '../_internal/curry2';
 
 /**
  * Returns a random number within a given range.
@@ -9,5 +9,5 @@ import curry2 from '../_internal/curry2'
  * @return {number} A random number between `min` and `max`
  */
 export default curry2((min, max) => {
-  return min + Math.random() * (max - min)
-})
+  return min + Math.random() * (max - min);
+});

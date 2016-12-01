@@ -15,5 +15,5 @@
  *   falsy(false) //=> true
  */
 export default function falsy(subject) {
-  return subject == null || subject === false
+  return subject == null || subject === false;
 }

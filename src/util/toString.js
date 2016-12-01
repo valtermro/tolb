@@ -31,31 +31,31 @@ export default function toString(obj) {
     obj instanceof String ? `String("${obj}")` :
     obj instanceof Number ? `Number(${obj})` :
     typeof obj === 'object' ? stringfy(obj, false) :
-    String(obj)
+    String(obj);
 }
 
 function stringfy(obj, array) {
   if (!array) {
-    const keys = Object.keys(obj)
-    const length = keys.length
+    const keys = Object.keys(obj);
+    const length = keys.length;
     if (length === 0)
-      return '{}'
+      return '{}';
 
-    let k = keys[0]
-    let result = `{${toString(k)}:${toString(obj[k])}`
+    let k = keys[0];
+    let result = `{${toString(k)}:${toString(obj[k])}`;
     for (let i = 1; i < length; i++) {
-      k = keys[i]
-      result += `,${toString(k)}:${toString(obj[k])}`
+      k = keys[i];
+      result += `,${toString(k)}:${toString(obj[k])}`;
     }
-    return `${result}}`
+    return `${result}}`;
   }
 
-  const length = obj.length
+  const length = obj.length;
   if (length === 0)
-    return '[]'
+    return '[]';
 
-  let result = `[${toString(obj[0])}`
+  let result = `[${toString(obj[0])}`;
   for (let i = 1; i < length; i++)
-    result += `,${toString(obj[i])}`
-  return `${result}]`
+    result += `,${toString(obj[i])}`;
+  return `${result}]`;
 }

@@ -1,4 +1,4 @@
-import curry2 from '../_internal/curry2'
+import curry2 from '../_internal/curry2';
 
 /**
  * The `List` type definition for this method.
@@ -25,9 +25,9 @@ import curry2 from '../_internal/curry2'
  *   pluck('name', list) //=> ['Foo', 'Bar', 'Baz']
  */
 export default curry2((prop, list) => {
-  const length = list.length
-  const result = new Array(length)
+  const length = list.length;
+  const result = new Array(length);
   for (let i = 0; i < length; i++)
-    result[i] = list[i][prop]
-  return result
-})
+    result[i] = list[i][prop];
+  return result;
+});

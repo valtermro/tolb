@@ -1,4 +1,4 @@
-import curry2 from '../_internal/curry2'
+import curry2 from '../_internal/curry2';
 
 /**
  * Multiplies two numbers.
@@ -18,5 +18,5 @@ import curry2 from '../_internal/curry2'
  *   multiply(-4, 3) //=> -12
  */
 export default curry2((multiplier, multiplicand) => {
-  return multiplicand * multiplier
-})
+  return multiplicand * multiplier;
+});

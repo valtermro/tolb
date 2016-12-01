@@ -1,19 +1,19 @@
-require('../../_dev/babel.register')
-const Benchmark = require('Benchmark')
-const suite = new Benchmark.Suite('list.prepend()')
-const util = require('../../_dev/util')
+require('../../_dev/babel.register');
+const Benchmark = require('Benchmark');
+const suite = new Benchmark.Suite('list.prepend()');
+const util = require('../../_dev/util');
 
-const prepend = require('../../src/list/prepend').default
-const { prepend: rprepend } = require('ramda')
+const prepend = require('../../src/list/prepend').default;
+const { prepend: rprepend } = require('ramda');
 
-const array = util.makeArray(20000)
+const array = util.makeArray(20000);
 
 suite
   .add('list.prepend', () => {
-    prepend(1, array)
+    prepend(1, array);
   })
   .add('ramda.prepend', () => {
-    rprepend(1, array)
-  })
+    rprepend(1, array);
+  });
 
-module.exports = suite
+module.exports = suite;

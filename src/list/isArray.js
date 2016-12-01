@@ -22,5 +22,5 @@
  *   isArray(new MyArray()) //=> true
  */
 export default function isArray(subject) {
-  return subject instanceof Array
+  return subject instanceof Array;
 }

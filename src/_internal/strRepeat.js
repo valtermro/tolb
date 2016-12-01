@@ -9,12 +9,12 @@
  * @return {string} A string with `char` repeated `n` times
  */
 export default function strRepeat(n, char) {
-  let result = ''
+  let result = '';
   for (let i = n, x = char;;) {
-    if (i & 1) result += x
-    i >>= 1
-    if (i === 0) break
-    x += x
+    if (i & 1) result += x;
+    i >>= 1;
+    if (i === 0) break;
+    x += x;
   }
-  return result
+  return result;
 }

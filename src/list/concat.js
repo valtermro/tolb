@@ -1,5 +1,5 @@
-import curry2 from '../_internal/curry2'
-import concat from '../_internal/concat'
+import curry2 from '../_internal/curry2';
+import concat from '../_internal/concat';
 
 /**
  * The `List` type definition for this method.
@@ -25,7 +25,7 @@ import concat from '../_internal/concat'
  */
 export default curry2((other, list) => {
   if (typeof other === 'string' && typeof list === 'string')
-    return list + other
+    return list + other;
 
-  return concat(list, other)
-})
+  return concat(list, other);
+});

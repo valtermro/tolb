@@ -16,7 +16,7 @@
  */
 export default function tap(f) {
   return function (v) {
-    f(v)
-    return v
-  }
+    f(v);
+    return v;
+  };
 }

@@ -1,4 +1,4 @@
-import curry2 from '../_internal/curry2'
+import curry2 from '../_internal/curry2';
 
 /**
  * Runs a RegExp against a given string.
@@ -16,5 +16,5 @@ import curry2 from '../_internal/curry2'
  *   match(/foo/, 'bar') //=> []
  */
 export default curry2((pattern, str) => {
-  return str.match(pattern) || []
-})
+  return str.match(pattern) || [];
+});

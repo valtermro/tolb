@@ -1,26 +1,26 @@
-require('../../_dev/babel.register')
-const Benchmark = require('Benchmark')
-const suite = new Benchmark.Suite('list.join()')
-const util = require('../../_dev/util')
+require('../../_dev/babel.register');
+const Benchmark = require('Benchmark');
+const suite = new Benchmark.Suite('list.join()');
+const util = require('../../_dev/util');
 
-const join = require('../../src/list/join').default
-const { join: rjoin } = require('ramda')
-const { join: ljoin } = require('lodash/fp')
+const join = require('../../src/list/join').default;
+const { join: rjoin } = require('ramda');
+const { join: ljoin } = require('lodash/fp');
 
-const array = util.makeArray(20000)
+const array = util.makeArray(20000);
 
 suite
   .add('Array.join() ', () => {
-    array.join(',')
+    array.join(',');
   })
   .add('list.join() ', () => {
-    join(',', array)
+    join(',', array);
   })
   .add('ramda.join() ', () => {
-    rjoin(',', array)
+    rjoin(',', array);
   })
   .add('lodash.join()', () => {
-    ljoin(',', array)
-  })
+    ljoin(',', array);
+  });
 
-module.exports = suite
+module.exports = suite;

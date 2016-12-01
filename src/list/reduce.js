@@ -1,4 +1,4 @@
-import curry3 from '../_internal/curry3'
+import curry3 from '../_internal/curry3';
 
 /**
  * Applies a function to an accumulator and each value of a given list to reduce
@@ -22,9 +22,9 @@ import curry3 from '../_internal/curry3'
  *   reduce(ids, [], [1, 2]) //=> [{ id: 1 }, { id: 2 }]
  */
 export default curry3((fn, initialValue, list) => {
-  const length = list.length
-  let result = initialValue
+  const length = list.length;
+  let result = initialValue;
   for (let i = 0; i < length; i++)
-    result = fn(result, list[i], i)
-  return result
-})
+    result = fn(result, list[i], i);
+  return result;
+});

@@ -13,8 +13,8 @@
  *   keys({ foo: 1, bar: 2 }) //=> ['foo', 'bar']
  */
 export default function keys(obj) {
-  const result = []
+  const result = [];
   for (const k in obj)
-    result[result.length] = k
-  return result
+    result[result.length] = k;
+  return result;
 }

@@ -16,6 +16,6 @@
  */
 export default function even(subject) {
   if (typeof subject !== 'number')
-    return false
-  return subject % 2 === 0
+    return false;
+  return subject % 2 === 0;
 }

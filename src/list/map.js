@@ -1,4 +1,4 @@
-import curry2 from '../_internal/curry2'
+import curry2 from '../_internal/curry2';
 
 /**
  * The `List` type definition for this method.
@@ -30,16 +30,16 @@ import curry2 from '../_internal/curry2'
  *   map(toUpper, 'foo') //=> 'FOO'
  */
 export default curry2((fn, list) => {
-  const length = list.length
-  let result
+  const length = list.length;
+  let result;
   if (typeof list === 'string') {
-    result = ''
+    result = '';
     for (let i = 0; i < length; i++)
-      result += fn(list[i], i)
+      result += fn(list[i], i);
   } else {
-    result = new Array(length)
+    result = new Array(length);
     for (let i = 0; i < length; i++)
-      result[i] = fn(list[i], i)
+      result[i] = fn(list[i], i);
   }
-  return result
-})
+  return result;
+});

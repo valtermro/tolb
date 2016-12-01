@@ -1,27 +1,27 @@
-require('../../_dev/babel.register')
-const Benchmark = require('Benchmark')
-const suite = new Benchmark.Suite('list.map() arrays')
-const util = require('../../_dev/util')
+require('../../_dev/babel.register');
+const Benchmark = require('Benchmark');
+const suite = new Benchmark.Suite('list.map() arrays');
+const util = require('../../_dev/util');
 
-const map = require('../../src/list/map').default
-const { map: rmap } = require('ramda')
-const { map: lmap } = require('lodash/fp')
+const map = require('../../src/list/map').default;
+const { map: rmap } = require('ramda');
+const { map: lmap } = require('lodash/fp');
 
-const array = util.makeArray(20000)
-const fn = util.double
+const array = util.makeArray(20000);
+const fn = util.double;
 
 suite
   .add('Array.prototype.map', () => {
-    array.map(fn)
+    array.map(fn);
   })
   .add('list.map', () => {
-    map(fn, array)
+    map(fn, array);
   })
   .add('ramda.map', () => {
-    rmap(fn, array)
+    rmap(fn, array);
   })
   .add('lodash.map', () => {
-    lmap(fn, array)
-  })
+    lmap(fn, array);
+  });
 
-module.exports = suite
+module.exports = suite;

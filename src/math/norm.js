@@ -1,4 +1,4 @@
-import curry3 from '../_internal/curry3'
+import curry3 from '../_internal/curry3';
 
 /**
  * Converts a value within a given range to its equivalent in a range from 0 to 1.
@@ -14,5 +14,5 @@ import curry3 from '../_internal/curry3'
  *   norm(10, 50, 15) //=> 0.125
  */
 export default curry3((min, max, value) => {
-  return (value - min) / (max - min)
-})
+  return (value - min) / (max - min);
+});

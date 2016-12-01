@@ -1,4 +1,4 @@
-import curry2 from '../_internal/curry2'
+import curry2 from '../_internal/curry2';
 
 /**
  * The `List` type definition for this method.
@@ -20,5 +20,5 @@ import curry2 from '../_internal/curry2'
  *   join('', ['foo', 'bar']) //=> 'foobar'
  */
 export default curry2((glue, list) => {
-  return Array.prototype.join.call(list, glue)
-})
+  return Array.prototype.join.call(list, glue);
+});

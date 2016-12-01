@@ -1,4 +1,4 @@
-import curry2 from '../_internal/curry2'
+import curry2 from '../_internal/curry2';
 
 /**
  * Divides a number by another.
@@ -14,5 +14,5 @@ import curry2 from '../_internal/curry2'
  * @return {number} `x` / `y`
  */
 export default curry2((divisor, dividend) => {
-  return dividend / divisor
-})
+  return dividend / divisor;
+});

@@ -1,5 +1,5 @@
-import arity from '../_internal/arity'
-import concat from '../_internal/concat'
+import arity from '../_internal/arity';
+import concat from '../_internal/concat';
 
 /**
  * Takes a function (f) and a list of arguments (a) and returns a function that
@@ -18,14 +18,14 @@ import concat from '../_internal/concat'
  */
 export default function rpartial(fn, rightArgs) {
   if (!(rightArgs instanceof Array))
-    throw new TypeError('Expected: array')
+    throw new TypeError('Expected: array');
 
-  let ari = fn.length - rightArgs.length
-  if (ari < 0) ari = 0
+  let ari = fn.length - rightArgs.length;
+  if (ari < 0) ari = 0;
 
   return arity(ari, (...leftArgs) => {
     return fn.apply(undefined, concat(
       leftArgs.length <= ari ? leftArgs : leftArgs.slice(0, ari),
-      rightArgs))
-  })
+      rightArgs));
+  });
 }

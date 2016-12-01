@@ -15,5 +15,5 @@
  *   truthy(false) //=> false
  */
 export default function truthy(subject) {
-  return subject != null && subject !== false
+  return subject != null && subject !== false;
 }

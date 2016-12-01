@@ -1,5 +1,5 @@
-import isArray from './isArray'
-import isString from './isString'
+import isArray from './isArray';
+import isString from './isString';
 
 /**
  * Checks if a given object is (or at least seems to be) an array-line object.
@@ -20,13 +20,13 @@ import isString from './isString'
  */
 export default function isArrayLike(subject) {
   if (isArray(subject) || isString(subject) || typeof subject === 'function')
-    return false
+    return false;
 
-  const length = subject.length
+  const length = subject.length;
 
   if (typeof length !== 'number' ||
     length < 0 || length === Infinity || isNaN(length)
-  ) return false
+  ) return false;
 
-  return subject[length] === undefined
+  return subject[length] === undefined;
 }

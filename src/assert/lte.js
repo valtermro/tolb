@@ -1,4 +1,4 @@
-import curry2 from '../_internal/curry2'
+import curry2 from '../_internal/curry2';
 
 /**
  * Takes two values (a, b) and tests if `b` is smaller than, or equal to, `a`.
@@ -24,5 +24,5 @@ import curry2 from '../_internal/curry2'
  *   lte('bc', 'bde') //=> false
  */
 export default curry2((other, value) => {
-  return value <= other
-})
+  return value <= other;
+});

@@ -1,4 +1,4 @@
-import curry2 from '../_internal/curry2'
+import curry2 from '../_internal/curry2';
 
 /**
  * Creates a list of numbers from a start to, but not including, a final values.
@@ -13,9 +13,9 @@ import curry2 from '../_internal/curry2'
  *   range(2, 6) //=> [2, 3, 4, 5, 6]
  */
 export default curry2((start, end) => {
-  const length = end - start
-  const result = new Array(length > 0 ? length : 0)
+  const length = end - start;
+  const result = new Array(length > 0 ? length : 0);
   for (let i = start, k = 0; i < end; i++)
-    result[k++] = i
-  return result
-})
+    result[k++] = i;
+  return result;
+});

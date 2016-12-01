@@ -16,5 +16,5 @@
  *   isInteger(NaN) //=> false
  */
 export default function isInteger(subject) {
-  return isFinite(subject) && Math.floor(subject) === subject
+  return isFinite(subject) && Math.floor(subject) === subject;
 }

@@ -1,4 +1,4 @@
-import _reverse from '../_internal/reverse'
+import _reverse from '../_internal/reverse';
 
 /**
  * The `List` type definition for this method.
@@ -20,12 +20,12 @@ import _reverse from '../_internal/reverse'
  */
 export default function reverse(list) {
   if (typeof list === 'string') {
-    const length = list.length
-    let result = ''
+    const length = list.length;
+    let result = '';
     for (let i = length - 1; i >= 0; i--)
-      result += list[i]
-    return result
+      result += list[i];
+    return result;
   }
 
-  return _reverse(list)
+  return _reverse(list);
 }

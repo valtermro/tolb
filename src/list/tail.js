@@ -1,4 +1,4 @@
-import slice from './slice'
+import slice from './slice';
 
 /**
  * The `List` type definition for this method.
@@ -21,5 +21,5 @@ import slice from './slice'
  *   tail([]) //=> []
  */
 export default function tail(list) {
-  return slice(1, null, list)
+  return slice(1, null, list);
 }

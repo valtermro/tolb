@@ -1,4 +1,4 @@
-import curry2 from '../_internal/curry2'
+import curry2 from '../_internal/curry2';
 
 /**
  * Returns the larger of two numbers.
@@ -12,5 +12,5 @@ import curry2 from '../_internal/curry2'
  * @return {number} The larger of `x` and `y`
  */
 export default curry2((x, y) => {
-  return x > y ? x : y
-})
+  return x > y ? x : y;
+});

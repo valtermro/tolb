@@ -1,6 +1,6 @@
-const babelConfig = require('./babel.config')
+const babelConfig = require('./babel.config');
 
-const files = ['./**/*_test.js']
+const files = ['./**/*_test.js'];
 
 module.exports = config => config.set({
   basePath: '../src',
@@ -45,4 +45,4 @@ module.exports = config => config.set({
     noInfo: true,
     stats: false,
   },
-})
+});

@@ -1,4 +1,4 @@
-import curry2 from '../_internal/curry2'
+import curry2 from '../_internal/curry2';
 
 /**
  * Deeply compares two object.
@@ -28,32 +28,32 @@ export default curry2(function equals(left, right) {
   //------------------------------
   if (left == null || right == null)
     // null === null || undefined === undefined
-    return left === right
+    return left === right;
 
   if (left === right)
     // +0 !== -0
-    return left !== 0 || 1 / left === 1 / right
+    return left !== 0 || 1 / left === 1 / right;
 
   if (left !== left && right !== right) // eslint-disable-line
     // Both NaN
-    return true
+    return true;
 
   if (typeof left !== 'object')
     // primitive values can be compared directly
-    return left === right
+    return left === right;
 
   // Indexed lists??
   //--------------------------------
-  const leftLen = left.length
-  const rightLen = right.length
+  const leftLen = left.length;
+  const rightLen = right.length;
   if (typeof leftLen === 'number' && typeof rightLen === 'number') {
     if (leftLen !== rightLen)
-      return false
+      return false;
     for (let i = 0; i < leftLen; i++) {
       if (!equals(left[i], right[i]))
-        return false
+        return false;
     }
-    return true
+    return true;
   }
 
   // Objects??
@@ -62,17 +62,17 @@ export default curry2(function equals(left, right) {
     // `left` should have the same keys that `right`
     for (const k in right) {
       if (!(k in left))
-        return false
+        return false;
     }
 
     // Tests both if `right` has the same keys than `left` and if their values match
     for (const k in left) {
       if (!equals(left[k], right[k]))
-        return false
+        return false;
     }
-    return true
+    return true;
   }
 
   // If we got here...
-  return false
-})
+  return false;
+});

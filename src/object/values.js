@@ -9,8 +9,8 @@
  *   values({ foo: 1, bar: 2 }) //=> [1, 2]
  */
 export default function values(obj) {
-  const result = []
+  const result = [];
   for (const k in obj)
-    result[result.length] = obj[k]
-  return result
+    result[result.length] = obj[k];
+  return result;
 }

@@ -1,4 +1,4 @@
-import curry2 from '../_internal/curry2'
+import curry2 from '../_internal/curry2';
 
 /**
  * Checks if an object has a given key by its own (i.e. not in its prototype chain).
@@ -16,5 +16,5 @@ import curry2 from '../_internal/curry2'
  *   hasOwn('bar', new Foo()) //=> false
  */
 export default curry2((key, obj) => {
-  return obj.hasOwnProperty(key)
-})
+  return obj.hasOwnProperty(key);
+});

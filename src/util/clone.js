@@ -29,18 +29,18 @@
  */
 export default function clone(obj) {
   if (obj == null || typeof obj !== 'object')
-    return obj
+    return obj;
 
-  let result
+  let result;
   if (obj instanceof Array) {
-    const length = obj.length
-    result = new Array(length)
+    const length = obj.length;
+    result = new Array(length);
     for (let i = 0; i < length; i++)
-      result[i] = clone(obj[i])
+      result[i] = clone(obj[i]);
   } else {
-    result = {}
+    result = {};
     for (const k in obj)
-      result[k] = clone(obj[k])
+      result[k] = clone(obj[k]);
   }
-  return result
+  return result;
 }

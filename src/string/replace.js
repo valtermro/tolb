@@ -1,4 +1,4 @@
-import curry3 from '../_internal/curry3'
+import curry3 from '../_internal/curry3';
 
 /**
  * Invokes `String.prototype.replace` on a given string.
@@ -14,5 +14,5 @@ import curry3 from '../_internal/curry3'
  *   replace(/o/g, 'u', 'foo') //=> 'fuu'
  */
 export default curry3((search, replacement, str) => {
-  return str.replace(search, replacement)
-})
+  return str.replace(search, replacement);
+});

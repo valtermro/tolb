@@ -13,11 +13,11 @@
  *   foo(10)
  */
 export default function seq() {
-  const fns = arguments
-  const length = fns.length
+  const fns = arguments;
+  const length = fns.length;
 
   return function (v) {
     for (let i = 0; i < length; i++)
-      fns[i](v)
-  }
+      fns[i](v);
+  };
 }

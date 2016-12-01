@@ -7,13 +7,13 @@
  * @return {Array} A new array with the values of both `left` and `right`
  */
 export default function concat(left, right) {
-  const leftLen = left.length
-  const rightLen = right.length
-  const result = []
+  const leftLen = left.length;
+  const rightLen = right.length;
+  const result = [];
 
   for (let i = 0; i < leftLen; i++)
-    result[result.length] = left[i]
+    result[result.length] = left[i];
   for (let i = 0; i < rightLen; i++)
-    result[result.length] = right[i]
-  return result
+    result[result.length] = right[i];
+  return result;
 }

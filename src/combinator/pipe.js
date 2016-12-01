@@ -1,4 +1,4 @@
-import arity from '../_internal/arity'
+import arity from '../_internal/arity';
 
 /**
  * Performs left-to-right function composition.
@@ -18,14 +18,14 @@ import arity from '../_internal/arity'
  *   foo(10, 20) //=> 40
  */
 export default function pipe() {
-  const fns = arguments
-  const length = arguments.length
-  const first = arguments[0]
+  const fns = arguments;
+  const length = arguments.length;
+  const first = arguments[0];
 
   return arity(first.length, function () {
-    let result = first.apply(undefined, arguments)
+    let result = first.apply(undefined, arguments);
     for (let i = 1; i < length; i++)
-      result = fns[i](result)
-    return result
-  })
+      result = fns[i](result);
+    return result;
+  });
 }

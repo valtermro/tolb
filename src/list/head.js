@@ -18,5 +18,5 @@
  *   head([]) //=> undefined
  */
 export default function head(list) {
-  return list[0]
+  return list[0];
 }

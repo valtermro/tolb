@@ -1,4 +1,4 @@
-import curry2 from '../_internal/curry2'
+import curry2 from '../_internal/curry2';
 
 /**
  * The `List` type definition for this method.
@@ -25,8 +25,8 @@ import curry2 from '../_internal/curry2'
  */
 export default curry2((pred, list) => {
   for (let i = list.length - 1; i >= 0; i--) {
-    const item = list[i]
+    const item = list[i];
     if (pred(item, i))
-      return item
+      return item;
   }
-})
+});

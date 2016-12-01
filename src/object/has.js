@@ -1,4 +1,4 @@
-import curry2 from '../_internal/curry2'
+import curry2 from '../_internal/curry2';
 
 /**
  * Checks if an object, or its prototype chain, has a given key.
@@ -18,5 +18,5 @@ import curry2 from '../_internal/curry2'
  *   has('baz', new Foo()) //=> false
  */
 export default curry2((key, obj) => {
-  return key in obj
-})
+  return key in obj;
+});

@@ -1,27 +1,27 @@
-require('../../_dev/babel.register')
-const Benchmark = require('Benchmark')
-const suite = new Benchmark.Suite('list.some()')
-const util = require('../../_dev/util')
+require('../../_dev/babel.register');
+const Benchmark = require('Benchmark');
+const suite = new Benchmark.Suite('list.some()');
+const util = require('../../_dev/util');
 
-const some = require('../../src/list/some').default
-const { any } = require('ramda')
-const { some: lsome } = require('lodash/fp')
+const some = require('../../src/list/some').default;
+const { any } = require('ramda');
+const { some: lsome } = require('lodash/fp');
 
-const array = util.makeArray(20000)
-const pred = x => x > 19999
+const array = util.makeArray(20000);
+const pred = x => x > 19999;
 
 suite
   .add('Array.prototype.some', () => {
-    array.some(pred)
+    array.some(pred);
   })
   .add('list.some', () => {
-    some(pred, array)
+    some(pred, array);
   })
   .add('ramda.any', () => {
-    any(pred, array)
+    any(pred, array);
   })
   .add('lodash.some', () => {
-    lsome(pred, array)
-  })
+    lsome(pred, array);
+  });
 
-module.exports = suite
+module.exports = suite;

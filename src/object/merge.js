@@ -1,4 +1,4 @@
-import curry2 from '../_internal/curry2'
+import curry2 from '../_internal/curry2';
 
 /**
  * Merges the items of an onject into another.
@@ -18,13 +18,13 @@ import curry2 from '../_internal/curry2'
  *   merge(obj1, obj2) //=> { baz: 3, bar: 2, foo: 1 }
  */
 export default curry2((source, target) => {
-  const result = {}
+  const result = {};
 
   for (const k in target)
-    result[k] = target[k]
+    result[k] = target[k];
 
   for (const k in source)
-    result[k] = source[k]
+    result[k] = source[k];
 
-  return result
-})
+  return result;
+});

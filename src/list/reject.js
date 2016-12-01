@@ -1,4 +1,4 @@
-import curry2 from '../_internal/curry2'
+import curry2 from '../_internal/curry2';
 
 /**
  * The `List` type definition for this method.
@@ -22,11 +22,11 @@ import curry2 from '../_internal/curry2'
  *   reject(isEven, [1, 2, 3, 4, 5, 6]) //=> [1, 3, 5]
  */
 export default curry2((pred, list) => {
-  const result = []
-  const length = list.length
+  const result = [];
+  const length = list.length;
   for (let i = 0; i < length; i++) {
     if (!pred(list[i], i))
-      result[result.length] = list[i]
+      result[result.length] = list[i];
   }
-  return result
-})
+  return result;
+});

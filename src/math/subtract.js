@@ -1,4 +1,4 @@
-import curry2 from '../_internal/curry2'
+import curry2 from '../_internal/curry2';
 
 /**
  * Subtract one number from another.
@@ -18,5 +18,5 @@ import curry2 from '../_internal/curry2'
  *   subtract(10, 2) //=> -8
  */
 export default curry2((subtrahend, minuend) => {
-  return minuend - subtrahend
-})
+  return minuend - subtrahend;
+});

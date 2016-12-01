@@ -1,4 +1,4 @@
-import slice from './slice'
+import slice from './slice';
 
 /**
  * The `List` type definition for this method.
@@ -21,5 +21,5 @@ import slice from './slice'
  *   init([]) //=> []
  */
 export default function init(list) {
-  return slice(0, -1, list)
+  return slice(0, -1, list);
 }

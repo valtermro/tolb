@@ -1,4 +1,4 @@
-import curry2 from '../_internal/curry2'
+import curry2 from '../_internal/curry2';
 
 /**
  * The `List` type definition for this method.
@@ -21,5 +21,5 @@ import curry2 from '../_internal/curry2'
  *   nth(3, [1, 2, 3]) //=> undefined
  */
 export default curry2((n, list) => {
-  return list[n]
-})
+  return list[n];
+});

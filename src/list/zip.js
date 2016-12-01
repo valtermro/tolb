@@ -1,4 +1,4 @@
-import curry2 from '../_internal/curry2'
+import curry2 from '../_internal/curry2';
 
 /**
  * The `List` type definition for this method.
@@ -23,9 +23,9 @@ import curry2 from '../_internal/curry2'
  *   zip([1, 2, 3], [4, 5]) //=> [[1, 4], [2, 5]]
  */
 export default curry2((left, right) => {
-  const length = Math.min(left.length, right.length)
-  const result = new Array(length)
+  const length = Math.min(left.length, right.length);
+  const result = new Array(length);
   for (let i = 0; i < length; i++)
-    result[i] = [left[i], right[i]]
-  return result
-})
+    result[i] = [left[i], right[i]];
+  return result;
+});

@@ -10,5 +10,5 @@
  *   trim('\nfoo\n') //=> 'foo'
  */
 export default function trim(str) {
-  return str.trim()
+  return str.trim();
 }

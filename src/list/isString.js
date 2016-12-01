@@ -12,5 +12,5 @@
  *   isString([]) //=> false
  */
 export default function isString(subject) {
-  return typeof subject === 'string'
+  return typeof subject === 'string';
 }

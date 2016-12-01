@@ -1,27 +1,27 @@
-require('../../_dev/babel.register')
-const Benchmark = require('Benchmark')
-const suite = new Benchmark.Suite('list.find()')
-const util = require('../../_dev/util')
+require('../../_dev/babel.register');
+const Benchmark = require('Benchmark');
+const suite = new Benchmark.Suite('list.find()');
+const util = require('../../_dev/util');
 
-const find = require('../../src/list/find').default
-const { find: rfind } = require('ramda')
-const { find: lfind } = require('lodash/fp')
+const find = require('../../src/list/find').default;
+const { find: rfind } = require('ramda');
+const { find: lfind } = require('lodash/fp');
 
-const array = util.makeArray(20000)
-const pred = x => x > 19998
+const array = util.makeArray(20000);
+const pred = x => x > 19998;
 
 suite
   .add('Array.prototype.find', () => {
-    array.find(pred)
+    array.find(pred);
   })
   .add('list.find', () => {
-    find(pred, array)
+    find(pred, array);
   })
   .add('ramda.find', () => {
-    rfind(pred, array)
+    rfind(pred, array);
   })
   .add('lodash.find', () => {
-    lfind(pred, array)
-  })
+    lfind(pred, array);
+  });
 
-module.exports = suite
+module.exports = suite;

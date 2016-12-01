@@ -17,6 +17,6 @@
  */
 export default function odd(subject) {
   if (typeof subject !== 'number')
-    return false
-  return subject % 2 === 1
+    return false;
+  return subject % 2 === 1;
 }

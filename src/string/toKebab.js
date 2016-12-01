@@ -1,4 +1,4 @@
-import words from './_internal/words'
+import words from './_internal/words';
 
 /**
  * Converts a given string to kebab-case.
@@ -13,5 +13,5 @@ import words from './_internal/words'
  *   toKebab('foo bar') //=> foo-bar
  */
 export default function toKebab(str) {
-  return words(str).join('-').toLowerCase()
+  return words(str).join('-').toLowerCase();
 }

@@ -1,4 +1,4 @@
-import curry2 from '../_internal/curry2'
+import curry2 from '../_internal/curry2';
 
 /**
  * Returns the value at a specified key in a object.
@@ -23,15 +23,15 @@ import curry2 from '../_internal/curry2'
  */
 export default curry2(function get(key, obj) {
   if (key instanceof Array) {
-    const length = key.length
-    const result = new Array(length)
+    const length = key.length;
+    const result = new Array(length);
     for (let i = 0; i < length; i++)
-      result[i] = get(key[i], obj)
-    return result
+      result[i] = get(key[i], obj);
+    return result;
   }
 
-  const idx = key.indexOf('.')
+  const idx = key.indexOf('.');
   if (idx < 0)
-    return obj[key]
-  return get(key.slice(idx + 1), obj[key.slice(0, idx)])
-})
+    return obj[key];
+  return get(key.slice(idx + 1), obj[key.slice(0, idx)]);
+});

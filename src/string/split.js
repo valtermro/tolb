@@ -1,4 +1,4 @@
-import curry2 from '../_internal/curry2'
+import curry2 from '../_internal/curry2';
 
 /**
  * Invokes `String.prototype.split` on a given string.
@@ -12,5 +12,5 @@ import curry2 from '../_internal/curry2'
  *   split(',', 'foo,bar') //=> ['foo', 'bar']
  */
 export default curry2((sep, str) => {
-  return str.split(sep)
-})
+  return str.split(sep);
+});

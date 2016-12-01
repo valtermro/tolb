@@ -1,4 +1,4 @@
-import curry2 from '../_internal/curry2'
+import curry2 from '../_internal/curry2';
 
 /**
  * Wraps a function with any arity in a function with a fixed arity.
@@ -29,28 +29,28 @@ import curry2 from '../_internal/curry2'
 export default curry2((n, fn) => {
   switch (n) {
     case 0:
-      return () => fn()
+      return () => fn();
     case 1:
-      return a1 => fn(a1)
+      return a1 => fn(a1);
     case 2:
-      return (a1, a2) => fn(a1, a2)
+      return (a1, a2) => fn(a1, a2);
     case 3:
-      return (a1, a2, a3) => fn(a1, a2, a3)
+      return (a1, a2, a3) => fn(a1, a2, a3);
     case 4:
-      return (a1, a2, a3, a4) => fn(a1, a2, a3, a4)
+      return (a1, a2, a3, a4) => fn(a1, a2, a3, a4);
     case 5:
-      return (a1, a2, a3, a4, a5) => fn(a1, a2, a3, a4, a5)
+      return (a1, a2, a3, a4, a5) => fn(a1, a2, a3, a4, a5);
     case 6:
-      return (a1, a2, a3, a4, a5, a6) => fn(a1, a2, a3, a4, a5, a6)
+      return (a1, a2, a3, a4, a5, a6) => fn(a1, a2, a3, a4, a5, a6);
     case 7:
       return (a1, a2, a3, a4, a5, a6, a7) =>
-        fn(a1, a2, a3, a4, a5, a6, a7)
+        fn(a1, a2, a3, a4, a5, a6, a7);
     case 8:
       return (a1, a2, a3, a4, a5, a6, a7, a8) =>
-        fn(a1, a2, a3, a4, a5, a6, a7, a8)
+        fn(a1, a2, a3, a4, a5, a6, a7, a8);
     default:
       throw new Error(
         `Trying to convert ${fn.name || 'a function'}` +
-        'into a function with an invalid arity. Max allowed: 8')
+        'into a function with an invalid arity. Max allowed: 8');
   }
-})
+});

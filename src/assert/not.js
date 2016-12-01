@@ -1,4 +1,4 @@
-import arity from '../_internal/arity'
+import arity from '../_internal/arity';
 
 /**
  * Returns the complement of a given predicate.
@@ -17,6 +17,6 @@ import arity from '../_internal/arity'
  */
 export default function not(fn) {
   return arity(fn.length, function () {
-    return !fn.apply(undefined, arguments)
-  })
+    return !fn.apply(undefined, arguments);
+  });
 }

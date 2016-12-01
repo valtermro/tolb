@@ -22,13 +22,13 @@
  */
 export default function empty(subject) {
   if (subject == null || typeof subject === 'number')
-    return false
+    return false;
 
   if (typeof subject.length === 'number')
-    return subject.length === 0
+    return subject.length === 0;
 
   if (subject.constructor !== Object)
-    return false
+    return false;
 
-  return Object.keys(subject).length === 0
+  return Object.keys(subject).length === 0;
 }

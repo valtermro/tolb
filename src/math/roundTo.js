@@ -1,4 +1,4 @@
-import curry2 from '../_internal/curry2'
+import curry2 from '../_internal/curry2';
 
 /**
  * Rounds a number to a float with a specified number of decimal places.
@@ -13,6 +13,6 @@ import curry2 from '../_internal/curry2'
  *   rountTo(0, Math.PI) //=> 3
  */
 export default curry2((places, value) => {
-  const mult = Math.pow(10, places)
-  return Math.round(value * mult) / mult
-})
+  const mult = Math.pow(10, places);
+  return Math.round(value * mult) / mult;
+});

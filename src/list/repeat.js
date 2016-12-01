@@ -1,5 +1,5 @@
-import curry2 from '../_internal/curry2'
-import strRepeat from '../_internal/strRepeat'
+import curry2 from '../_internal/curry2';
+import strRepeat from '../_internal/strRepeat';
 
 /**
  * Returns a list with a given value repeated N times.
@@ -17,12 +17,12 @@ import strRepeat from '../_internal/strRepeat'
  *   repeat(3, 1) //=> [1, 1, 1]
  */
 export default curry2((n, value) => {
-  if (value === undefined) return
+  if (value === undefined) return;
   if (typeof value === 'string')
-    return strRepeat(n, value)
+    return strRepeat(n, value);
 
-  const result = new Array(n)
+  const result = new Array(n);
   for (let i = 0; i < n; i++)
-    result[i] = value
-  return result
-})
+    result[i] = value;
+  return result;
+});

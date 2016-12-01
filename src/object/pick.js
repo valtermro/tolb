@@ -1,4 +1,4 @@
-import curry2 from '../_internal/curry2'
+import curry2 from '../_internal/curry2';
 
 /**
  * Returns a copy of a given object containing only a specified list of keys.
@@ -14,12 +14,12 @@ import curry2 from '../_internal/curry2'
  *   pick(['name', 'age'], user) //=> { name: 'Foo', age: 25 }
  */
 export default curry2((keys, obj) => {
-  const result = {}
-  const length = keys.length
+  const result = {};
+  const length = keys.length;
   for (let i = 0; i < length; i++) {
-    const k = keys[i]
+    const k = keys[i];
     if (k in obj)
-      result[k] = obj[k]
+      result[k] = obj[k];
   }
-  return result
-})
+  return result;
+});
