@@ -5,6 +5,7 @@ export { default as equals } from './equals';
 export { default as even } from './even';
 export { default as existy } from './existy';
 export { default as falsy } from './falsy';
+export { default as func } from './func';
 export { default as gt } from './gt';
 export { default as gte } from './gte';
 export { default as lt } from './lt';

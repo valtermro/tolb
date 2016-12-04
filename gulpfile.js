@@ -153,7 +153,7 @@ const mocha = (file, fail) => function mocha() {
   if (fail === false) {
     stream.on('error', (err) => {
       if (!error.__safety)
-        return $.util.log(err);
+        return $.util.log(err.message);
     });
   }
 
