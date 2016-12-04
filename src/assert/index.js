@@ -1,3 +1,5 @@
+export { default as array } from './array';
+export { default as arrayLike } from './arrayLike';
 export { default as empty } from './empty';
 export { default as equals } from './equals';
 export { default as even } from './even';
@@ -8,5 +10,7 @@ export { default as gte } from './gte';
 export { default as lt } from './lt';
 export { default as lte } from './lte';
 export { default as not } from './not';
+export { default as number } from './number';
 export { default as odd } from './odd';
+export { default as string } from './string';
 export { default as truthy } from './truthy';

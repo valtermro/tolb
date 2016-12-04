@@ -1,5 +1,5 @@
-import isArray from './isArray';
-import isString from './isString';
+import array from './array';
+import string from './string';
 
 /**
  * Checks if a given object is (or at least seems to be) an array-line object.
@@ -15,11 +15,11 @@ import isString from './isString';
  *
  *   function foo() { return arguments }
  *
- *   isArrayLike(foo) //=> false
- *   isArrayLike(foo()) //=> true
+ *   arrayLike(foo) //=> false
+ *   arrayLike(foo()) //=> true
  */
-export default function isArrayLike(subject) {
-  if (isArray(subject) || isString(subject) || typeof subject === 'function')
+export default function arrayLike(subject) {
+  if (array(subject) || string(subject) || typeof subject === 'function')
     return false;
 
   const length = subject.length;

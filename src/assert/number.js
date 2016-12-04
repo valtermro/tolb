@@ -1,5 +1,3 @@
-import isNaN from './isNaN';
-
 /**
  * Checks if a given object is a number.
  *
@@ -10,14 +8,14 @@ import isNaN from './isNaN';
  * @return {boolean} `true` if `subject` is a number, `false` otherwise
  * @example
  *
- *   isNumber(10) //=> true
- *   isNumber(Math.PI) //=> true
- *   isNumber(NaN) //=> false
- *   isNumber(Infinity) //=> false
- *   isNumber('foo') //=> false
- *   isNumber(new Number(10)) //=> false
+ *   number(10) //=> true
+ *   number(Math.PI) //=> true
+ *   number(NaN) //=> false
+ *   number(Infinity) //=> false
+ *   number('foo') //=> false
+ *   number(new Number(10)) //=> false
  */
-export default function isNumber(subject) {
+export default function number(subject) {
   if (isNaN(subject) || !isFinite(subject))
     return false;
   return typeof subject === 'number';

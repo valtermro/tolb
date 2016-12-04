@@ -1,11 +1,11 @@
 /* eslint-env mocha */
 import A from 'assert';
-import isArrayLike from './isArrayLike';
+import arrayLike from './arrayLike';
 import util from '../../_dev/util';
 
-describe('list.isArrayLike(subject)', () => {
+describe('assert.arrayLike(subject)', () => {
   it('checks if "subject" is an array-like object', () => {
-    const assert = (sub, wanted) => A.equal(isArrayLike(sub), wanted);
+    const assert = (sub, wanted) => A.equal(arrayLike(sub), wanted);
     assert(util.arrayLike(), true);
     assert(util.arrayLike(1), true);
     assert([], false);

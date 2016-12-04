@@ -1,10 +1,10 @@
 /* eslint-env mocha */
 import A from 'assert';
-import isNumber from './isNumber';
+import number from './number';
 
-describe('number.isNumber(subject)', () => {
+describe('assert.number(subject)', () => {
   it('checks if "subject" is a number', () => {
-    const assert = (sub, wanted) => A.equal(isNumber(sub), wanted);
+    const assert = (sub, wanted) => A.equal(number(sub), wanted);
     assert(0, true);
     assert(1, true);
     assert(-1, true);

@@ -13,14 +13,14 @@
  *   function MyArray() {}
  *   MyArray.prototype = new Array()
  *
- *   isArray([]) //=> true
- *   isArray(new Array()) //=> true
- *   isArray('') //=> false
- *   isArray(document.getElmentsByClassName('foo')) //=> false
+ *   array([]) //=> true
+ *   array(new Array()) //=> true
+ *   array('') //=> false
+ *   array(document.getElmentsByClassName('foo')) //=> false
  *
  *   // BE CAREFUL
- *   isArray(new MyArray()) //=> true
+ *   array(new MyArray()) //=> true
  */
-export default function isArray(subject) {
+export default function array(subject) {
   return subject instanceof Array;
 }

@@ -1,11 +1,11 @@
 /* eslint-env mocha */
 import A from 'assert';
-import isArray from './isArray';
+import array from './array';
 import util from '../../_dev/util';
 
-describe('list.isArray(subject)', () => {
+describe('assert.array(subject)', () => {
   it('checks if "subject" is an array', () => {
-    const assert = (sub, wanted) => A.equal(isArray(sub), wanted);
+    const assert = (sub, wanted) => A.equal(array(sub), wanted);
     assert([], true);
     assert(new Array(), true);
     assert('', false);

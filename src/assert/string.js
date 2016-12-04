@@ -6,11 +6,11 @@
  * @return {boolean} `true` if `subject` is a string liteal, `false` otherwise
  * @example
  *
- *   isString('foo') //=> true
- *   isString(new String('foo')) //=> true
- *   isString(10) //=> false
- *   isString([]) //=> false
+ *   string('foo') //=> true
+ *   string(new String('foo')) //=> true
+ *   string(10) //=> false
+ *   string([]) //=> false
  */
-export default function isString(subject) {
+export default function string(subject) {
   return typeof subject === 'string';
 }

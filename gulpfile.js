@@ -150,8 +150,12 @@ const mocha = (file, fail) => function mocha() {
       require: ['./_dev/babel.register.js'],
     }));
 
-  if (fail === false)
-    stream.on('error', () => { /* */ });
+  if (fail === false) {
+    stream.on('error', (err) => {
+      if (!error.__safety)
+        return $.util.log(err);
+    });
+  }
 
   return stream;
 };
@@ -229,10 +233,10 @@ gulp.task('dev', gulp.series(
           file.replace(basename.slice(-3), '_test.js');
 
         console.log('Running tests in', testFile);
-        mocha(testFile, false)();
+        mocha(testFile, false)(() => console.log('done testing'));
 
         // lint this file
-        eslint(file, false)();
+        eslint(file, false)(() => console.log('done linting'));
 
         // New file. Add it to the index of the package.
         if (old.indexOf(file) < 0) {
