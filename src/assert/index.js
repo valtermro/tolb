@@ -12,6 +12,7 @@ export { default as lt } from './lt';
 export { default as lte } from './lte';
 export { default as not } from './not';
 export { default as number } from './number';
+export { default as object } from './object';
 export { default as odd } from './odd';
 export { default as string } from './string';
 export { default as truthy } from './truthy';
