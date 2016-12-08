@@ -141,36 +141,6 @@ const bundle = name => function bundle() {
     .pipe(gulp.dest(name === 'next' ? './next' : '.'));
 };
 
-const mocha = (file, fail) => function mocha() {
-  const src = file === 'all' ? TEST_FILES : file;
-  const stream = gulp.src(src)
-    .pipe($.mocha({
-      reporter: 'progress',
-      bail: true,
-      require: ['./_dev/babel.register.js'],
-    }));
-
-  if (fail === false) {
-    stream.on('error', (err) => {
-      if (!error.__safety)
-        return $.util.log(err.message);
-    });
-  }
-
-  return stream;
-};
-gulp.task('mocha', mocha('all', false));
-
-gulp.task('karma', function karma(done) {
-  const single = $.util.env.s !== undefined;
-  const server = new Server({
-    configFile: path.join(__dirname, '_dev/karma.config.js'),
-    singleRun: single,
-  }, done);
-
-  server.start();
-});
-
 const eslint = (file, fail) => function eslint() {
   const src = file === 'all' ? './**/*.js' : file;
   let stream = gulp.src(src)
@@ -182,15 +152,36 @@ const eslint = (file, fail) => function eslint() {
 
   return stream;
 };
-gulp.task('eslint', eslint('all', false));
 
-gulp.task('test', gulp.parallel(eslint('all', true), mocha('all', true)));
-gulp.task('bundle-node', bundle('node', false));
-gulp.task('bundle-next', bundle('next', false));
-gulp.task('bundle', gulp.parallel('bundle-node', 'bundle-next'));
-gulp.task('build', gulp.series(writeIndex('all'), 'test', 'bundle'));
+const mocha = (file, fail) => function mocha() {
+  const src = file === 'all' ? TEST_FILES : file;
+  const stream = gulp.src(src)
+    .pipe($.mocha({
+      reporter: 'progress',
+      bail: true,
+      require: ['./_dev/babel.register.js'],
+    }));
 
-gulp.task('benchmark', function benchmark() {
+  if (fail === false) {
+    stream.on('error', (err) => {
+      return $.util.log(err.message);
+    });
+  }
+
+  return stream;
+};
+
+const karma = () => function karma(done) {
+  const single = $.util.env.s !== undefined;
+  const server = new Server({
+    configFile: path.join(__dirname, '_dev/karma.config.js'),
+    singleRun: single,
+  }, done);
+
+  server.start();
+};
+
+const benchmark = () => function benchmark() {
   let file = ['./benchmark/**/*.js', '!./benchmark/_**/*.js'];
 
   const name = $.util.env.f;
@@ -201,66 +192,64 @@ gulp.task('benchmark', function benchmark() {
 
   return gulp.src(file, { read: false })
     .pipe($.benchmark());
-});
+};
 
-gulp.task('clear', function clear(done) {
+const clear = () => function clear(done) {
   fs.readdirSync('./')
     .filter(p => !p.match(/^\..+|.+\.js[on]?|_dev|src|benchmark|node_modules|README|LICENSE/))
     .map(pathFromRoot)
     .forEach(p => rmdir(p));
   done();
-});
+};
 
-gulp.task('dev', gulp.series(
-  gulp.parallel(writeIndex('all'), 'eslint', 'mocha'),
-  function watching(done) {
-    const old = fs.readdirSync('./src')
-      .map(pathFromSrc)
-      .map(readFiles(true, true))
-      .reduce((a, f) => a.concat(f), []);
+const watchBuild = () => function watching(done) {
+  const old = fs.readdirSync('./src')
+    .map(pathFromSrc)
+    .map(readFiles(true, true))
+    .reduce((a, f) => a.concat(f), []);
 
-    return gulp.watch(SRC_FILES)
-      .on('change', (name) => {
-        const file = pathFromRoot(name);
-        const dir = path.dirname(file);
-        const basename = path.basename(file);
+  return gulp.watch(SRC_FILES)
+    .on('change', (name) => {
+      console.log(name);
+      const file = pathFromRoot(name);
+      const dir = path.dirname(file);
+      const basename = path.basename(file);
 
-        if (basename === 'index.js')
-          return;
+      if (basename === 'index.js')
+        return;
 
-        // run the tests for this file
-        const testFile = basename.slice(-8) === '_test.js' ? file :
-          file.replace(basename.slice(-3), '_test.js');
+      // run the tests for this file
+      const testFile = basename.slice(-8) === '_test.js' ? file :
+        file.replace(basename.slice(-3), '_test.js');
 
-        console.log('Running tests in', testFile);
-        mocha(testFile, false)(() => console.log('done testing'));
+      console.log('Running tests in', testFile);
+      mocha(testFile, false)();
 
-        // lint this file
-        eslint(file, false)(() => console.log('done linting'));
+      // lint this file
+      eslint(file, false)();
 
-        // New file. Add it to the index of the package.
-        if (old.indexOf(file) < 0) {
-          writeIndex(dir)(done);
-          old.push(file);
-        }
-      })
-      .on('unlink', (name) => {
-        const file = pathFromRoot(name);
-        const dir = path.dirname(file);
-        const oldi = old.indexOf(file);
+      // New file. Add it to the index of the package.
+      if (old.indexOf(file) < 0) {
+        writeIndex(dir)(done);
+        old.push(file);
+      }
+    })
+    .on('unlink', (name) => {
+      const file = pathFromRoot(name);
+      const dir = path.dirname(file);
+      const oldi = old.indexOf(file);
 
-        if (path.basename(file) === 'index.js')
-          return;
+      if (path.basename(file) === 'index.js')
+        return;
 
-        if (oldi >= 0) {
-          writeIndex(dir)(done);
-          old.splice(oldi, 1);
-        }
-      });
-  }
-));
+      if (oldi >= 0) {
+        writeIndex(dir)(done);
+        old.splice(oldi, 1);
+      }
+    });
+};
 
-gulp.task('new', function create(done) {
+const create = () => function create(done) {
   const file = $.util.env.f;
   const test = $.util.env.t !== undefined ? $.util.env.t : file ? 'true' : 'false';
   const bench = $.util.env.b !== undefined ? $.util.env.b : 'false';
@@ -325,4 +314,20 @@ gulp.task('new', function create(done) {
   }
 
   done();
-});
+};
+
+gulp.task('new', create());
+gulp.task('mocha', mocha('all', false));
+gulp.task('karma', karma());
+gulp.task('eslint', eslint('all', false));
+gulp.task('test', gulp.parallel(eslint('all', true), mocha('all', true)));
+gulp.task('bundle-node', bundle('node', false));
+gulp.task('bundle-next', bundle('next', false));
+gulp.task('bundle', gulp.parallel('bundle-node', 'bundle-next'));
+gulp.task('build', gulp.series(writeIndex('all'), 'test', 'bundle'));
+gulp.task('benchmark', benchmark());
+gulp.task('clear', clear());
+gulp.task('dev', gulp.series(
+  gulp.parallel(writeIndex('all'), 'eslint', 'mocha'),
+  watchBuild()
+));
