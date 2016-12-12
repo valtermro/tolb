@@ -3,16 +3,17 @@ import A from 'assert';
 import contains from './contains';
 import util from '../../_dev/util';
 
-describe('list.contains(value, list)', () => {
+describe('assert.contains(value, subject)', () => {
   const str = 'foo bar';
   const array = ['foo', 'bar', 'b'];
   const arrayLike = util.arrayLike('foo', 'bar', 'b');
+  const obj = { foo: 'foo', bar: 'bar', b: 'b' };
 
-  function test(list) {
-    A.equal(contains('foo', list), true);
-    A.equal(contains('bar', list), true);
-    A.equal(contains('b', list), true);
-    A.equal(contains('baz', list), false);
+  function test(subject) {
+    A.equal(contains('foo', subject), true);
+    A.equal(contains('bar', subject), true);
+    A.equal(contains('b', subject), true);
+    A.equal(contains('baz', subject), false);
   }
 
   it('deals with strings', () => {
@@ -23,8 +24,12 @@ describe('list.contains(value, list)', () => {
     test(array);
   });
 
-  it('deals with arrays', () => {
+  it('deals with array like objects', () => {
     test(arrayLike);
+  });
+
+  it('deals with objects', () => {
+    test(obj);
   });
 
   it('tests equality deeply', () => {
