@@ -3,7 +3,7 @@ import A from 'assert';
 import tail from './tail';
 import util from '../../_dev/util';
 
-describe('list.tail(list)', () => {
+describe('tail(list)', () => {
   it('deals with strings', () => {
     A.equal(tail('abc'), 'bc');
     A.equal(tail('a'), '');

@@ -3,7 +3,7 @@ import A from 'assert';
 import curryArgs from './curryArgs';
 import util from '../../../_dev/util';
 
-describe('function._internal.curryArgs(input)', () => {
+describe('_internal.curryArgs(input)', () => {
   it('returns "input" if its length is greater than 0', () => {
     const assert = value => A.deepEqual(curryArgs(value), value);
     assert([1]);

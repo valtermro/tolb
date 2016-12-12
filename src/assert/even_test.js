@@ -3,7 +3,7 @@
 import A from 'assert';
 import even from './even';
 
-describe('assert.even(subject)', () => {
+describe('even(subject)', () => {
   function test(value, wanted) {
     A.equal(even(value), wanted);
   }

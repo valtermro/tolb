@@ -2,7 +2,7 @@
 import A from 'assert';
 import toKebab from './toKebab';
 
-describe('string.toKebab(str)', () => {
+describe('toKebab(str)', () => {
   it('converts "str" to kebab-case', () => {
     const assert = (input, wanted) => A.equal(toKebab(input), wanted);
     assert('', '');

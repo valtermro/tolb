@@ -3,7 +3,7 @@ import A from 'assert';
 import map from './map';
 import util from '../../_dev/util';
 
-describe('list.map(fn, list)', () => {
+describe('map(fn, list)', () => {
   const array = ['f', 'o', 'o'];
   const arrayLike = util.arrayLike('f', 'o', 'o');
   const str = 'foo';

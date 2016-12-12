@@ -3,7 +3,7 @@ import A from 'assert';
 import rcurry from './rcurry';
 import util from '../../_dev/util';
 
-describe('function.rcurry(fn)', () => {
+describe('rcurry(fn)', () => {
   const curried2 = rcurry(util.foo2);
   const curried3 = rcurry(util.foo3);
   const curried4 = rcurry(util.foo4);

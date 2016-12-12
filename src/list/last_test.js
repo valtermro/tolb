@@ -3,7 +3,7 @@ import A from 'assert';
 import last from './last';
 import util from '../../_dev/util';
 
-describe('list.last(list)', () => {
+describe('last(list)', () => {
   it('deals with strings', () => {
     A.equal(last('abcd'), 'd');
     A.equal(last(''), undefined);

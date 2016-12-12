@@ -22,7 +22,7 @@ import A from 'assert';
 import {{name}} from './{{name}}';
 import util from '../../_dev/util';
 
-describe('{{pack}}.{{name}}({{args}})', () => {
+describe('{{name}}({{args}})', () => {
   it('passes', () => {
     A.equal({{name}}, {{name}});
   });

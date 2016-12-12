@@ -4,7 +4,7 @@ import A from 'assert';
 import empty from './empty';
 import util from '../../_dev/util';
 
-describe('assert.empty(subject)', () => {
+describe('empty(subject)', () => {
   function Foo() { /**/ }
 
   it('checks if "subject" is empty', () => {

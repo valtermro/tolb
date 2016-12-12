@@ -2,7 +2,7 @@
 import A from 'assert';
 import min from './min';
 
-describe('math.min(x, y)', () => {
+describe('min(x, y)', () => {
   it('returns the smaller of two numbers', () => {
     A.equal(min(1, 2), 1);
     A.equal(min(2, 1), 1);

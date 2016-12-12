@@ -2,7 +2,7 @@
 import A from 'assert';
 import object from './object';
 
-describe('assert.object(subject)', () => {
+describe('object(subject)', () => {
   function Foo() { /**/ }
 
   it('checks if "subject" is a object literal', () => {

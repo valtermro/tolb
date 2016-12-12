@@ -2,7 +2,7 @@
 import A from 'assert';
 import pluck from './pluck';
 
-describe('list.pluck(prop, list)', () => {
+describe('pluck(prop, list)', () => {
   const list = [
     { name: 'foo', age: 11 },
     { name: 'bar', age: 12 },

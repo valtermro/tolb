@@ -2,7 +2,7 @@
 import A from 'assert';
 import clamp from './clamp';
 
-describe('math.clamp(min, max, num)', () => {
+describe('clamp(min, max, num)', () => {
   it('ensure "num" is within range', () => {
     A.equal(clamp(10, 20, 30), 20);
     A.equal(clamp(10, 20, 5), 10);

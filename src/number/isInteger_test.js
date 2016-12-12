@@ -2,7 +2,7 @@
 import A from 'assert';
 import isInteger from './isInteger';
 
-describe('number.isInteger(subject)', () => {
+describe('isInteger(subject)', () => {
   it('checks if "subject" is an integer', () => {
     const assert = (sub, wanted) => A.equal(isInteger(sub), wanted);
     assert(1, true);

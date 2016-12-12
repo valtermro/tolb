@@ -3,7 +3,7 @@ import A from 'assert';
 import not from './not';
 import util from '../../_dev/util';
 
-describe('assert.not(fn)', () => {
+describe('not(fn)', () => {
   const isOdd = not(util.isEven);
   const isNotEqual = not(util.isEqual);
 

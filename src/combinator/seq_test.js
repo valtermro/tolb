@@ -2,7 +2,7 @@
 import A from 'assert';
 import seq from './seq';
 
-describe('combinator.seq(...fns)', () => {
+describe('seq(...fns)', () => {
   const calls = [];
   const foo1 = (value) => {
     foo1.value = value;

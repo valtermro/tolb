@@ -3,7 +3,7 @@ import A from 'assert';
 import rpartial from './rpartial';
 import util from '../../_dev/util';
 
-describe('function.rpartial(fn, rightArgs)', () => {
+describe('rpartial(fn, rightArgs)', () => {
   const fn = util.foo4;
 
   it('uses "rightArgs" as the right part of the arguments that get applied', () => {

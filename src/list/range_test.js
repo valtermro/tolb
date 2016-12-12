@@ -2,7 +2,7 @@
 import A from 'assert';
 import range from './range';
 
-describe('list.range(start, end)', () => {
+describe('range(start, end)', () => {
   it('returns an array of numbers from "start" to "end"', () => {
     A.deepEqual(range(0, 0), []);
     A.deepEqual(range(0, 1), [0]);

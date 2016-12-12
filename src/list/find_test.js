@@ -3,7 +3,7 @@ import A from 'assert';
 import find from './find';
 import util from '../../_dev/util';
 
-describe('list.find(pred, list)', () => {
+describe('find(pred, list)', () => {
   const array = util.makeArray(10);
   const gt8 = x => x > 8;
   const lt1 = x => x < 1;

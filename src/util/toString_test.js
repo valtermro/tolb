@@ -3,7 +3,7 @@
 import A from 'assert';
 import toString from './toString';
 
-describe('util.toString(obj)', () => {
+describe('toString(obj)', () => {
   function test(input, wanted) {
     A.strictEqual(toString(input), wanted);
   }

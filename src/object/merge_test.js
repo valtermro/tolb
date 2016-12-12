@@ -2,7 +2,7 @@
 import A from 'assert';
 import merge from './merge';
 
-describe('object.merge(source, target)', () => {
+describe('merge(source, target)', () => {
   const obj1 = { foo: 1, bar: 2 };
   const obj2 = { baz: 3 };
   const wanted = { foo: 1, bar: 2, baz: 3 };

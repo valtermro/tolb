@@ -2,7 +2,7 @@
 import A from 'assert';
 import number from './number';
 
-describe('assert.number(subject)', () => {
+describe('number(subject)', () => {
   it('checks if "subject" is a number', () => {
     const assert = (sub, wanted) => A.equal(number(sub), wanted);
     assert(0, true);

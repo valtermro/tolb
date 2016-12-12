@@ -3,7 +3,7 @@ import A from 'assert';
 import arrayLike from './arrayLike';
 import util from '../../_dev/util';
 
-describe('assert.arrayLike(subject)', () => {
+describe('arrayLike(subject)', () => {
   it('checks if "subject" is an array-like object', () => {
     const assert = (sub, wanted) => A.equal(arrayLike(sub), wanted);
     assert(util.arrayLike(), true);

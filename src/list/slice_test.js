@@ -3,7 +3,7 @@ import A from 'assert';
 import slice from './slice';
 import util from '../../_dev/util';
 
-describe('list.slice(start, end, list)', () => {
+describe('slice(start, end, list)', () => {
   function test(src) {
     const T = typeof src === 'string' ? String : Array;
     A.deepEqual(slice(0, null, src), T.prototype.slice.call(src, 0));

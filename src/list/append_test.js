@@ -3,7 +3,7 @@ import A from 'assert';
 import append from './append';
 import util from '../../_dev/util';
 
-describe('list.append(value, list)', () => {
+describe('append(value, list)', () => {
   const array = [2, 3, 4];
   const arrayLike = util.arrayLike(2, 3, 4);
 

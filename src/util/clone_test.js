@@ -2,7 +2,7 @@
 import A from 'assert';
 import clone from './clone';
 
-describe('util.clone(obj)', () => {
+describe('clone(obj)', () => {
   it('returns a copy of "obj"', () => {
     const assert = (input, immutable) => {
       const res = clone(input);

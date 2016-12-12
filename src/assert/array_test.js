@@ -3,7 +3,7 @@ import A from 'assert';
 import array from './array';
 import util from '../../_dev/util';
 
-describe('assert.array(subject)', () => {
+describe('array(subject)', () => {
   it('checks if "subject" is an array', () => {
     const assert = (sub, wanted) => A.equal(array(sub), wanted);
     assert([], true);

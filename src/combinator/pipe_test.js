@@ -3,7 +3,7 @@ import A from 'assert';
 import pipe from './pipe';
 import util from '../../_dev/util';
 
-describe('combinator.pipe(...fns)', () => {
+describe('pipe(...fns)', () => {
   const divBy5 = x => x / 5;
   const div10 = x => 10 / x;
 

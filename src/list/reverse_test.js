@@ -3,7 +3,7 @@ import A from 'assert';
 import reverse from './reverse';
 import util from '../../_dev/util';
 
-describe('list.reverse(list)', () => {
+describe('reverse(list)', () => {
   it('reverses strings', () => {
     A.deepEqual(reverse('abcde'), 'edcba');
   });

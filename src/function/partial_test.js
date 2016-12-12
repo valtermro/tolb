@@ -3,7 +3,7 @@ import A from 'assert';
 import partial from './partial';
 import util from '../../_dev/util';
 
-describe('function.partial(fn, leftArgs)', () => {
+describe('partial(fn, leftArgs)', () => {
   const fn = util.foo4;
 
   it('uses "leftArgs" as the left part of the arguments to "fn"', () => {

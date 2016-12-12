@@ -2,7 +2,7 @@
 import A from 'assert';
 import match from './match';
 
-describe('string.match(pattern, str)', () => {
+describe('match(pattern, str)', () => {
   const str = 'some little thing';
 
   it('applies "str".match to "pattern"', () => {

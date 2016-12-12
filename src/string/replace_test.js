@@ -2,7 +2,7 @@
 import A from 'assert';
 import replace from './replace';
 
-describe('string.replace(search, replacement, str)', () => {
+describe('replace(search, replacement, str)', () => {
   const str = 'here we go';
 
   it('applies "str".replace to "search" and "replacement', () => {

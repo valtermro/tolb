@@ -3,7 +3,7 @@ import A from 'assert';
 import compose from './compose';
 import util from '../../_dev/util';
 
-describe('combinator.compose(...fns)', () => {
+describe('compose(...fns)', () => {
   const divBy5 = x => x / 5;
   const div10 = x => 10 / x;
 

@@ -2,7 +2,7 @@
 import A from 'assert';
 import truthy from './truthy';
 
-describe('assert.truthy(subject)', () => {
+describe('truthy(subject)', () => {
   it('checks if "subject" is truthy', () => {
     const assert = (value, wanted) => A.equal(truthy(value), wanted);
     assert(null, false);

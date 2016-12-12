@@ -2,7 +2,7 @@
 import A from 'assert';
 import toCamel from './toCamel';
 
-describe('string.toCamel(str)', () => {
+describe('toCamel(str)', () => {
   it('converts "str" to camelCase', () => {
     const assert = (input, wanted) => A.equal(toCamel(input), wanted);
     assert('', '');

@@ -2,7 +2,7 @@
 import A from 'assert';
 import tap from './tap';
 
-describe('combinator.tap(f)', () => {
+describe('tap(f)', () => {
   const f = v => f.v = v;
 
   it('returns a function that applies "f" to its argument and then returns that argument', () => {

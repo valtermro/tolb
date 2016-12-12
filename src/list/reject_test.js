@@ -3,7 +3,7 @@ import A from 'assert';
 import reject from './reject';
 import util from '../../_dev/util';
 
-describe('list.reject(pred, list)', () => {
+describe('reject(pred, list)', () => {
   const array0 = util.makeArray(8, false);
   const array1 = util.makeArray(8, true);
 

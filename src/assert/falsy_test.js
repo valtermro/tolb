@@ -2,7 +2,7 @@
 import A from 'assert';
 import falsy from './falsy';
 
-describe('assert.falsy(subject)', () => {
+describe('falsy(subject)', () => {
   it('checks if "subject" is falsy', () => {
     const assert = (value, wanted) => A.equal(falsy(value), wanted);
     assert(null, true);

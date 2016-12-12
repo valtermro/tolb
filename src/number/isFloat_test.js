@@ -2,7 +2,7 @@
 import A from 'assert';
 import isFloat from './isFloat';
 
-describe('number.isFloat(subject)', () => {
+describe('isFloat(subject)', () => {
   it('checks if "subject" is a floating point number', () => {
     const assert = (sub, wanted) => A.equal(isFloat(sub), wanted);
     assert(1.8, true);

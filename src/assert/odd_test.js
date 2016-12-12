@@ -3,7 +3,7 @@
 import A from 'assert';
 import odd from './odd';
 
-describe('assert.odd(subject)', () => {
+describe('odd(subject)', () => {
   function test(value, wanted) {
     A.equal(odd(value), wanted);
   }

@@ -3,7 +3,7 @@ import A from 'assert';
 import head from './head';
 import util from '../../_dev/util';
 
-describe('list.head(list)', () => {
+describe('head(list)', () => {
   it('deals with strings', () => {
     A.equal(head('abcd'), 'a');
     A.equal(head(''), undefined);

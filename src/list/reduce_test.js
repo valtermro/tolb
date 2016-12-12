@@ -3,7 +3,7 @@ import A from 'assert';
 import reduce from './reduce';
 import util from '../../_dev/util';
 
-describe('list.reduce(fn, initialValue, list)', () => {
+describe('reduce(fn, initialValue, list)', () => {
   const array = ['b', 'c', 'd'];
 
   it('uses "fn" to reduce "initialValue" and the value in "list" to a single value', () => {

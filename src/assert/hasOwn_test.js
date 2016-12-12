@@ -3,7 +3,7 @@ import A from 'assert';
 import hasOwn from './hasOwn';
 import util from '../../_dev/util';
 
-describe('assert.hasOwn(prop, subject)', () => {
+describe('hasOwn(prop, subject)', () => {
   function Foo() { /**/ }
   Foo.prototype.bar = true;
 

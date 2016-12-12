@@ -3,7 +3,7 @@ import A from 'assert';
 import contains from './contains';
 import util from '../../_dev/util';
 
-describe('assert.contains(value, subject)', () => {
+describe('contains(value, subject)', () => {
   const str = 'foo bar';
   const array = ['foo', 'bar', 'b'];
   const arrayLike = util.arrayLike('foo', 'bar', 'b');

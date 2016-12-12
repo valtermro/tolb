@@ -2,7 +2,7 @@
 import A from 'assert';
 import get from './get';
 
-describe('object.get(key, obj)', () => {
+describe('get(key, obj)', () => {
   const obj = {
     foo: 1,
     bar: {

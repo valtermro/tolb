@@ -3,7 +3,7 @@ import A from 'assert';
 import findIndex from './findIndex';
 import util from '../../_dev/util';
 
-describe('list.findIndex(pred, list)', () => {
+describe('findIndex(pred, list)', () => {
   const array = util.makeArray(10);
   const gt8 = x => x > 8;
   const gt0 = x => x > 0;

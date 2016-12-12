@@ -2,7 +2,7 @@
 import A from 'assert';
 import trim from './trim';
 
-describe('string.trim(str)', () => {
+describe('trim(str)', () => {
   it('invokes String.prototype.trim on "str"', () => {
     const assert = str => A.equal(trim(str), str.trim());
     assert(' foo  ');

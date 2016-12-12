@@ -2,7 +2,7 @@
 import A from 'assert';
 import lpad from './lpad';
 
-describe('string.lpad(length, fill, str)', () => {
+describe('lpad(length, fill, str)', () => {
   it('pads "str" to left until "length"', () => {
     A.equal(lpad(3, '-', 'a'), '--a');
     A.equal(lpad(3, '-', 'ab'), '-ab');

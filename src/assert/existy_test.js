@@ -2,7 +2,7 @@
 import A from 'assert';
 import existy from './existy';
 
-describe('assert.existy(subject)', () => {
+describe('existy(subject)', () => {
   it('checks if "subject" has value', () => {
     const assert = (value, wanted) => A.equal(existy(value), wanted);
     assert(null, false);

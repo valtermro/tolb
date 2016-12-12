@@ -2,7 +2,7 @@
 import A from 'assert';
 import words from './words';
 
-describe('string.words(str)', () => {
+describe('words(str)', () => {
   it('returns a list of the words in "str"', () => {
     const assert = (str, wanted) => A.deepEqual(words(str), wanted);
     assert('foo bar', ['foo', 'bar']);

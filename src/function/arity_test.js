@@ -4,7 +4,7 @@ import arity from './arity';
 import util from '../../_dev/util';
 import config from '../../_dev/constants.config';
 
-describe('function.arity(n, fn)', () => {
+describe('arity(n, fn)', () => {
   const fn = function () { return Array.prototype.slice.call(arguments); };
   const MAX = config.MAX_ARITY;
 

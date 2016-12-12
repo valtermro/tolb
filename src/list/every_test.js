@@ -3,7 +3,7 @@ import A from 'assert';
 import every from './every';
 import util from '../../_dev/util';
 
-describe('list.every(pred, list)', () => {
+describe('every(pred, list)', () => {
   function test(list, wanted) {
     A.equal(every(util.isEven, list), wanted);
   }

@@ -3,7 +3,7 @@ import A from 'assert';
 import filter from './filter';
 import util from '../../_dev/util';
 
-describe('list.filter(pred, list)', () => {
+describe('filter(pred, list)', () => {
   const array0 = util.makeArray(8, false);
   const array1 = util.makeArray(8, true);
 

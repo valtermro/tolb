@@ -2,7 +2,7 @@
 import A from 'assert';
 import isNaN from './isNaN';
 
-describe('number.isNaN(subject)', () => {
+describe('isNaN(subject)', () => {
   it('checks if "subject" is NaN', () => {
     const assert = (sub, wanted) => A.equal(isNaN(sub), wanted);
     assert(NaN, true);

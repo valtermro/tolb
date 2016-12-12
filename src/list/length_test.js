@@ -3,7 +3,7 @@ import A from 'assert';
 import length from './length';
 import util from '../../_dev/util';
 
-describe('list.length(list)', () => {
+describe('length(list)', () => {
   it('returns the length of "list"', () => {
     const assert = (list, wanted) => A.equal(length(list), wanted);
     assert('a', 1);

@@ -3,7 +3,7 @@ import A from 'assert';
 import init from './init';
 import util from '../../_dev/util';
 
-describe('list.init(list)', () => {
+describe('init(list)', () => {
   it('deals with strings', () => {
     A.equal(init('abc'), 'ab');
     A.equal(init('a'), '');

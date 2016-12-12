@@ -3,7 +3,7 @@ import A from 'assert';
 import concat from './concat';
 import util from '../../_dev/util';
 
-describe('list.concat(other, list)', () => {
+describe('concat(other, list)', () => {
   it('deals with strings', () => {
     A.equal(concat('ab', 'de'), 'deab');
   });

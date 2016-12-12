@@ -3,7 +3,7 @@ import A from 'assert';
 import curry from './curry';
 import util from '../../_dev/util';
 
-describe('function.curry(fn)', () => {
+describe('curry(fn)', () => {
   const curried2 = curry(util.foo2);
   const curried3 = curry(util.foo3);
   const curried4 = curry(util.foo4);

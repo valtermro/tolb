@@ -2,7 +2,7 @@
 import A from 'assert';
 import pick from './pick';
 
-describe('object.pick(keys, obj)', () => {
+describe('pick(keys, obj)', () => {
   const obj = { foo: 1, bar: 2, baz: 3, bleh: null };
 
   it('returns an object with all pairs with "keys" in "obj"', () => {

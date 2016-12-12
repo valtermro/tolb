@@ -2,7 +2,7 @@
 import A from 'assert';
 import random from './random';
 
-describe('math.random(min, max)', () => {
+describe('random(min, max)', () => {
   function test(min, max) {
     let last;
     for (let i = 0; i < 1000; i++) {

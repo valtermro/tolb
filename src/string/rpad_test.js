@@ -2,7 +2,7 @@
 import A from 'assert';
 import rpad from './rpad';
 
-describe('string.rpad(length, fill, str)', () => {
+describe('rpad(length, fill, str)', () => {
   it('pads "str" to right until "length"', () => {
     A.equal(rpad(3, '-', 'a'), 'a--');
     A.equal(rpad(3, '-', 'ab'), 'ab-');

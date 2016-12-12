@@ -3,7 +3,7 @@ import A from 'assert';
 import alt from './alt';
 import util from '../../_dev/util';
 
-describe('combinator.alt(f, g)', () => {
+describe('alt(f, g)', () => {
   const f = util.double;
   const g = (x) => {
     g.called = true;
