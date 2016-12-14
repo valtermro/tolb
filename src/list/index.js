@@ -26,3 +26,4 @@ export { default as some } from './some';
 export { default as tail } from './tail';
 export { default as unzip } from './unzip';
 export { default as zip } from './zip';
+export { default as zipObject } from './zipObject';
