@@ -1,4 +1,5 @@
 _dev
+.vscode
 benchmark
 src
 .editorconfig
