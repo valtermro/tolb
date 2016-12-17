@@ -35,26 +35,24 @@ import curry2 from '../_internal/curry2';
  */
 export default curry2((fn, list) => {
   const length = list.length;
+  let result;
 
-  // strings are special, they want to use string concatenation...
   if (typeof list === 'string') {
-    let result = '';
+    // strings are special, they want to be concatenated...
+    result = '';
     for (let i = 0; i < length; i++)
       result += fn(list[i], i);
-    return result;
-  }
-
-  // other types of indexed lists treat themselves as equals
-  if (typeof length === 'number') {
-    const result = new Array(length);
+  } else if (typeof length === 'number') {
+    // other types of indexed lists treat themselves as equals
+    result = new Array(length);
     for (let i = 0; i < length; i++)
       result[i] = fn(list[i], i);
-    return result;
+  } else {
+    // hnm, object it is...
+    result = {};
+    for (const key in list)
+      result[key] = fn(list[key], key);
   }
 
-  // hnm, object it is...
-  const result = {};
-  for (const key in list)
-    result[key] = fn(list[key], key);
   return result;
 });
