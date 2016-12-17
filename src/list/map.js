@@ -14,11 +14,16 @@ import curry2 from '../_internal/curry2';
  * The keys of the object are preserved.
  *
  * At each iteration, the supplied function receives the current index (or key
- * if the input is an object) second argument. This may cause unexpected results
- * if the function takes multiple arguments.
+ * if the input is an object) as its second argument. This may cause unexpected
+ * results if the function takes multiple arguments.
  * For example: `map(parseInt, ['10', '11', '12'])` yields `[10, NaN, 1]`.
  * In cases like this, you should either partially apply the iteratee function
  * or restrict its arity.
+ *
+ * **Important**
+ * Like other functions in the lib that deal with objects as list of key-value
+ * pairs, this one expects the object to be an object literal. You may (probably
+ * will) face unexpected behavior if the object inherits a prototype.
  *
  * @function
  * @param {function} fn - The function to be used to transform the values

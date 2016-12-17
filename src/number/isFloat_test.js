@@ -11,7 +11,7 @@ describe('isFloat(subject)', () => {
     assert(1, false);
     assert(1.0, false);
     assert(-1.0, false);
-    assert(new Number(1), false) // eslint-disable-line
+    assert(new Number(1), false);
     assert(NaN, false);
     assert(Infinity, false);
     assert(-Infinity, false);

@@ -13,7 +13,7 @@ describe('object(subject)', () => {
     assert('foo', false);
     assert([], false);
     assert(0, false);
-    assert(new String(''), false); // eslint-disable-line
+    assert(new String(''), false);
     assert(new Foo(), false);
     assert(Object.create({}), false);
     assert((function () { return arguments; })(), false);

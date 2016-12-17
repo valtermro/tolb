@@ -30,7 +30,7 @@ describe('equals(left, right)', () => {
 
   it('tests Number values', () => {
     test(1, 1, true);
-    test(new Number(0), 0, false) // eslint-disable-line
+    test(new Number(0), 0, false);
     test(NaN, NaN, true);
     test(-1, 1, false);
     test(0, -0, false);

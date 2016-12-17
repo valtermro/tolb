@@ -16,7 +16,7 @@ import arity from '../_internal/arity';
  *   isOdd(1) //=> true
  */
 export default function complement(fn) {
-  return arity(fn.length, function () {
+  return arity(fn.length, function (/* args */) {
     return !fn.apply(undefined, arguments);
   });
 }

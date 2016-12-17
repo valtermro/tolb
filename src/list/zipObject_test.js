@@ -4,7 +4,7 @@ import zipObject from './zipObject';
 import util from '../../_dev/util';
 
 describe('zipObject(keys, list)', () => {
-  it('creates an object by pairing up "keys" with the values in "lisTt"', () => {
+  it('creates an object by pairing up "keys" with the values in "list"', () => {
     const keys = ['foo', 'bar', 'baz'];
     const wanted = { foo: 'a', bar: 'b', baz: 'c' };
     const assert = list => A.deepEqual(zipObject(keys, list), wanted);

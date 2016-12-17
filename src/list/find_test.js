@@ -8,7 +8,7 @@ describe('find(pred, list)', () => {
   const gt8 = x => x > 8;
   const lt1 = x => x < 1;
 
-  it('returns the first item in "list" that matches "pred', () => {
+  it('returns the first item in "list" that matches "pred"', () => {
     A.equal(find(gt8, array), 9);
     A.equal(find(lt1, array), 0);
   });

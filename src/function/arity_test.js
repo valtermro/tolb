@@ -16,7 +16,7 @@ describe('arity(n, fn)', () => {
   it('"fn" receives only "n" arguments', () => {
     const args = util.makeArray(100);
 
-    for (let i = 0; i < MAX; i++) {
+    for (let i = 0; i <= MAX; i++) {
       const wanted = util.makeArray(i);
       A.deepEqual(arity(i, fn).apply(undefined, args), wanted);
     }

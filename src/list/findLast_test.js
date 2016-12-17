@@ -6,7 +6,7 @@ describe('findLast(pred, list)', () => {
   const gt2 = x => x > 2;
   const lt2 = x => x < 2;
 
-  it('returns the last element in "list" that matches "predicate"', () => {
+  it('returns the last element in "list" that matches "pred"', () => {
     A.equal(findLast(gt2, [2, 3, 4, 2, 3]), 3);
     A.equal(findLast(lt2, [1, 2, 3]), 1);
   });

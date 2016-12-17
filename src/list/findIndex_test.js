@@ -8,7 +8,7 @@ describe('findIndex(pred, list)', () => {
   const gt8 = x => x > 8;
   const gt0 = x => x > 0;
 
-  it('returns the index of the first item in "list" that matches "pred', () => {
+  it('returns the index of the first item in "list" that matches "pred"', () => {
     A.equal(findIndex(gt8, array), 9);
     A.equal(findIndex(gt0, array), 1);
   });

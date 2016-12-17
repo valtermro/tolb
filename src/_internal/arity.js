@@ -1,9 +1,12 @@
 /* eslint-disable no-unused-vars */
+
 /**
- * Wraps a function of any arity in a function that reports a fixed arity.
+ * Wraps a function in a function that reports a fixed arity.
  *
- * Unlike `function.arity`, it will pass any arguments it receives to the wrapped
- * function.
+ * Unlike `function.arity`, returns a function that will pass all arguments
+ * it receives to the wrapped function, only the reported arity will change.
+ *
+ * Based on https://github.com/ramda/ramda/blob/master/src/internal/_arity.js.
  *
  * @function
  * @param {number} n - The arity to be reported

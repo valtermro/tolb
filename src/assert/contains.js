@@ -5,11 +5,12 @@ import equals from './equals';
  * The `List` type definition for this method.
  *
  * @typedef {Object} List
- * @property {(string|number)} length - The size of the list
+ * @property {number} length - The size of the list
  */
 
 /**
- * Checks if a list or an object contains a given value.
+ * Checks if a collection contains a given value.
+ * A collection can be either an indexed list or an object.
  *
  * `assert.equals` is used to compared the values.
  *
@@ -29,7 +30,7 @@ export default curry2((value, subject) => {
   if (typeof subject === 'string')
     return subject.indexOf(value) >= 0;
 
-  // The code inside the loops is repeated for performance reason.
+  // The code inside the loops is repeated for performance reasons.
   // The gain is to high to be ignored.
 
   if (typeof subject.length !== 'number') {

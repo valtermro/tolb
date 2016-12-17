@@ -13,7 +13,6 @@ export { default as has } from './has';
 export { default as hasOwn } from './hasOwn';
 export { default as lt } from './lt';
 export { default as lte } from './lte';
-export { default as not } from './not';
 export { default as number } from './number';
 export { default as object } from './object';
 export { default as odd } from './odd';

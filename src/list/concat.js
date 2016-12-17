@@ -11,13 +11,14 @@ import concat from '../_internal/concat';
 /**
  * Merges two lists together.
  *
- * The target list should be the last to be passed in.
+ * The target list should be passed as the second argument.
  * Both lists should be of the same type.
+ * Array-like are merged into an array.
  *
  * @function
  * @param {List} other - The source list
  * @param {List} list - The target list
- * @return {List} A new list with values from both `list` and `othen`
+ * @return {List} A new list with values from both `list` and `other`
  * @example
  *
  *   concat(' bar', 'foo') //=> 'foo bar'

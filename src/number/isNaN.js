@@ -16,6 +16,6 @@
  *   isNaN('foo') //=> false
  */
 export default function isNaN(subject) {
-  // NaN is the only value that is not equal to itselft
+  // NaN is the only value that is not equal to itself
   return subject !== subject // eslint-disable-line
 }

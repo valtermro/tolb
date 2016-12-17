@@ -1,3 +1,4 @@
+/* eslint-disable no-self-compare */
 import curry2 from '../_internal/curry2';
 
 /**
@@ -34,7 +35,7 @@ export default curry2(function equals(left, right) {
     // +0 !== -0
     return left !== 0 || 1 / left === 1 / right;
 
-  if (left !== left && right !== right) // eslint-disable-line
+  if (left !== left && right !== right)
     // Both NaN
     return true;
 
@@ -65,7 +66,7 @@ export default curry2(function equals(left, right) {
         return false;
     }
 
-    // Tests both if `right` has the same keys than `left` and if their values match
+    // Tests both if `right` has the same keys `left` has and if their values match
     for (const k in left) {
       if (!equals(left[k], right[k]))
         return false;

@@ -8,13 +8,17 @@ import curry2 from '../_internal/curry2';
  */
 
 /**
- * Applies a given function to each value in a list.
- * Returns the input list.
+ * Applies a given function to each value in a list and returns the list after that.
  *
  * Deals with objects as lists of key-value pairs.
  *
  * At each iteration the current index (or key) is passed as the second argument
  * to the supplied function.
+ *
+ * **Important**
+ * Like other functions in the lib that deal with objects as list of key-value
+ * pairs, this one expects the object to be an object literal. You may (probably
+ * will) face unexpected behavior if the object inherits a prototype.
  *
  * @function
  * @param {function} fn - The iteratee function

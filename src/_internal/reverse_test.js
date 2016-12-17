@@ -3,11 +3,11 @@ import A from 'assert';
 import reverse from './reverse';
 import util from '../../_dev/util';
 
-describe('_internal.reverse(list)', () => {
+describe('_internal.reverse(array)', () => {
   const array = util.makeArray(100);
   const arrayLike = util.arrayLike(1, 2, 3, 4, 5);
 
-  it('reverses the order of "list"', () => {
+  it('reverses "array"', () => {
     A.deepEqual(reverse(array), array.slice(0).reverse());
     A.deepEqual(array, util.makeArray(100));
   });

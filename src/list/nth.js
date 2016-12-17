@@ -8,7 +8,7 @@ import curry2 from '../_internal/curry2';
  */
 
 /**
- * Returns n'th value in a list.
+ * Returns the n'th value in a list.
  *
  * @function
  * @param {number} n - The index to get the value from

@@ -11,6 +11,7 @@ import curry2 from '../_internal/curry2';
  * If the predicate matches nothing, returns -1.
  *
  * The current index is passed as the second argument to the predicate.
+ *
  * Note that `findLastIndex` iterates the list from right to left.
  *
  * @function

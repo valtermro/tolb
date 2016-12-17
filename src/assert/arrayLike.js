@@ -4,9 +4,10 @@ import string from './string';
 /**
  * Checks if a given object is (or at least seems to be) an array-line object.
  *
- * An array-like object should have a finite numeric `length` property greater
- * than -1 and the value at `length` - 1 should be the last value in the list.
- * Functions, strings and arrays are not array-like objects.
+ * An array-like object should:
+ * - Be neither a function, a string nor an array;
+ * - Have a finite positive numeric `length` property;
+ * - Have its last value placed at index `length` - 1.
  *
  * @function
  * @param {*} subject - The object to test

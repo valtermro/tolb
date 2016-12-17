@@ -1,10 +1,9 @@
 import curry2 from '../_internal/curry2';
 
 /**
- * Merges the items of an onject into another.
+ * Merges two objects together.
  *
- * As the source object is passed first, if both objects have the same key,
- * the value in the first one will be used.
+ * If both objects have the same key, the value in the first one will be used.
  *
  * @function
  * @param {Object} source - The object with the values to merge in

@@ -1,5 +1,4 @@
 /* eslint-env mocha */
-/* eslint no-new-wrappers: 0 */
 import A from 'assert';
 import toString from './toString';
 

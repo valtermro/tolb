@@ -17,12 +17,12 @@ import arity from '../_internal/arity';
  *
  *   foo(10, 20) //=> 40
  */
-export default function pipe() {
+export default function pipe(/* fns */) {
   const fns = arguments;
   const length = arguments.length;
   const first = arguments[0];
 
-  return arity(first.length, function () {
+  return arity(first.length, function (/* args */) {
     let result = first.apply(undefined, arguments);
     for (let i = 1; i < length; i++)
       result = fns[i](result);

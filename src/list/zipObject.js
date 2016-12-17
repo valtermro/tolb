@@ -8,7 +8,8 @@ import curry2 from '../_internal/curry2';
  */
 
 /**
- * Builds an object by pairing up a given list of keys and the values in a list.
+ * Builds an object by pairing up a given list of keys and the values in a list
+ * of value.
  * If the lengths of the list of keys and the list from which to extract the value
  * don't match, the extra elements in the longer list will be ignored.
  *

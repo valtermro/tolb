@@ -5,7 +5,7 @@ import replace from './replace';
 describe('replace(search, replacement, str)', () => {
   const str = 'here we go';
 
-  it('applies "str".replace to "search" and "replacement', () => {
+  it('applies "str".replace to "search" and "replacement"', () => {
     A.deepEqual(replace('here', 'there', str), 'there we go');
     A.deepEqual(replace('e', 'a', str), 'hare we go');
     A.deepEqual(replace(/e/g, 'a', str), 'hara wa go');

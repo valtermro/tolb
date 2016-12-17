@@ -1,7 +1,7 @@
 import curry2 from '../_internal/curry2';
 
 /**
- * Creates a copy of an object excluding a specified list of keys from it.
+ * Creates a copy of an object excluding a specified list of keys from the copy.
  *
  * @function
  * @param {Array.<string>} keys - The keys to remove

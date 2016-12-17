@@ -3,8 +3,8 @@
  *
  * @function
  * @param {function} fn - The function to convert
- * @param {boolean} reverse - determines if the argument order should be reversed
- * @return {function} The "curried" version of "fn"
+ * @param {boolean} reverse - Whether or not the arguments order should be reversed
+ * @return {function} The "curried" version of `fn`
  */
 export default function curry3(fn, reverse) {
   const apply = (a1, a2, a3) => {
@@ -25,7 +25,6 @@ export default function curry3(fn, reverse) {
     return function (b2, b3) {
       if (arguments.length >= 2)
         return apply(a1, b2, b3);
-
       return c3 => apply(a1, b2, c3);
     };
   };

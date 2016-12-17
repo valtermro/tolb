@@ -16,7 +16,7 @@ describe('_internal.arity(n, fn)', () => {
   it('applies "fn" to all arguments that the wrapper function receives', () => {
     const args = util.makeArray(100);
 
-    for (let i = 0; i < MAX; i++)
+    for (let i = 0; i <= MAX; i++)
       A.deepEqual(arity(i, fn).apply(undefined, args), args);
   });
 

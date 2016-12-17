@@ -1,5 +1,4 @@
 /* eslint-env mocha */
-/* eslint-disable no-new-wrappers */
 import A from 'assert';
 import empty from './empty';
 import util from '../../_dev/util';
@@ -16,6 +15,7 @@ describe('empty(subject)', () => {
     assert([], true);
     assert([1], false);
     assert(util.arrayLike(), true);
+    assert(Foo, false);
     assert(util.arrayLike(1), false);
     assert(new Foo(), false);
     assert(0, false);

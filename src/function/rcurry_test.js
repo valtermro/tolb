@@ -13,7 +13,7 @@ describe('rcurry(fn)', () => {
     const values = [6, 5, 4, 3, 2, 1];
     const assert = v => A.deepEqual(v, values);
 
-    // just make sure the optimized curry functions are used properly
+    // just make sure the optimized curry functions are properly used
     A.deepEqual(curried2(1)(2), [2, 1]);
     A.deepEqual(curried3(1)(2)(3), [3, 2, 1]);
     A.deepEqual(curried4(1)(2)(3)(4), [4, 3, 2, 1]);

@@ -2,7 +2,7 @@ import curry2 from '../_internal/curry2';
 
 /**
  * Raises a value to a given power.
- * It's like `Math.pow` but it takes the base after the power.
+ * Behaves like `Math.pow` but it takes the base after the power.
  *
  * @function
  * @param {number} power - The power to raise the value to

@@ -10,6 +10,7 @@ import curry2 from '../_internal/curry2';
  * Returns the last value in a list that matches a given predicate.
  *
  * The current index is passed as the second argument to the predicate.
+ *
  * Note that `findLast` iterates the list from right to left.
  *
  * @function

@@ -6,7 +6,7 @@ import curry2 from '../_internal/curry2';
  */
 
 /**
- * Returns the first value in a list that matches ta given predicate.
+ * Returns the first value in a list that matches a given predicate.
  *
  * The current index is passed as the second argument to the predicate.
  *

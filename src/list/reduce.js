@@ -17,6 +17,11 @@ import curry3 from '../_internal/curry3';
  * (initialValue on the first iteration), the current value and the current
  * index (or key if the input is an object) as arguments.
  *
+ * **Important**
+ * Like other functions in the lib that deal with objects as list of key-value
+ * pairs, this one expects the object to be an object literal. You may (probably
+ * will) face unexpected behavior if the object inherits a prototype.
+ *
  * @function
  * @param {function} fn - The reducer function
  * @param {*} initialValue - The initial accumulator

@@ -1,14 +1,14 @@
+import curryArgs from './_internal/curryArgs';
 import arity from '../_internal/arity';
 import concat from '../_internal/concat';
-import curryArgs from './_internal/curryArgs';
 import curry2 from '../_internal/curry2';
 import curry3 from '../_internal/curry3';
 import curry4 from '../_internal/curry4';
 
 /**
- * Returns a version of the supplied function that can be used as if it was curried.
+ * Converts a function into a function that can be used as if it was curried.
  *
- * The wrapper function "can be used as if it was curried" because it's not really
+ * The new function "can be used as if it was curried" because it's not really
  * curried. As we all know, a curried function takes only one argument. And `curry`
  * creates a function (that creates a function that creates a function...) that
  * can take any number of arguments (even 0) up to the original function's arity.

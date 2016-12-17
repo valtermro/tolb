@@ -67,7 +67,7 @@
     "no-new": 2,
     "no-new-func": 2,
     "no-new-object": 2,
-    "no-new-wrappers": 2,
+    "no-new-wrappers": 0,
     "no-param-reassign": [2, { "props": true }],
     "no-self-compare": 2,
     "no-sequences": 2,

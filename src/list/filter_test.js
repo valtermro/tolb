@@ -7,7 +7,7 @@ describe('filter(pred, list)', () => {
   const array0 = util.makeArray(8, false);
   const array1 = util.makeArray(8, true);
 
-  it('filter "list" based on "pred', () => {
+  it('filter "list" based on "pred"', () => {
     A.deepEqual(filter(util.isEven, array0), [0, 2, 4, 6]);
     A.deepEqual(filter(util.isEven, array1), [2, 4, 6, 8]);
     A.deepEqual(filter(util.isEven, [1, 3]), []);

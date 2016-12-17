@@ -12,7 +12,7 @@
  *   // logs 10 to the console and then calls window.alert passing 10 to it
  *   foo(10)
  */
-export default function seq() {
+export default function seq(/* fns */) {
   const fns = arguments;
   const length = fns.length;
 

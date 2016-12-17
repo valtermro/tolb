@@ -12,6 +12,7 @@ describe('number(subject)', () => {
     assert(NaN, false);
     assert(Infinity, false);
     assert('foo', false);
+    assert(new Number(), false);
     assert([], false);
     assert(undefined, false);
     assert(null, false);

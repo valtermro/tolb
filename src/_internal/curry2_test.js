@@ -10,8 +10,8 @@ describe('_iternal.curry2(fn, reverse)', () => {
     [1, undefined],
   ];
 
-  describe('"reverse" = false', () => test(false));
-  describe('"reverse" = true', () => test(true));
+  describe('"reverse" == false', () => test(false));
+  describe('"reverse" == true', () => test(true));
 
   function test(reverse) {
     const curried = curry2(util.foo2, reverse);

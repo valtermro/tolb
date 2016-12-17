@@ -21,7 +21,8 @@
  *   empty({}) //=> true
  */
 export default function empty(subject) {
-  if (subject == null || typeof subject === 'number')
+  const tof = typeof subject;
+  if (subject == null || tof === 'number' || tof === 'function')
     return false;
 
   if (typeof subject.length === 'number')

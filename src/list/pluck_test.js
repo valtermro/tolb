@@ -10,7 +10,7 @@ describe('pluck(prop, list)', () => {
     { name: 'baz', age: 13 },
   ];
 
-  it('returns an array with the values extracted from "prop" of each object in "list', () => {
+  it('returns an array with the values extracted from "prop" of each object in "list"', () => {
     A.deepEqual(pluck('name', list), ['foo', 'bar', undefined, 'baz']);
   });
 

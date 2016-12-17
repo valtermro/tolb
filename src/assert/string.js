@@ -1,5 +1,7 @@
 /**
- * Checks if a given object is a string literal.
+ * Checks if a given object is a string.
+ *
+ * `String` objects are not supported.
  *
  * @function
  * @param {*} subject - The object to test
@@ -7,7 +9,7 @@
  * @example
  *
  *   string('foo') //=> true
- *   string(new String('foo')) //=> true
+ *   string(new String('foo')) //=> false
  *   string(10) //=> false
  *   string([]) //=> false
  */

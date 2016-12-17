@@ -1,5 +1,4 @@
 /* eslint-env mocha */
-/* eslint-disable no-new-wrappers */
 import A from 'assert';
 import even from './even';
 
@@ -13,7 +12,7 @@ describe('even(subject)', () => {
       test(i, i % 2 === 0);
   });
 
-  it('returns false if "subject" is float', () => {
+  it('returns false if "subject" is a float', () => {
     test(1.1, false);
     test(1.1, false);
     test(1.2, false);

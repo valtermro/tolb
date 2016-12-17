@@ -17,9 +17,9 @@ import curry2 from '../_internal/curry2';
  * @example
  *
  *   const list = [
- *      { name: 'Foo', age: 20 },
- *      { name: 'Bar', age: 18 },
- *      { name: 'Baz', age: 22 },
+ *     { name: 'Foo', age: 20 },
+ *     { name: 'Bar', age: 18 },
+ *     { name: 'Baz', age: 22 },
  *   ]
  *
  *   pluck('name', list) //=> ['Foo', 'Bar', 'Baz']

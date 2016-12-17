@@ -1,5 +1,5 @@
 /**
- * Merges two Arrays, or array-like objects, together.
+ * Merges two arrays, or array-like objects, together.
  *
  * @function
  * @param {Array} left - The first array to merge
@@ -13,7 +13,9 @@ export default function concat(left, right) {
 
   for (let i = 0; i < leftLen; i++)
     result[result.length] = left[i];
+
   for (let i = 0; i < rightLen; i++)
     result[result.length] = right[i];
+
   return result;
 }

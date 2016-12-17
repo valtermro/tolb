@@ -2,10 +2,10 @@
 import A from 'assert';
 import constant from './constant';
 
-describe('constant(a)', () => {
+describe('constant(value)', () => {
   const fn = constant(2);
 
-  it('creates a function that returns "a"', () => {
+  it('creates a function that always returns "value"', () => {
     A.equal(fn(4), 2);
   });
 
