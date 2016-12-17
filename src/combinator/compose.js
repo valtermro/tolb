@@ -4,7 +4,7 @@ import arity from '../_internal/arity';
  * Performs right-to-left function composition.
  *
  * The rightmost function may take any number of arguments, the others functions
- * should have onlu one parameter.
+ * should have only one parameter.
  * The resulting new function will report the same arity as the rightmost function.
  *
  * @function
