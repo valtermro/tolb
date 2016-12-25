@@ -67,8 +67,8 @@ find test files that may help you to understand each function by showing you som
 usage examples.  
 
 **Some important notes:**
-* The majority of the functions that deals with "objects" are designed to work with
-object literals. Passing an object that inherits from prototype to these functions
+* The majority of the functions that deal with "objects" are designed to work with
+object literals. Passing an object that inherits a prototype to these functions
 can, and probably will, cause unwanted behavior.
 
 * Some packages are designed to work with a specific datatype. The functions in
