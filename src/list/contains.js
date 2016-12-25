@@ -1,5 +1,5 @@
 import curry2 from '../_internal/curry2';
-import equals from './equals';
+import equals from '../_internal/equals';
 
 /**
  * The `List` type definition for this method.
@@ -9,10 +9,16 @@ import equals from './equals';
  */
 
 /**
- * Checks if a collection contains a given value.
- * A collection can be either an indexed list or an object.
+ * Checks if a list contains a given value.
+ *
+ * Works with objects by dealing with them as list of key-value pairs.
  *
  * `assert.equals` is used to compared the values.
+ *
+  * **Important**
+ * Like other functions in the lib that deal with objects as list of key-value
+ * pairs, this one expects the object to be an object literal. You may (probably
+ * will) face unexpected behavior if the object inherits a prototype.*
  *
  * @function
  * @param {*} value - The value to search for

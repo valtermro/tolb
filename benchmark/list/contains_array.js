@@ -1,16 +1,16 @@
 require('../../_dev/babel.register');
 const Benchmark = require('Benchmark');
-const suite = new Benchmark.Suite('assert.contains() arrays');
+const suite = new Benchmark.Suite('list.contains() arrays');
 const util = require('../../_dev/util');
 
-const contains = require('../../src/assert/contains').default;
+const contains = require('../../src/list/contains').default;
 const { contains: rcontains } = require('ramda');
 const { contains: lcontains } = require('lodash/fp');
 
 const array = util.makeArray(20000);
 
 suite
-  .add('assert.contains', () => {
+  .add('list.contains', () => {
     contains(19999, array);
     contains([1], array);
     contains({ a: 1 }, array);

@@ -2,10 +2,11 @@ import curry2 from '../_internal/curry2';
 
 /**
  * Checks if an object has a given key.
- * If the object is an indexed list, "key" should be a number.
  *
- * This function will search all the way up in the object's prototype chain,
- * use `assert.hasOwn` if you want to search only in the object itself.
+ * Works with any value that is an object and has some kind of key, which means
+ * it can be used with indexed lists.
+ *
+ * Note that this function inspects the object's prototype chain.
  *
  * @function
  * @param {string} key - The key to search for

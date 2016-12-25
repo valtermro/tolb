@@ -1,5 +1,6 @@
 export { default as append } from './append';
 export { default as concat } from './concat';
+export { default as contains } from './contains';
 export { default as each } from './each';
 export { default as every } from './every';
 export { default as filter } from './filter';
