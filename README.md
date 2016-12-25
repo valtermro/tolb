@@ -44,28 +44,43 @@ npm install [--save] tolb
 *This library is distributed as a set of packages. So, to use it, you'll need to
 `require` the desired package, rather than the module itself:*
 ```javascript
-const object = require('tolb/object')
+const object = require('tolb/object');
 
-object.keys({ one: 1, two: 2 }) //=> ['one', 'two']
+object.keys({ one: 1, two: 2 }); //=> ['one', 'two']
 ```
 
 It's also possible to pull out only a specific function:
 ```javascript
-const map = require('tolb/list/map')
-const { toUpper } = require('tolb/string')
+const map = require('tolb/list/map');
+const { toUpper } = require('tolb/string');
 
-map(toUpper, ['foo', 'bar']) //=> ['FOO', 'BAR']
+map(toUpper, ['foo', 'bar']); //=> ['FOO', 'BAR']
 ```
 
 ## Ok. But what about documentation?
 ----------------
 This module is distributed as packages. Each package is represented by a directory
 inside the `src` folder, and each function in that package is in its own file.
-Inside each file you will find some [JSDoc](http://usejsdoc.org/) comment
-explaining what the function does. Also, alongside with the source files you will
+Inside each file you will find a [JSDoc](http://usejsdoc.org/) comment
+explaining what the function does. Also, alongside with the source files, you will
 find test files that may help you to understand each function by showing you some
-usage examples. And...  
-Sorry. That is all the documentation I can offer. For now.
+usage examples.  
+
+**Some important notes:**
+* The majority of the functions that deals with "objects" are designed to work with
+object literals. Passing an object that inherits from prototype to these functions
+can, and probably will, cause unwanted behavior.
+
+* Some packages are designed to work with a specific datatype. The functions in
+the `math` package, for example, expect numbers, and the ones in the `string` package
+expect, well, strings. The important thing to note here is that these functions
+don't test, neither try to cast, the type of their arguments. Make sure to
+pass a function what it wants, or it might not work as expected.
+
+* Other packages are more generic. The `list` package, for example, contains 
+functions to work with any value that can be treated as a list, such as strings,
+arrays and object literals. Object literals are nothing more than lists of key-value
+pairs.
 
 ## The "next" bundle.
 ---------------------
@@ -80,15 +95,15 @@ Please, note some differences in the way you import a package when using the `ne
 
 This:
 ```javascript
-const object = require('tolb/object')
-const { map } = require('tolb/list')
-const equals = require('tolb/assert/equals')
+const object = require('tolb/object');
+const { map } = require('tolb/list');
+const equals = require('tolb/assert/equals');
 ```
 becomes this:
 ```javascript
-import * as object from 'tolb/next/object'
-import { map } from 'tolb/next/list'
-import equals from 'tolb/assert/equals'
+import * as object from 'tolb/next/object';
+import { map } from 'tolb/next/list';
+import equals from 'tolb/assert/equals';
 ```
 
 ### Replace `tolb/next` with `tolb` in `import`s
@@ -105,5 +120,5 @@ If you're using webpack, you can add the following to your configuration file:
 and then `import` from `tolb`
 ```javascript
 // `keys` will be imported from `tolb/next/object` 
-import { keys } from 'tolb/object'
+import { keys } from 'tolb/object';
 ```
