@@ -8,14 +8,14 @@
  *
  *   function Foo() {}
  *
- *   object({}) //=> true
- *   object({ foo: 1 }) //=> true
- *   object('foo') //=> false
- *   object([]) //=> false
- *   object(new Foo()) //=> false
- *   object(Object.create({})) //=> false
+ *   isPlainObject({}) //=> true
+ *   isPlainObject({ foo: 1 }) //=> true
+ *   isPlainObject('foo') //=> false
+ *   isPlainObject([]) //=> false
+ *   isPlainObject(new Foo()) //=> false
+ *   isPlainObject(Object.create({})) //=> false
  */
-export default function object(subject) {
+export default function isPlainObject(subject) {
   if (typeof subject !== 'object')
     return false;
 

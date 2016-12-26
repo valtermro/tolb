@@ -9,12 +9,12 @@
  * @return {boolean} `true` if `subject` is an even number, `false` otherwise
  * @example
  *
- *   even(2) //=> true
- *   even(1.1) //=> false
- *   even(2.1) //=> false
- *   even('foo') //=> false
+ *   isEven(2) //=> true
+ *   isEven(1.1) //=> false
+ *   isEven(2.1) //=> false
+ *   isEven('foo') //=> false
  */
-export default function even(subject) {
+export default function isEven(subject) {
   if (typeof subject !== 'number')
     return false;
   return subject % 2 === 0;

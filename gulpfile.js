@@ -210,7 +210,6 @@ const watchBuild = () => function watching(done) {
 
   return gulp.watch(SRC_FILES)
     .on('change', (name) => {
-      console.log(name);
       const file = pathFromRoot(name);
       const dir = path.dirname(file);
       const basename = path.basename(file);
@@ -222,8 +221,10 @@ const watchBuild = () => function watching(done) {
       const testFile = basename.slice(-8) === '_test.js' ? file :
         file.replace(basename.slice(-3), '_test.js');
 
-      console.log('Running tests in', testFile);
-      mocha(testFile, false)();
+      if (fs.existsSync(testFile)) {
+        console.log('Running tests in', testFile);
+        mocha(testFile, false)();
+      }
 
       // lint this file
       eslint(file, false)();

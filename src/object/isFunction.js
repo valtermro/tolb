@@ -6,11 +6,11 @@
  * @return {boolean} `true` if `subject` is a function, `false` otherwise
  * @example
  *
- *   func(function () {}) //=> true
- *   func(() => null) //=> true
- *   func([].map) //=> true
- *   func('foo') //=> false
+ *   isFunction(function () {}) //=> true
+ *   isFunction(() => null) //=> true
+ *   isFunction([].map) //=> true
+ *   isFunction()'foo') //=> false
  */
-export default function func(subject) {
+export default function isFunction(subject) {
   return typeof subject === 'function';
 }

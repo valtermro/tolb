@@ -1,12 +1,12 @@
 /* eslint-env mocha */
 import A from 'assert';
-import object from './object';
+import isPlainObject from './isPlainObject';
 
-describe('object(subject)', () => {
+describe('isPlainObject(subject)', () => {
   function Foo() { /**/ }
 
   it('checks if "subject" is a object literal', () => {
-    const assert = (sub, wanted) => A.equal(object(sub), wanted);
+    const assert = (sub, wanted) => A.equal(isPlainObject(sub), wanted);
     assert({}, true);
     assert({ foo: 1 }, true);
     assert(Object.create(null), true);

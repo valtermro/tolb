@@ -1,11 +1,11 @@
 /* eslint-env mocha */
 import A from 'assert';
-import string from './string';
+import isString from './isString';
 import util from '../../_dev/util';
 
-describe('string(subject)', () => {
+describe('isString(subject)', () => {
   it('checks if "subject" is a string', () => {
-    const assert = (sub, wanted) => A.equal(string(sub), wanted);
+    const assert = (sub, wanted) => A.equal(isString(sub), wanted);
     assert('', true);
     assert('foo', true);
     assert(new String(''), false);

@@ -8,14 +8,14 @@
  * @return {boolean} `true` if `subject` is a number, `false` otherwise
  * @example
  *
- *   number(10) //=> true
- *   number(Math.PI) //=> true
- *   number(NaN) //=> false
- *   number(Infinity) //=> false
- *   number('foo') //=> false
- *   number(new Number(10)) //=> false
+ *   isNumber(10) //=> true
+ *   isNumber(Math.PI) //=> true
+ *   isNumber(NaN) //=> false
+ *   isNumber(Infinity) //=> false
+ *   isNumber('foo') //=> false
+ *   isNumber(new Number(10)) //=> false
  */
-export default function number(subject) {
+export default function isNumber(subject) {
   if (isNaN(subject) || !isFinite(subject))
     return false;
   return typeof subject === 'number';

@@ -1,15 +1,15 @@
 /* eslint-env mocha */
 import A from 'assert';
-import odd from './odd';
+import isEven from './isEven';
 
-describe('odd(subject)', () => {
+describe('isEven(subject)', () => {
   function test(value, wanted) {
-    A.equal(odd(value), wanted);
+    A.equal(isEven(value), wanted);
   }
 
-  it('checks if "subject" is an odd number', () => {
+  it('checks if "subject" is an even number', () => {
     for (let i = 0; i < 1000; i++)
-      test(i, i % 2 !== 0);
+      test(i, i % 2 === 0);
   });
 
   it('returns false if "subject" is a float', () => {
@@ -25,6 +25,6 @@ describe('odd(subject)', () => {
     test({}, false);
     test([], false);
     test(null, false);
-    test(new Number(1), false);
+    test(new Number(2), false);
   });
 });

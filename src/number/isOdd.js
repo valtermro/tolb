@@ -10,12 +10,12 @@
  * @return {boolean} `true` if `subject` is an odd number, `false` otherwise
  * @example
  *
- *   odd(1) //=> true
- *   odd(1.1) //=> false
- *   odd(2.1) //=> false
- *   odd('foo') //=> false
+ *   isOdd(1) //=> true
+ *   isOdd(1.1) //=> false
+ *   isOdd(2.1) //=> false
+ *   isOdd('foo') //=> false
  */
-export default function odd(subject) {
+export default function isOdd(subject) {
   if (typeof subject !== 'number')
     return false;
   return subject % 2 === 1;

@@ -1,17 +1,5 @@
-export { default as array } from './array';
-export { default as arrayLike } from './arrayLike';
-export { default as empty } from './empty';
 export { default as equals } from './equals';
-export { default as even } from './even';
-export { default as existy } from './existy';
-export { default as falsy } from './falsy';
-export { default as func } from './func';
 export { default as gt } from './gt';
 export { default as gte } from './gte';
 export { default as lt } from './lt';
 export { default as lte } from './lte';
-export { default as number } from './number';
-export { default as object } from './object';
-export { default as odd } from './odd';
-export { default as string } from './string';
-export { default as truthy } from './truthy';

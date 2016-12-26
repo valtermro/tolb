@@ -13,14 +13,14 @@
  * @return {boolean} `true` if `subject` is empty, `false` otherwise
  * @example
  *
- *   empty('foo') //=> false
- *   empty([1]) //=> false
- *   empty(null) //=> false
- *   empty('') //=> true
- *   empty([]) //=> true
- *   empty({}) //=> true
+ *   isEmpty('foo') //=> false
+ *   isEmpty([1]) //=> false
+ *   isEmpty(null) //=> false
+ *   isEmpty('') //=> true
+ *   isEmpty([]) //=> true
+ *   isEmpty({}) //=> true
  */
-export default function empty(subject) {
+export default function isEmpty(subject) {
   const tof = typeof subject;
   if (subject == null || tof === 'number' || tof === 'function')
     return false;

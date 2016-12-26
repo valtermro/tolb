@@ -1,13 +1,13 @@
 /* eslint-env mocha */
 import A from 'assert';
-import empty from './empty';
+import isEmpty from './isEmpty';
 import util from '../../_dev/util';
 
-describe('empty(subject)', () => {
+describe('isEmpty(subject)', () => {
   function Foo() { /**/ }
 
   it('checks if "subject" is empty', () => {
-    const assert = (value, wanted) => A.equal(empty(value), wanted);
+    const assert = (value, wanted) => A.equal(isEmpty(value), wanted);
     assert('', true);
     assert('f', false);
     assert({}, true);
