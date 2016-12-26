@@ -11,10 +11,10 @@
  * @example
  *
  *   function Foo() {}
- *   Foo.prototype.bar = 'bar';
+ *   Foo.prototype.bar = 'bar'
  *
- *   const f = new Foo();
- *   f.baz = 'baz';
+ *   const f = new Foo()
+ *   f.baz = 'baz'
  *
  *   keys({ foo: 1, bar: 2 }) //=> ['foo', 'bar']
  *   keys(f) //=> ['baz', 'bar']

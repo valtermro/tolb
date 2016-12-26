@@ -10,31 +10,18 @@ import curry2 from '../_internal/curry2';
 /**
  * Applies a given function to each value in a list and returns the list after that.
  *
- * Deals with objects as lists of key-value pairs.
- *
- * At each iteration the current index (or key) is passed as the second argument
- * to the supplied function.
- *
- * **Important**
- * Like other functions in the lib that deal with objects as list of key-value
- * pairs, this one expects the object to be an object literal. You may (probably
- * will) face unexpected behavior if the object inherits a prototype.
+ * At each iteration the current index is passed as the second argument to the
+ * supplied function.
  *
  * @function
  * @param {function} fn - The iteratee function
- * @param {(Object|List)} list - The list to iterate over
- * @return {(Object|List)} The `list` itself
+ * @param {List} list - The list to iterate over
+ * @return {List} The `list` itself
  */
 export default curry2((fn, list) => {
   const length = list.length;
-
-  if (typeof length === 'number') {
-    for (let i = 0; i < length; i++)
-      fn(list[i], i);
-  } else {
-    for (const key in list)
-      fn(list[key], key);
-  }
+  for (let i = 0; i < length; i++)
+    fn(list[i], i);
 
   return list;
 });

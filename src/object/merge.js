@@ -5,6 +5,8 @@ import curry2 from '../_internal/curry2';
  *
  * If both objects have the same key, the value in the first one will be used.
  *
+ * Note that this function fetches both own and inherited values.
+ *
  * @function
  * @param {Object} source - The object with the values to merge in
  * @param {Object} target - The object that will receive the values in `source`

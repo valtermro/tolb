@@ -2,8 +2,8 @@
  * Returns an array with all values of a given object.
  *
  * **Important**
- * This function returns all value it can find in the object, including those in
- * the object's prototype chain
+ * This function returns all values it can find in the object, including those in
+ * the object's prototype chain.
  *
  * @function
  * @param {Object} obj - The source object

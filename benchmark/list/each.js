@@ -1,21 +1,28 @@
 require('../../_dev/babel.register');
 const Benchmark = require('Benchmark');
-const suite = new Benchmark.Suite('list.each() objects');
+const suite = new Benchmark.Suite('list.each()');
 const util = require('../../_dev/util');
 
 const each = require('../../src/list/each').default;
+const { forEach } = require('ramda');
 const { each: leach } = require('lodash/fp');
 
-const obj = util.makeObject(10);
+const array = util.makeArray(20000);
 
 const fn = util.double;
 
 suite
+  .add('Array.prototype.forEach', () => {
+    array.forEach(fn);
+  })
   .add('list.each', () => {
-    each(fn, obj);
+    each(fn, array);
+  })
+  .add('ramda.forEach', () => {
+    forEach(fn, array);
   })
   .add('loadash.each', () => {
-    leach(fn, obj);
+    leach(fn, array);
   });
 
 module.exports = suite;

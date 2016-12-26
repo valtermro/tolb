@@ -7,7 +7,6 @@ describe('contains(value, subject)', () => {
   const str = 'foo bar';
   const array = ['foo', 'bar', 'b'];
   const arrayLike = util.arrayLike('foo', 'bar', 'b');
-  const obj = { foo: 'foo', bar: 'bar', b: 'b' };
 
   function test(subject) {
     A.equal(contains('foo', subject), true);
@@ -26,10 +25,6 @@ describe('contains(value, subject)', () => {
 
   it('deals with array like objects', () => {
     test(arrayLike);
-  });
-
-  it('deals with objects', () => {
-    test(obj);
   });
 
   it('tests equality deeply', () => {

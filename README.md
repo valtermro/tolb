@@ -74,13 +74,8 @@ can, and probably will, cause unwanted behavior.
 * Some packages are designed to work with a specific datatype. The functions in
 the `math` package, for example, expect numbers, and the ones in the `string` package
 expect, well, strings. The important thing to note here is that these functions
-don't test, neither try to cast, the type of their arguments. Make sure to
-pass a function what it wants, or it might not work as expected.
-
-* Other packages are more generic. The `list` package, for example, contains 
-functions to work with any value that can be treated as a list, such as strings,
-arrays and object literals. Object literals are nothing more than lists of key-value
-pairs.
+don't test, neither try to cast, the type of their arguments. Make sure to pass a
+function what it wants, or it might not work as expected.
 
 ## The "next" bundle.
 ---------------------
