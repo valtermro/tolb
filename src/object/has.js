@@ -1,9 +1,8 @@
 import curry2 from '../_internal/curry2';
+import { hasOwnProp } from '../_internal/object-proto';
 
 /**
- * Checks if an object has a given key.
- *
- * Note that this function inspects the object's prototype chain.
+ * Checks if an object has a given key by its own.
  *
  * @function
  * @param {string} key - The key to search for
@@ -15,10 +14,9 @@ import curry2 from '../_internal/curry2';
  *   Foo.prototype.bar = true
  *
  *   has('bar', { bar: true }) //=> true
- *   has('bar', new Foo()) //=> true
  *   has('baz', { bar: true }) //=> false
- *   has('baz', new Foo()) //=> false
+ *   has('bar', new Foo()) //=> false
  */
 export default curry2((key, subject) => {
-  return key in subject;
+  return hasOwnProp.call(subject, key);
 });

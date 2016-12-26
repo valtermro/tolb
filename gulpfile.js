@@ -9,7 +9,7 @@ const Server = require('karma').Server;
 const $ = require('gulp-load-plugins')();
 const babelConfig = require('./_dev/babel.config');
 
-// It's import to use relative paths
+// use only relative paths
 const TEST_FILES = ['./src/**/*_test.js'];
 const SRC_FILES = ['./src/**/*.js', '!./src/**/*_test.js'];
 const TEMPLATE = {

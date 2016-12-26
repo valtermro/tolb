@@ -1,6 +1,8 @@
 /**
  * Deeply clones an object.
  *
+ * When cloning objects, this function will ignore the object's prototype chain.
+ *
  * @function
  * @param {(Array|Object)} obj - The object to clone
  * @return {(Array|Object)} A deep copy of `obj`
@@ -39,8 +41,12 @@ export default function clone(obj) {
       result[i] = clone(obj[i]);
   } else {
     result = {};
-    for (const k in obj)
-      result[k] = clone(obj[k]);
+    const keys = Object.keys(obj);
+    const length = keys.length;
+    for (let i = 0; i < length; i++) {
+      const key = keys[i];
+      result[key] = clone(obj[key]);
+    }
   }
   return result;
 }

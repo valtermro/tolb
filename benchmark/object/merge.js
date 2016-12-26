@@ -7,8 +7,8 @@ const merge = require('../../src/object/merge').default;
 const { merge: rmerge } = require('ramda');
 const { merge: lmerge } = require('lodash/fp');
 
-const obj1 = util.makeObject(20000);
-const obj2 = util.makeObject(18000, 20000);
+const obj1 = util.makeObject(60000);
+const obj2 = util.makeObject(18000, 60000);
 
 suite
   .add('Object.assign', () => {

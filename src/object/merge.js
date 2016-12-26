@@ -1,11 +1,9 @@
 import curry2 from '../_internal/curry2';
 
 /**
- * Merges two objects together.
+ * Creates a new object literal by merging the own enumerable values of two objects.
  *
  * If both objects have the same key, the value in the first one will be used.
- *
- * Note that this function fetches both own and inherited values.
  *
  * @function
  * @param {Object} source - The object with the values to merge in
@@ -19,13 +17,19 @@ import curry2 from '../_internal/curry2';
  *   merge(obj1, obj2) //=> { baz: 3, bar: 2, foo: 1 }
  */
 export default curry2((source, target) => {
+  const targetKeys = Object.keys(target);
+  const targetLength = targetKeys.length;
+  const sourceKeys = Object.keys(source);
+  const sourceLength = sourceKeys.length;
+
   const result = {};
-
-  for (const k in target)
-    result[k] = target[k];
-
-  for (const k in source)
-    result[k] = source[k];
-
+  for (let i = 0; i < targetLength; i++) {
+    const key = targetKeys[i];
+    result[key] = target[key];
+  }
+  for (let i = 0; i < sourceLength; i++) {
+    const key = sourceKeys[i];
+    result[key] = source[key];
+  }
   return result;
 });

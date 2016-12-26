@@ -1,0 +1,23 @@
+require('../../_dev/babel.register');
+const Benchmark = require('Benchmark');
+const suite = new Benchmark.Suite('object.has()');
+const util = require('../../_dev/util');
+
+const has = require('../../src/object/has').default;
+const { hasIn: rhas } = require('ramda');
+const { hasIn: lhas } = require('lodash/fp');
+
+const obj = util.makeObject(20000);
+
+suite
+  .add('object.has', () => {
+    has('key-19999', obj);
+  })
+  .add('ramda.has', () => {
+    rhas('key-19999', obj);
+  })
+  .add('lodash.has', () => {
+    lhas('key-19999', obj);
+  });
+
+module.exports = suite;

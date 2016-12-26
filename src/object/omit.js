@@ -1,10 +1,11 @@
 import curry2 from '../_internal/curry2';
 
 /**
- * Creates a copy of an object excluding a specified list of keys from the copy.
+ * Creates a new object literal by copying all but the specified list of own
+ * enumerable keys in an object.
  *
  * @function
- * @param {Array.<string>} keys - The keys to remove
+ * @param {Array.<string>} keys - The keys to exclude
  * @param {Object} obj - The source object
  * @return {Object} A copy of `obj` excluding `keys`
  * @example
@@ -14,10 +15,14 @@ import curry2 from '../_internal/curry2';
  *   omit(['age', 'admin'], user) //=> { name: 'Foo' }
  */
 export default curry2((keys, obj) => {
+  const objKeys = Object.keys(obj);
+  const length = objKeys.length;
+
   const result = {};
-  for (const k in obj) {
-    if (keys.indexOf(k) < 0)
-      result[k] = obj[k];
+  for (let i = 0; i < length; i++) {
+    const key = objKeys[i];
+    if (keys.indexOf(key) < 0)
+      result[key] = obj[key];
   }
   return result;
 });

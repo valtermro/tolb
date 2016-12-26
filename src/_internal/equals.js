@@ -3,6 +3,9 @@
 /**
  * Deeply compares two object.
  *
+ * When comparing objects, this function will search values in the object's
+ * prototype chain
+ *
  * @param {*} left - The first value to compare
  * @param {*} right - The second value to compare
  * @return {boolean} `true` if `left` and `right` are equals, `false` otherwise

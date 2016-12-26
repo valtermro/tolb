@@ -1,3 +1,5 @@
+import { hasOwnProp } from '../_internal/object-proto';
+
 /**
  * Checks if a given object is an object literal.
  *
@@ -24,7 +26,7 @@ export default function isPlainObject(subject) {
   if (proto === null)
     return true;
 
-  if (!proto.hasOwnProperty('constructor'))
+  if (!hasOwnProp.call(proto, 'constructor'))
     return false;
 
   if (subject.constructor !== Object)

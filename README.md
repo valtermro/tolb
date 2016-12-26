@@ -66,12 +66,8 @@ explaining what the function does. Also, alongside with the source files, you wi
 find test files that may help you to understand each function by showing you some
 usage examples.  
 
-**Some important notes:**
-* The majority of the functions that deal with "objects" are designed to work with
-object literals. Passing an object that inherits a prototype to these functions
-can, and probably will, cause unwanted behavior.
-
-* Some packages are designed to work with a specific datatype. The functions in
+**A quick note**.  
+Some packages are designed to work with a specific datatype. The functions in
 the `math` package, for example, expect numbers, and the ones in the `string` package
 expect, well, strings. The important thing to note here is that these functions
 don't test, neither try to cast, the type of their arguments. Make sure to pass a

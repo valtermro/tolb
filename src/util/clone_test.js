@@ -3,6 +3,11 @@ import A from 'assert';
 import clone from './clone';
 
 describe('clone(obj)', () => {
+  function Foo() { this.foo = 1; }
+  Foo.prototype.bar = 2;
+  const prototyped = new Foo();
+  prototyped.baz = 3;
+
   it('returns a copy of "obj"', () => {
     const assert = (input, immutable) => {
       const res = clone(input);
@@ -16,6 +21,10 @@ describe('clone(obj)', () => {
     assert(null, true);
     assert(undefined, true);
     assert(true, true);
+  });
+
+  it('ignores prototoype chain', () => {
+    A.deepEqual(clone(prototyped), { foo: 1, baz: 3 }) ;
   });
 
   it('clones deeply', () => {

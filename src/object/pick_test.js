@@ -3,6 +3,9 @@ import A from 'assert';
 import pick from './pick';
 
 describe('pick(keys, obj)', () => {
+  function Foo() { this.foo = 1; }
+  Foo.prototype.bar = 2;
+  const prototyped = new Foo();
   const obj = { foo: 1, bar: 2, baz: 3, bleh: null };
 
   it('returns an object with all pairs with "keys" in "obj"', () => {
@@ -12,6 +15,10 @@ describe('pick(keys, obj)', () => {
     };
     assert(['foo', 'bleh'], { foo: 1, bleh: null });
     assert(['foo', 'x'], { foo: 1 });
+  });
+
+  it('fetches on the object\'s own values', () => {
+    A.deepEqual(pick(['foo', 'bar'], prototyped), { foo: 1 });
   });
 
   it('allows partial application', () => {

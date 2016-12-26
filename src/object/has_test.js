@@ -3,19 +3,24 @@ import A from 'assert';
 import has from './has';
 
 describe('has(key, subject)', () => {
-  function Foo() { /**/ }
-  Foo.prototype.bar = true;
+  function Foo() { this.foo = 1; }
+  Foo.prototype.bar = 2;
+  // one can override native methods, which can cause problems.
+  Foo.prototype.hasOwnProperty = () => true;
 
-  const obj = { bar: true };
+  const literal = { bar: true };
+  const prototyped = new Foo();
+  prototyped.baz = 3;
 
-  it('checks if "subject" has "key" by its own or in its prototype chain', () => {
-    A.equal(has('bar', obj), true);
-    A.equal(has('foo', obj), false);
-    A.equal(has('bar', new Foo()), true);
-    A.equal(has('foo', new Foo()), false);
+  it('checks if "subject" has "key" by its own', () => {
+    A.equal(has('bar', literal), true);
+    A.equal(has('baz', prototyped), true);
+    A.equal(has('foo', prototyped), true);
+    A.equal(has('foo', literal), false);
+    A.equal(has('bar', prototyped), false);
   });
 
   it('allows partial application', () => {
-    A.equal(has('bar')(obj), true);
+    A.equal(has('bar')(literal), true);
   });
 });

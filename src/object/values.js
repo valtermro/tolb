@@ -1,9 +1,5 @@
 /**
- * Returns an array with all values of a given object.
- *
- * **Important**
- * This function returns all values it can find in the object, including those in
- * the object's prototype chain.
+ * Returns an array with the own values of a given object.
  *
  * @function
  * @param {Object} obj - The source object
@@ -13,8 +9,10 @@
  *   values({ foo: 1, bar: 2 }) //=> [1, 2]
  */
 export default function values(obj) {
-  const result = [];
-  for (const k in obj)
-    result[result.length] = obj[k];
+  const keys = Object.keys(obj);
+  const length = keys.length;
+  const result = new Array(length);
+  for (let i = 0; i < length; i++)
+    result[i] = obj[keys[i]];
   return result;
 }
