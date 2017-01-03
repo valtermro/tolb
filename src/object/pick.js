@@ -1,5 +1,5 @@
 import curry2 from '../_internal/curry2';
-import { hasOwnProp } from '../_internal/object-proto';
+import hasOwnProp from './_internal/hasOwnProp';
 
 /**
  * Creates a new object literal by copying a specified list of own keys of an object.

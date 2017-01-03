@@ -1,3 +1,4 @@
+export { default as each } from './each';
 export { default as get } from './get';
 export { default as hasIn } from './hasIn';
 export { default as hasOwn } from './hasOwn';

@@ -1,5 +1,5 @@
 import curry2 from '../_internal/curry2';
-import { hasOwnProp } from '../_internal/object-proto';
+import hasOwnProp from './_internal/hasOwnProp';
 
 /**
  * Checks if an object has a given key by its own.

@@ -1,4 +1,4 @@
-import { hasOwnProp } from '../_internal/object-proto';
+import hasOwnProp from './_internal/hasOwnProp';
 
 /**
  * Checks if a given object is an object literal.
