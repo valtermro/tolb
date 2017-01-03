@@ -3,7 +3,7 @@ const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('list.find()');
 const util = require('../../_dev/util');
 
-const find = require('../../src/list/find').default;
+const find = require('../../src/list/find');
 const { find: rfind } = require('ramda');
 const { find: lfind } = require('lodash/fp');
 

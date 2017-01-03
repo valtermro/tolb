@@ -3,7 +3,7 @@ const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('list.reject()');
 const util = require('../../_dev/util');
 
-const reject = require('../../src/list/reject').default;
+const reject = require('../../src/list/reject');
 const { reject: rreject } = require('ramda');
 const { reject: lreject } = require('lodash/fp');
 

@@ -3,7 +3,7 @@ const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('list.contains() arrays');
 const util = require('../../_dev/util');
 
-const contains = require('../../src/list/contains').default;
+const contains = require('../../src/list/contains');
 const { contains: rcontains } = require('ramda');
 const { contains: lcontains } = require('lodash/fp');
 

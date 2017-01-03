@@ -2,7 +2,7 @@ require('../../_dev/babel.register');
 const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('combinator.compose()');
 
-const compose = require('../../src/combinator/compose').default;
+const compose = require('../../src/combinator/compose');
 const { compose: rcompose } = require('ramda');
 const { compose: lcompose } = require('lodash/fp');
 

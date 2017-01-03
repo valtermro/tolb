@@ -3,7 +3,7 @@ const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('list.filter()');
 const util = require('../../_dev/util');
 
-const filter = require('../../src/list/filter').default;
+const filter = require('../../src/list/filter');
 const { filter: rfilter } = require('ramda');
 const { filter: lfilter } = require('lodash/fp');
 

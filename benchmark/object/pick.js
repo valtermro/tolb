@@ -3,7 +3,7 @@ const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('object.pick()');
 const util = require('../../_dev/util');
 
-const pick = require('../../src/object/pick').default;
+const pick = require('../../src/object/pick');
 const { pick: rpick } = require('ramda');
 const { pick: lpick } = require('lodash/fp');
 

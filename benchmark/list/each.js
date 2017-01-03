@@ -3,7 +3,7 @@ const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('list.each()');
 const util = require('../../_dev/util');
 
-const each = require('../../src/list/each').default;
+const each = require('../../src/list/each');
 const { forEach } = require('ramda');
 const { each: leach } = require('lodash/fp');
 

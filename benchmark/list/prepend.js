@@ -3,7 +3,7 @@ const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('list.prepend()');
 const util = require('../../_dev/util');
 
-const prepend = require('../../src/list/prepend').default;
+const prepend = require('../../src/list/prepend');
 const { prepend: rprepend } = require('ramda');
 
 const array = util.makeArray(20000);

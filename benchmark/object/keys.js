@@ -3,7 +3,7 @@ const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('object.keys()');
 const util = require('../../_dev/util');
 
-const keys = require('../../src/object/keys').default;
+const keys = require('../../src/object/keys');
 const { keys: rkeys } = require('ramda');
 const { keys: lkeys } = require('lodash/fp');
 

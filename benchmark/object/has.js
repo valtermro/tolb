@@ -3,7 +3,7 @@ const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('object.has()');
 const util = require('../../_dev/util');
 
-const has = require('../../src/object/has').default;
+const has = require('../../src/object/has');
 const { hasIn: rhas } = require('ramda');
 const { hasIn: lhas } = require('lodash/fp');
 

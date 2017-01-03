@@ -3,7 +3,7 @@ const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('list.slice() strings');
 const util = require('../../_dev/util');
 
-const slice = require('../../src/list/slice').default;
+const slice = require('../../src/list/slice');
 const { slice: rslice } = require('ramda');
 const { slice: lslice } = require('lodash/fp');
 

@@ -3,7 +3,7 @@ const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('list.join()');
 const util = require('../../_dev/util');
 
-const join = require('../../src/list/join').default;
+const join = require('../../src/list/join');
 const { join: rjoin } = require('ramda');
 const { join: ljoin } = require('lodash/fp');
 

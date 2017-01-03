@@ -3,7 +3,7 @@ const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('assert.equals()');
 const util = require('../../_dev/util');
 
-const equals = require('../../src/assert/equals').default;
+const equals = require('../../src/assert/equals');
 const { equals: requals } = require('ramda');
 const { equals: lequals } = require('lodash/fp');
 

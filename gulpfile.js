@@ -34,7 +34,7 @@ const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('{{pack}}.{{name}}()');
 const util = require('../../_dev/util');
 
-const {{name}} = require('../../src/{{pack}}/{{name}}').default;
+const {{name}} = require('../../src/{{pack}}/{{name}}');
 
 suite
   .add('{{pack}}.{{name}}', () => {

@@ -3,7 +3,7 @@ const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('list.reverse() arrays');
 const util = require('../../_dev/util');
 
-const reverse = require('../../src/list/reverse').default;
+const reverse = require('../../src/list/reverse');
 const { reverse: rreverse } = require('ramda');
 const { reverse: lreverse } = require('lodash/fp');
 

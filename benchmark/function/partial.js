@@ -3,7 +3,7 @@ const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('function.partial()');
 const util = require('../../_dev/util');
 
-const partial = require('../../src/function/partial').default;
+const partial = require('../../src/function/partial');
 const { partial: rpartial } = require('ramda');
 const { partial: lpartial } = require('lodash/fp');
 

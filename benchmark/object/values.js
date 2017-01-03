@@ -3,7 +3,7 @@ const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('object.values()');
 const util = require('../../_dev/util');
 
-const values = require('../../src/object/values').default;
+const values = require('../../src/object/values');
 const { values: rvalues } = require('ramda');
 const { values: lvalues } = require('lodash/fp');
 

@@ -3,7 +3,7 @@ const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('list.append()');
 const util = require('../../_dev/util');
 
-const append = require('../../src/list/append').default;
+const append = require('../../src/list/append');
 const { append: rappend } = require('ramda');
 
 const array = util.makeArray(20000);

@@ -3,7 +3,7 @@ const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('object.omit()');
 const util = require('../../_dev/util');
 
-const omit = require('../../src/object/omit').default;
+const omit = require('../../src/object/omit');
 const { omit: romit } = require('ramda');
 const { omit: lomit } = require('lodash/fp');
 

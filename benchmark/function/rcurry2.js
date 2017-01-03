@@ -3,7 +3,7 @@ const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('function.curry() arity == 2');
 const util = require('../../_dev/util');
 
-const rcurry = require('../../src/function/rcurry').default;
+const rcurry = require('../../src/function/rcurry');
 const { curryRight } = require('lodash/fp');
 
 const fn = util.foo2;

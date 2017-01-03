@@ -3,7 +3,7 @@ const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('list.concat() strings');
 const util = require('../../_dev/util');
 
-const concat = require('../../src/list/concat').default;
+const concat = require('../../src/list/concat');
 const { concat: rconcat } = require('ramda');
 const { concat: lconcat } = require('lodash/fp');
 

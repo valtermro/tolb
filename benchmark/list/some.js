@@ -3,7 +3,7 @@ const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('list.some()');
 const util = require('../../_dev/util');
 
-const some = require('../../src/list/some').default;
+const some = require('../../src/list/some');
 const { any } = require('ramda');
 const { some: lsome } = require('lodash/fp');
 

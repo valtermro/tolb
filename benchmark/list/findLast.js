@@ -3,7 +3,7 @@ const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('list.findLast()');
 const util = require('../../_dev/util');
 
-const findLast = require('../../src/list/findLast').default;
+const findLast = require('../../src/list/findLast');
 const { findLast: rfindLast } = require('ramda');
 const { findLast: lfindLast } = require('lodash/fp');
 

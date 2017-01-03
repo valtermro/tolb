@@ -3,7 +3,7 @@ const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('list.reduce()');
 const util = require('../../_dev/util');
 
-const reduce = require('../../src/list/reduce').default;
+const reduce = require('../../src/list/reduce');
 const { reduce: rreduce } = require('ramda');
 const { reduce: lreduce } = require('lodash/fp');
 

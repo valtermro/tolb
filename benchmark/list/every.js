@@ -3,7 +3,7 @@ const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('list.every()');
 const util = require('../../_dev/util');
 
-const every = require('../../src/list/every').default;
+const every = require('../../src/list/every');
 const { all } = require('ramda');
 const { every: levery } = require('lodash/fp');
 

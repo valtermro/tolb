@@ -2,7 +2,7 @@ require('../../_dev/babel.register');
 const Benchmark = require('Benchmark');
 const util = require('../../_dev/util');
 
-const clone = require('../../src/util/clone').default;
+const clone = require('../../src/util/clone');
 const suite = new Benchmark.Suite('util.clone()');
 const { cloneDeep } = require('lodash/fp');
 

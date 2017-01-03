@@ -3,7 +3,7 @@ const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('list.pluck()');
 const util = require('../../_dev/util');
 
-const pluck = require('../../src/list/pluck').default;
+const pluck = require('../../src/list/pluck');
 const { pluck: rpluck } = require('ramda');
 const { pluck: lpluck } = require('lodash/fp');
 

@@ -3,7 +3,7 @@ const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('list.map() arrays');
 const util = require('../../_dev/util');
 
-const map = require('../../src/list/map').default;
+const map = require('../../src/list/map');
 const { map: rmap } = require('ramda');
 const { map: lmap } = require('lodash/fp');
 

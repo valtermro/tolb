@@ -2,7 +2,7 @@ require('../../_dev/babel.register');
 const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('math.max()');
 
-const max = require('../../src/math/max').default;
+const max = require('../../src/math/max');
 const { max: rmax } = require('ramda');
 const { max: lmax } = require('lodash/fp');
 
