@@ -1,5 +1,6 @@
 export { default as get } from './get';
-export { default as has } from './has';
+export { default as hasIn } from './hasIn';
+export { default as hasOwn } from './hasOwn';
 export { default as isArray } from './isArray';
 export { default as isEmpty } from './isEmpty';
 export { default as isFunction } from './isFunction';

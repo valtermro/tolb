@@ -1,8 +1,7 @@
 import curry2 from '../_internal/curry2';
-import { hasOwnProp } from '../_internal/object-proto';
 
 /**
- * Checks if an object has a given key by its own.
+ * Checks if an object has a given key by its own or in it's prototype chain.
  *
  * @function
  * @param {string} key - The key to search for
@@ -13,10 +12,10 @@ import { hasOwnProp } from '../_internal/object-proto';
  *   function Foo() {}
  *   Foo.prototype.bar = true
  *
- *   has('bar', { bar: true }) //=> true
- *   has('baz', { bar: true }) //=> false
- *   has('bar', new Foo()) //=> false
+ *   hasIn('bar', { bar: true }) //=> true
+ *   hasIn('foo', { bar: true }) //=> false
+ *   hasIn('bar', new Foo()) //=> true
  */
 export default curry2((key, subject) => {
-  return hasOwnProp.call(subject, key);
+  return key in subject;
 });
