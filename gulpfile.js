@@ -322,6 +322,7 @@ gulp.task('mocha', mocha('all', false));
 gulp.task('karma', karma());
 gulp.task('eslint', eslint('all', false));
 gulp.task('test', gulp.parallel(eslint('all', true), mocha('all', true)));
+gulp.task('test-bundle', mocha('./_dev/bundle_test.js', true));
 gulp.task('bundle-node', bundle('node', false));
 gulp.task('bundle-next', bundle('next', false));
 gulp.task('bundle', gulp.parallel('bundle-node', 'bundle-next'));
