@@ -33,14 +33,12 @@ export default curry2((fn, list) => {
   const length = list.length;
 
   if (typeof list === 'string') {
-    // strings are special, they want to be concatenated...
     let result = '';
     for (let i = 0; i < length; i++)
       result += fn(list[i], i);
     return result;
   }
 
-  // other types of indexed lists treat themselves as equals
   const result = new Array(length);
   for (let i = 0; i < length; i++)
     result[i] = fn(list[i], i);
