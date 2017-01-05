@@ -3,27 +3,19 @@ const A = require('assert');
 const path = require('path');
 const fs = require('fs');
 
-const root = path.join(__dirname, '..');
-const packages = fs.readdirSync(path.join(root, 'src'));
-
-const pathFromRoot = x => path.join(root, x);
-
-const readDir = (dir) => {
-  return fs.readdirSync(dir);
-};
+const pathFromRoot = x => path.join(__dirname, '..', x);
 
 const readFiles = (dir) => {
-  const fileList = readDir(dir)
+  return fs.readdirSync(dir)
     .map((f) => {
       const file = path.join(dir, f);
       if (file.slice(-3) === '.js')
         return file;
       return readFiles(file);
     });
-  return fileList;
 };
 
-const allFiles = packages
+const allFiles = fs.readdirSync(pathFromRoot('src'))
   .map(pack => readFiles(pathFromRoot(pack)))
   .reduce((accum, list) => {
     return Array.prototype.concat.apply(accum, list);
