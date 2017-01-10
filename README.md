@@ -1,5 +1,4 @@
 ## About the library
--------------------
 This library contains a set of javascript helper functions designed to allow a
 more functional style of code.  
 Each function takes the data upon which to operate as the last argument, and almost
@@ -17,7 +16,8 @@ can be used:
   const waitingData = reduce(sum, 0);
   const result = waitingData(arrayOfNumbers);
   ```
-* Omiting the last two arguments
+
+* Omiting the last two arguments:
   ```javascript
   const waitingLastTwoArgs = reduce(sum);
   const result = waitingLastTwoArgs(0, arrayOfNumbers);
@@ -35,7 +35,6 @@ in the lib are used to create functions, and those created functions can't be
 partially applied by default.
 
 ## Installation
--------------------
 The only way to get this library is through npm.  
 *Use a module bundler like [webpack](https://webpack.github.io/) to use it on the browser.*
 ```
@@ -43,7 +42,6 @@ npm install [--save] tolb
 ```
 
 ## Usage
--------------------
 This library is distributed as a set of packages, so `require` the desired package,
 rather than the module itself:
 ```javascript
@@ -61,7 +59,6 @@ map(toUpper, ['foo', 'bar']); //=> ['FOO', 'BAR']
 ```
 
 ## Documentation
-----------------
 Each package is represented by a directory inside the `src` folder, and each function
 in that package is in its own file. Inside each file you will find a
 [JSDoc](http://usejsdoc.org/) comment explaining what the function does. Also,
@@ -77,8 +74,7 @@ If the wrong type of argument is passed, an error
 may be thrown **by the javascript runtime**.or the function may fail silently.
 Make sure to pass the right argument to each function.
 
-## The "next" bundle.
----------------------
+## The "next" bundle
 This module includes a `next` bundle. The only difference from `next` to the normal
 bundle is that it uses [es6 module syntax](http://exploringjs.com/es6/ch_modules.html),
 instead of commonJS.
