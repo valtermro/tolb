@@ -1,52 +1,55 @@
-**A set of helpers I've been writing while learning stuff**
------------------------------------------------------------
-
 ## About the library
 -------------------
-Oh! My lib. It'll never be as robust as [lodash](https://lodash.com/), nor will it
-have as many lovers as [ramda](http://ramdajs.com/). 
-But it's mine, and I love it!! :D.
+This library contains a set of javascript helper functions designed to allow a
+more functional style of code.  
+Each function takes the data upon which to operate as the last argument, and almost
+all functions can be partially applied with any number of arguments and in any
+number of operations.  
+The function `reduce` of the `list` package, for example, takes 3 arguments and
+can be used:
+* Passing all 3 arguments:
+  ```javascript
+  const result = reduce(sum, 0, arrayOfNumbers);
+  ```
 
-This poor thing is so naive. Its functions cannot check if their arguments are
-of the right type, all they can do is throw the errors caused by invalid data
-back to the innocent soul that (can we blame him/her??) didn't know that him/her
-should've checked the validity of the data him/herself. These functions - oh! how
-I feel for them - can't even distinguish an array from something that looks like
-an array. -- Why, pah?!. Why did you make me like this?!  
+* Omiting the last argument (the data):
+  ```javascript
+  const waitingData = reduce(sum, 0);
+  const result = waitingData(arrayOfNumbers);
+  ```
+* Omiting the last two arguments
+  ```javascript
+  const waitingLastTwoArgs = reduce(sum);
+  const result = waitingLastTwoArgs(0, arrayOfNumbers);
+  // or
+  const nowWaitingData = waitingLastTwoArgs(0);
+  const result = nowWaitingData(arrayOfNumbers);
+  ```
 
-But, the saddest thing about this little one is that it doesn't seem to have
-ever heard about Object Oriented Programming. You can see the word "object" all
-over the place, but it never deals with them as it should do. Here, objects are
-always treated as simple key-value pairs, object literals they say (may that be
-the reason for such confusion?).  
+**Quick notes**:
+* This library is meant to be light and simple. For more robust (and heavier)
+alternatives, check out [lodash/fp](https://github.com/lodash/lodash/wiki/FP-Guide)
+and [ramda](http://ramdajs.com/). 
+* I say that **almost** all functions can be partially applied because some functions
+in the lib are used to create functions, and those created functions can't be
+partially applied by default.
 
-But love is a strange thing, isn't it? Even with all the problems, I was still
-able to find a use for this malformed piece of s***. Actually it was quite simple.  
-First I noticied that all functions here take the
-data upon which they operate as their last argument and I thought:
-"That makes these functions perfect to be partiallly applied in order to be used
-in function compositions". So, I went out to find a way to partiallly apply these
-ugly beasts and  guess what? I didn't need it. Almost all functions in this library
-can be partially applied by default. Just like this. Out of the box.  
-In fact, the more deep I go into this little disturbingly simple library, the
-more I see its shy shine. I guess that's what the call "the power of love".
-
-
-If you, like me, want to give this little child a chance to show its value,
-despite all its simplicity and ignorance, here is what you can do:
-
-**First, install it**:
+## Installation
+-------------------
+The only way to get this library is through npm.  
+*Use a module bundler like [webpack](https://webpack.github.io/) to use it on the browser.*
 ```
 npm install [--save] tolb
 ```
 
-**Now import it**:  
-*This library is distributed as a set of packages. So, to use it, you'll need to
-`require` the desired package, rather than the module itself:*
+## Usage
+-------------------
+This library is distributed as a set of packages, so `require` the desired package,
+rather than the module itself:
 ```javascript
 const object = require('tolb/object');
 
-object.keys({ one: 1, two: 2 }); //=> ['one', 'two']
+object.values({ one: 1, two: 2 }); //=> [1, 2]
 ```
 
 It's also possible to pull out only a specific function:
@@ -57,21 +60,22 @@ const { toUpper } = require('tolb/string');
 map(toUpper, ['foo', 'bar']); //=> ['FOO', 'BAR']
 ```
 
-## Ok. But what about documentation?
+## Documentation
 ----------------
-This module is distributed as packages. Each package is represented by a directory
-inside the `src` folder, and each function in that package is in its own file.
-Inside each file you will find a [JSDoc](http://usejsdoc.org/) comment
-explaining what the function does. Also, alongside with the source files, you will
-find test files that may help you to understand each function by showing you some
-usage examples.  
+Each package is represented by a directory inside the `src` folder, and each function
+in that package is in its own file. Inside each file you will find a
+[JSDoc](http://usejsdoc.org/) comment explaining what the function does. Also,
+alongside with the source files, you will find test files that may help you to
+understand each function by showing you some usage examples.  
+That's the only documentation I have. By now...
 
 **A quick note**.  
 Some packages are designed to work with a specific datatype. The functions in
-the `math` package, for example, expect numbers, and the ones in the `string` package
-expect, well, strings. The important thing to note here is that these functions
-don't test, neither try to cast, the type of their arguments. Make sure to pass a
-function what it wants, or it might not work as expected.
+the `math` package, for example, expect numbers, and the functions in the `string`
+package expect, well, strings.  
+If the wrong type of argument is passed, an error
+may be thrown **by the javascript runtime**.or the function may fail silently.
+Make sure to pass the right argument to each function.
 
 ## The "next" bundle.
 ---------------------
@@ -79,22 +83,28 @@ This module includes a `next` bundle. The only difference from `next` to the nor
 bundle is that it uses [es6 module syntax](http://exploringjs.com/es6/ch_modules.html),
 instead of commonJS.
 
-If you're using a module bundler that takes advantage of the static nature of es6 modules ([rollup.js](http://rollupjs.org/) [does it](https://blog.mariusschulz.com/2016/06/12/bundling-and-tree-shaking-with-rollup-and-ecmascript-2015-modules), the v2 of webpack [does it too](http://www.2ality.com/2015/12/webpack-tree-shaking.html)), you might want to use this one. 
+If you're using a module bundler that takes advantage of the static nature of es6
+modules ([rollup.js](http://rollupjs.org/)
+[does it](https://blog.mariusschulz.com/2016/06/12/bundling-and-tree-shaking-with-rollup-and-ecmascript-2015-modules),
+the v2 of webpack [does it too](http://www.2ality.com/2015/12/webpack-tree-shaking.html)),
+you might want to use this one. 
 
-Please, note some differences in the way you import a package when using the `next` bundle.  
-*I'm assuming that, if you're using `next`, you're also using the es6 syntax to do your imports.*  
+Please, note some differences in the way packages are imported when using the
+`next` bundle.  
+*I'm assuming that, because you're using `next`, you're also using the es6 syntax to
+do your imports.*  
 
 This:
 ```javascript
 const object = require('tolb/object');
 const { map } = require('tolb/list');
-const equals = require('tolb/assert/equals');
+const compose = require('tolb/combinator/compose');
 ```
 becomes this:
 ```javascript
 import * as object from 'tolb/next/object';
 import { map } from 'tolb/next/list';
-import equals from 'tolb/assert/equals';
+import compose from 'tolb/next/combinator/compose';
 ```
 
 ### Replace `tolb/next` with `tolb` in `import`s
