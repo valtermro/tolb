@@ -66,7 +66,7 @@ export default curry2((n, fn) => {
       };
     default:
       throw new Error(
-        `Trying to convert ${fn.name || 'a function'}` +
+        `Trying to convert ${fn.name ? `"${fn.name}"` : 'a function'} ` +
         'into a function with an invalid arity. Max allowed: 8');
   }
 });
