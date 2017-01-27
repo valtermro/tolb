@@ -10,19 +10,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vtfn/tolb.git"
+    "url": "git+https://github.com/valtermro/tolb.git"
   },
   "bugs": {
-    "url": "https://github.com/vtfn/tolb/issues"
+    "url": "https://github.com/valtermro/tolb/issues"
   },
-  "homepage": "https://github.com/vtfn/tolb#readme",
+  "homepage": "https://github.com/valtermro/tolb#readme",
   "keywords": [
     "functional",
     "fp",
     "helpers",
     "toolbelt"
   ],
-  "author": "vtfn <vtfn@outlook.com>",
+  "author": "valtermro <valtermro@outlook.com>",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.18.2",
