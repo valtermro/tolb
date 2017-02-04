@@ -194,7 +194,7 @@ const benchmark = () => function benchmark() {
     .pipe($.benchmark());
 };
 
-const clear = () => function clear(done) {
+const clean = () => function clean(done) {
   fs.readdirSync('./')
     .filter(p => !p.match(/^\..+|.+\.js[on]?|_dev|src|benchmark|node_modules|README|LICENSE/))
     .map(pathFromRoot)
@@ -328,7 +328,7 @@ gulp.task('bundle-next', bundle('next', false));
 gulp.task('bundle', gulp.parallel('bundle-node', 'bundle-next'));
 gulp.task('build', gulp.series(writeIndex('all'), 'test', 'bundle'));
 gulp.task('benchmark', benchmark());
-gulp.task('clear', clear());
+gulp.task('clean', clean());
 gulp.task('dev', gulp.series(
   gulp.parallel(writeIndex('all'), 'eslint', 'mocha'),
   watchBuild()
