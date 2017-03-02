@@ -1,0 +1,39 @@
+# Based on https://github.com/origamitower/folktale/blob/master/.gitlabels
+
+
+# Nature of the change
+# --------------------
+
+- (new)                Introduces new methods or packages.
+- (rm remove)          Removes methods or packages.
+- (doc documentation)  Introduces new, or improves existing, documentation.
+- (bench benchmark)    Introduces new, or improves existing, benchmarks.
+- (perf performance)   Introduces performance optimisations.
+- (re refactor)        Changes structure, but doesn't introduce new features nor fixes bugs.
+- (test)               Improves tests.
+- (fix)                Fixes the behaviour of exiting methods.
+- (chore)              Updates build tasks, npm metadata, dependencies, etc.
+
+
+# Qualifiers
+# --------------------
+
+- (!! important)  The commit introduces substantial changes.
+- (break)         The change breaks an existing feature.
+- (- minor)       The change is rather minor and may be ignored in most cases.
+- (release)       A new public release.
+
+
+# Scopes
+# --------------------
+
+- (scoped) The scope of changes
+  - (assert)      The assert package
+  - (combinator)  The combinator package
+  - (function)    The function package
+  - (list)        The list package
+  - (math)        The math package
+  - (number)      The number package
+  - (object)      The object package
+  - (string)      The string package
+  - (util)        The util package
