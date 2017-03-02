@@ -9,7 +9,7 @@ describe('arity(n, fn)', () => {
   const MAX = config.MAX_ARITY;
 
   it('wraps "fn" in a function that reports an arity of "n"', () => {
-    for (let i = 0; i < MAX; i++)
+    for (let i = 0; i <= MAX; i++)
       A.equal(arity(i, fn).length, i);
   });
 
