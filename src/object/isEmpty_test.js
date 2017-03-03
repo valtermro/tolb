@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import isEmpty from './isEmpty';
-import util from '../../_dev/util';
+import util from '../../build/util';
 
 describe('isEmpty(subject)', () => {
   function Foo() { /**/ }

@@ -1,7 +1,7 @@
-require('../../_dev/babel.register');
+require('../../build/babel.register');
 const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('list.contains() arrays');
-const util = require('../../_dev/util');
+const util = require('../../build/util');
 
 const contains = require('../../src/list/contains');
 const { contains: rcontains } = require('ramda');

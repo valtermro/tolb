@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import curryArgs from './curryArgs';
-import util from '../../../_dev/util';
+import util from '../../../build/util';
 
 describe('_internal.curryArgs(input)', () => {
   it('returns "input" if its length is greater than 0', () => {

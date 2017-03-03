@@ -1,7 +1,7 @@
-require('../../_dev/babel.register');
+require('../../build/babel.register');
 const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('list.unzip()');
-const util = require('../../_dev/util');
+const util = require('../../build/util');
 
 const unzip = require('../../src/list/unzip');
 const { unzip: lunzip } = require('lodash/fp');

@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import some from './some';
-import util from '../../_dev/util';
+import util from '../../build/util';
 
 describe('some(pred, list)', () => {
   function test(list, wanted) {

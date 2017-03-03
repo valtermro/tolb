@@ -1,7 +1,7 @@
-require('../../_dev/babel.register');
+require('../../build/babel.register');
 const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('object.values()');
-const util = require('../../_dev/util');
+const util = require('../../build/util');
 
 const values = require('../../src/object/values');
 const { values: rvalues } = require('ramda');

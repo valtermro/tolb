@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import findIndex from './findIndex';
-import util from '../../_dev/util';
+import util from '../../build/util';
 
 describe('findIndex(pred, list)', () => {
   const array = util.makeArray(10);

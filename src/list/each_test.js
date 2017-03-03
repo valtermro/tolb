@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import each from './each';
-import util from '../../_dev/util';
+import util from '../../build/util';
 
 describe('each(fn, list)', () => {
   const array = ['a', 'b', 'c', 'd'];

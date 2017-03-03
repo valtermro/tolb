@@ -7,7 +7,7 @@ const rmdir = require('rmdir');
 const gulp = require('gulp');
 const Server = require('karma').Server;
 const $ = require('gulp-load-plugins')();
-const babelConfig = require('./_dev/babel.config');
+const babelConfig = require('./build/babel.config');
 
 // use only relative paths
 const TEST_FILES = ['./src/**/*_test.js'];
@@ -20,7 +20,7 @@ const TEMPLATE = {
 `/* eslint-env mocha */
 import A from 'assert';
 import {{name}} from './{{name}}';
-import util from '../../_dev/util';
+import util from '../../build/util';
 
 describe('{{name}}({{args}})', () => {
   it('passes', () => {
@@ -29,10 +29,10 @@ describe('{{name}}({{args}})', () => {
 });\n`,
 
   bench:
-`require('../../_dev/babel.register');
+`require('../../build/babel.register');
 const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('{{pack}}.{{name}}()');
-const util = require('../../_dev/util');
+const util = require('../../build/util');
 
 const {{name}} = require('../../src/{{pack}}/{{name}}');
 
@@ -159,7 +159,7 @@ const mocha = (file, fail) => function mocha() {
     .pipe($.mocha({
       reporter: 'progress',
       bail: true,
-      require: ['./_dev/babel.register.js'],
+      require: ['./build/babel.register.js'],
     }));
 
   if (fail === false) {
@@ -174,7 +174,7 @@ const mocha = (file, fail) => function mocha() {
 const karma = () => function karma(done) {
   const single = $.util.env.s !== undefined;
   const server = new Server({
-    configFile: path.join(__dirname, '_dev/karma.config.js'),
+    configFile: path.join(__dirname, 'build/karma.config.js'),
     singleRun: single,
   }, done);
 
@@ -196,7 +196,7 @@ const benchmark = () => function benchmark() {
 
 const clean = () => function clean(done) {
   fs.readdirSync('./')
-    .filter(p => !p.match(/^\..+|.+\.js[on]?|_dev|src|benchmark|node_modules|README|LICENSE/))
+    .filter(p => !p.match(/^\..+|.+\.js[on]?|build|src|benchmark|node_modules|README|LICENSE/))
     .map(pathFromRoot)
     .forEach(p => rmdir(p));
   done();
@@ -322,7 +322,7 @@ gulp.task('mocha', mocha('all', false));
 gulp.task('karma', karma());
 gulp.task('eslint', eslint('all', false));
 gulp.task('test', gulp.parallel(eslint('all', true), mocha('all', true)));
-gulp.task('test-bundle', mocha('./_dev/bundle_test.js', true));
+gulp.task('test-bundle', mocha('./build/bundle_test.js', true));
 gulp.task('bundle-node', bundle('node', false));
 gulp.task('bundle-next', bundle('next', false));
 gulp.task('bundle', gulp.parallel('bundle-node', 'bundle-next'));

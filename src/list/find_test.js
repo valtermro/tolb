@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import find from './find';
-import util from '../../_dev/util';
+import util from '../../build/util';
 
 describe('find(pred, list)', () => {
   const array = util.makeArray(10);

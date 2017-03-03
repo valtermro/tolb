@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import map from './map';
-import util from '../../_dev/util';
+import util from '../../build/util';
 
 describe('map(fn, list)', () => {
   const array = ['f', 'o', 'o'];

@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import zipObject from './zipObject';
-import util from '../../_dev/util';
+import util from '../../build/util';
 
 describe('zipObject(keys, list)', () => {
   it('creates an object by pairing up "keys" with the values in "list"', () => {

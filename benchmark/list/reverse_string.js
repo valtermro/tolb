@@ -1,7 +1,7 @@
-require('../../_dev/babel.register');
+require('../../build/babel.register');
 const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('list.reverse() strings');
-const util = require('../../_dev/util');
+const util = require('../../build/util');
 
 const reverse = require('../../src/list/reverse');
 const { reverse: rreverse } = require('ramda');

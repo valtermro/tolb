@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import rpartial from './rpartial';
-import util from '../../_dev/util';
+import util from '../../build/util';
 
 describe('rpartial(fn, rightArgs)', () => {
   const fn = util.foo4;

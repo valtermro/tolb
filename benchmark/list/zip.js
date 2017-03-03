@@ -1,7 +1,7 @@
-require('../../_dev/babel.register');
+require('../../build/babel.register');
 const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('list.zip()');
-const util = require('../../_dev/util');
+const util = require('../../build/util');
 
 const zip = require('../../src/list/zip');
 const { zip: rzip } = require('ramda');

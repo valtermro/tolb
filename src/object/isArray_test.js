@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import isArray from './isArray';
-import util from '../../_dev/util';
+import util from '../../build/util';
 
 describe('isArray(subject)', () => {
   function MyArray() { /**/ }

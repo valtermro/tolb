@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import head from './head';
-import util from '../../_dev/util';
+import util from '../../build/util';
 
 describe('head(list)', () => {
   it('deals with strings', () => {

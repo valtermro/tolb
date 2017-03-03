@@ -1,7 +1,7 @@
-require('../../_dev/babel.register');
+require('../../build/babel.register');
 const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('object.keys()');
-const util = require('../../_dev/util');
+const util = require('../../build/util');
 
 const keys = require('../../src/object/keys');
 const { keys: rkeys } = require('ramda');

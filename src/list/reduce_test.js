@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import reduce from './reduce';
-import util from '../../_dev/util';
+import util from '../../build/util';
 
 describe('reduce(fn, initialValue, list)', () => {
   const array = ['b', 'c', 'd'];

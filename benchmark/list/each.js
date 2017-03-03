@@ -1,7 +1,7 @@
-require('../../_dev/babel.register');
+require('../../build/babel.register');
 const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('list.each()');
-const util = require('../../_dev/util');
+const util = require('../../build/util');
 
 const each = require('../../src/list/each');
 const { forEach } = require('ramda');

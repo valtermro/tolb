@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import curry from './curry';
-import util from '../../_dev/util';
+import util from '../../build/util';
 
 describe('curry(fn)', () => {
   const curried2 = curry(util.foo2);

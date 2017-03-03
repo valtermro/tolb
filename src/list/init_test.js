@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import init from './init';
-import util from '../../_dev/util';
+import util from '../../build/util';
 
 describe('init(list)', () => {
   it('deals with strings', () => {

@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import partial from './partial';
-import util from '../../_dev/util';
+import util from '../../build/util';
 
 describe('partial(fn, leftArgs)', () => {
   const fn = util.foo4;

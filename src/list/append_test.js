@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import append from './append';
-import util from '../../_dev/util';
+import util from '../../build/util';
 
 describe('append(value, list)', () => {
   const array = [2, 3, 4];

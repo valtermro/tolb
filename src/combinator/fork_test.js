@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import fork from './fork';
-import util from '../../_dev/util';
+import util from '../../build/util';
 
 describe('fork(join, f, g)', () => {
   const sum = (x, y) => x + y;

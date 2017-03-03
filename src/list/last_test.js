@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import last from './last';
-import util from '../../_dev/util';
+import util from '../../build/util';
 
 describe('last(list)', () => {
   it('deals with strings', () => {

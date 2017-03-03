@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import alt from './alt';
-import util from '../../_dev/util';
+import util from '../../build/util';
 
 describe('alt(f, g)', () => {
   const f = util.double;

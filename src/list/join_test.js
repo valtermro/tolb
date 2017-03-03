@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import join from './join';
-import util from '../../_dev/util';
+import util from '../../build/util';
 
 describe('join(glue, list)', () => {
   const array = util.makeArray(1000);

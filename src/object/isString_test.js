@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import isString from './isString';
-import util from '../../_dev/util';
+import util from '../../build/util';
 
 describe('isString(subject)', () => {
   it('checks if "subject" is a string', () => {

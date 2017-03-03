@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import every from './every';
-import util from '../../_dev/util';
+import util from '../../build/util';
 
 describe('every(pred, list)', () => {
   function test(list, wanted) {

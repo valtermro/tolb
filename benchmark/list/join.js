@@ -1,7 +1,7 @@
-require('../../_dev/babel.register');
+require('../../build/babel.register');
 const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('list.join()');
-const util = require('../../_dev/util');
+const util = require('../../build/util');
 
 const join = require('../../src/list/join');
 const { join: rjoin } = require('ramda');

@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import nth from './nth';
-import util from '../../_dev/util';
+import util from '../../build/util';
 
 describe('nth(n, list)', () => {
   function test(src) {

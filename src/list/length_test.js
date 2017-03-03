@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import length from './length';
-import util from '../../_dev/util';
+import util from '../../build/util';
 
 describe('length(list)', () => {
   it('returns the length of "list"', () => {

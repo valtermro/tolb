@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import contains from './contains';
-import util from '../../_dev/util';
+import util from '../../build/util';
 
 describe('contains(value, subject)', () => {
   const str = 'foo bar';

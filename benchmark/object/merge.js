@@ -1,7 +1,7 @@
-require('../../_dev/babel.register');
+require('../../build/babel.register');
 const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('object.merge()');
-const util = require('../../_dev/util');
+const util = require('../../build/util');
 
 const merge = require('../../src/object/merge');
 const { merge: rmerge } = require('ramda');

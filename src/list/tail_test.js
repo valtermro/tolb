@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import tail from './tail';
-import util from '../../_dev/util';
+import util from '../../build/util';
 
 describe('tail(list)', () => {
   it('deals with strings', () => {

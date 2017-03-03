@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import concat from './concat';
-import util from '../../_dev/util';
+import util from '../../build/util';
 
 describe('concat(other, list)', () => {
   it('deals with strings', () => {

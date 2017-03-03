@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import curry3 from './curry3';
-import util from '../../_dev/util';
+import util from '../../build/util';
 
 describe('_iternal.curry3(fn, reverse)', () => {
   const values = [

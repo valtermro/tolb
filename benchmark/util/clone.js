@@ -1,6 +1,6 @@
-require('../../_dev/babel.register');
+require('../../build/babel.register');
 const Benchmark = require('Benchmark');
-const util = require('../../_dev/util');
+const util = require('../../build/util');
 
 const clone = require('../../src/util/clone');
 const suite = new Benchmark.Suite('util.clone()');
