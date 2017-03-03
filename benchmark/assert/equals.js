@@ -9,10 +9,10 @@ const { equals: lequals } = require('lodash/fp');
 
 const obj1 = util.makeArray(100);
 const obj2 = util.makeArray(100);
-obj1[100] = util.makeObject(100);
-obj2[100] = util.makeObject(100);
-obj1[100]['key-10'] = util.makeArray(100);
-obj2[100]['key-10'] = util.makeArray(100);
+obj1[99] = util.makeObject(100);
+obj2[99] = util.makeObject(100);
+obj1[99]['key-10'] = util.makeArray(100);
+obj2[99]['key-10'] = util.makeArray(100);
 
 suite
   .add('assert.equals', () => {
