@@ -11,19 +11,16 @@ const fn = util.foo4;
 
 suite
   .add('function.curry', () => {
-    let f = curry(fn);
-    for (let i = 0; i < fn.length; i++)
-      f = f(i);
+    curry(fn)(1, 2, 3, 4);
+    curry(fn)(1)(2)(3)(4);
   })
   .add('ramda.curry', () => {
-    let f = rcurry(fn);
-    for (let i = 0; i < fn.length; i++)
-      f = f(i);
+    rcurry(fn)(1, 2, 3, 4);
+    rcurry(fn)(1)(2)(3)(4);
   })
   .add('lodash.curry', () => {
-    let f = lcurry(fn);
-    for (let i = 0; i < fn.length; i++)
-      f = f(i);
+    lcurry(fn)(1, 2, 3, 4);
+    lcurry(fn)(1)(2)(3)(4);
   });
 
 module.exports = suite;
