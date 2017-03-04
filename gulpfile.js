@@ -43,9 +43,9 @@ suite
 module.exports = suite;\n`,
 };
 
-//------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // HELPERS
-//------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 const readFiles = (fullPath, includeTests) => (dir) => {
   let result = fs.readdirSync(dir)
     .filter(f => f !== 'index.js' && f[0] !== '_');
@@ -69,19 +69,10 @@ const fileExists = (dir, file) => {
   return files.indexOf(file) >= 0;
 };
 
-const message = (color, bg) => (msg) => {
-  if (bg == null) {
-    console.error(chalk.red(msg));
-  } else {
-    const bgColor = `bg${bg[0].toUpperCase()}${bg.slice(1)}`;
-    console.error(chalk[color](chalk[bgColor](msg)));
-  }
-};
-
-const error = message('white', 'red');
-const failure = done => (msg) => {
-  error(msg);
-  done();
+const log = {
+  error(msg) {
+    console.log(chalk.bold('\nError:'), chalk.yellow(msg), '\n');
+  },
 };
 
 const pathFromRoot = (relative) => {
@@ -93,7 +84,7 @@ const pathFromSrc = (relative) => {
 
 const fileInfo = (name, suffix) => {
   if (typeof name !== 'string' || name.indexOf('.') < 0)
-    return error(`"${name}" is not a valid name`);
+    return log.error(`"${name}" is not a valid name`);
 
   const [pack, fn] = name.split('.');
   const fname = suffix !== '_bench' ? `${fn}${suffix}.js` : `${fn}.js`;
@@ -132,9 +123,9 @@ const writeIndex = dir => function writeIndex(done) {
   if (done) done();
 };
 
-//------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // TASKS
-//------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 const bundle = name => function bundle() {
   return gulp.src(SRC_FILES)
     .pipe($.babel(babelConfig[name]))
@@ -255,14 +246,10 @@ const create = () => function create(done) {
   const test = $.util.env.t !== undefined ? $.util.env.t : file ? 'true' : 'false';
   const bench = $.util.env.b !== undefined ? $.util.env.b : 'false';
   const args = $.util.env.a !== undefined ? $.util.env.a.replace(/,/g, ', ') : undefined;
-  const fail = failure(done);
-
-  if ((file !== undefined || test !== 'false') && args === undefined)
-    return fail('no argument list defined');
-
-  if (!file && test === true && !bench)
-    return fail('nothing to do');
-
+  const fail = (msg) => {
+    log.error(msg);
+    done();
+  };
   const write = (what, file, name, pack, args) => {
     const contents = TEMPLATE[what]
       .replace(/{{name}}/g, name)
@@ -271,6 +258,12 @@ const create = () => function create(done) {
 
     fs.writeFileSync(file, contents);
   };
+
+  if ((file !== undefined || test !== 'false') && args === undefined)
+    return fail('no argument list defined');
+
+  if (!file && test === true && !bench)
+    return fail('nothing to do');
 
   if (file) {
     const [pack, fn, dir, fname] = fileInfo(file, '');
