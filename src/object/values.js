@@ -10,9 +10,8 @@
  */
 export default function values(obj) {
   const keys = Object.keys(obj);
-  const length = keys.length;
-  const result = new Array(length);
-  for (let i = 0; i < length; i++)
+  const result = new Array(keys.length);
+  for (let i = 0; i < keys.length; i++)
     result[i] = obj[keys[i]];
   return result;
 }

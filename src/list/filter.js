@@ -24,8 +24,7 @@ import curry2 from '../_internal/curry2';
  */
 export default curry2((pred, list) => {
   const result = [];
-  const length = list.length;
-  for (let i = 0; i < length; i++) {
+  for (let i = 0; i < list.length; i++) {
     if (pred(list[i], i))
       result[result.length] = list[i];
   }

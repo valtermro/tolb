@@ -27,8 +27,7 @@ export default curry2((value, subject) => {
   if (typeof subject === 'string')
     return subject.indexOf(value) >= 0;
 
-  const length = subject.length;
-  for (let i = 0; i < length; i++) {
+  for (let i = 0; i < subject.length; i++) {
     if (typeof value === 'number' || typeof value === 'object')
       return equals(subject[i], value);
 

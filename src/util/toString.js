@@ -37,25 +37,21 @@ export default function toString(obj) {
 function stringfy(obj, array) {
   if (!array) {
     const keys = Object.keys(obj);
-    const length = keys.length;
-    if (length === 0)
+
+    if (keys.length === 0)
       return '{}';
 
-    let k = keys[0];
-    let result = `{${toString(k)}:${toString(obj[k])}`;
-    for (let i = 1; i < length; i++) {
-      k = keys[i];
-      result += `,${toString(k)}:${toString(obj[k])}`;
-    }
+    let result = `{${toString(keys[0])}:${toString(obj[keys[0]])}`;
+    for (let i = 1; i < keys.length; i++)
+      result += `,${toString(keys[i])}:${toString(obj[keys[i]])}`;
     return `${result}}`;
   }
 
-  const length = obj.length;
-  if (length === 0)
+  if (obj.length === 0)
     return '[]';
 
   let result = `[${toString(obj[0])}`;
-  for (let i = 1; i < length; i++)
+  for (let i = 1; i < obj.length; i++)
     result += `,${toString(obj[i])}`;
   return `${result}]`;
 }

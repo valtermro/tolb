@@ -19,9 +19,8 @@
  *   unzip([[1, 4], [2, 5], [3, 6]]) //=> [[1, 2, 3], [4, 5, 6]]
  */
 export default function unzip(list) {
-  const length = list.length;
-  const result = [new Array(length), new Array(length)];
-  for (let i = 0; i < length; i++) {
+  const result = [new Array(list.length), new Array(list.length)];
+  for (let i = 0; i < list.length; i++) {
     result[0][i] = list[i][0];
     result[1][i] = list[i][1];
   }

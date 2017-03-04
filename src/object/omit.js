@@ -14,14 +14,13 @@ import curry2 from '../_internal/curry2';
  *
  *   omit(['age', 'admin'], user) //=> { name: 'Foo' }
  */
-export default curry2((keys, obj) => {
-  const objKeys = Object.keys(obj);
-  const length = objKeys.length;
+export default curry2((keyList, obj) => {
+  const keys = Object.keys(obj);
 
   const result = {};
-  for (let i = 0; i < length; i++) {
-    const key = objKeys[i];
-    if (keys.indexOf(key) < 0)
+  for (let i = 0; i < keys.length; i++) {
+    const key = keys[i];
+    if (keyList.indexOf(key) < 0)
       result[key] = obj[key];
   }
   return result;

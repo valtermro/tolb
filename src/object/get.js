@@ -23,9 +23,8 @@ import curry2 from '../_internal/curry2';
  */
 export default curry2(function get(key, obj) {
   if (key instanceof Array) {
-    const length = key.length;
-    const result = new Array(length);
-    for (let i = 0; i < length; i++)
+    const result = new Array(key.length);
+    for (let i = 0; i < key.length; i++)
       result[i] = get(key[i], obj);
     return result;
   }

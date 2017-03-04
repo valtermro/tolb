@@ -19,8 +19,7 @@ import curry2 from '../_internal/curry2';
  * @return {List} The `list` itself
  */
 export default curry2((fn, list) => {
-  const length = list.length;
-  for (let i = 0; i < length; i++)
+  for (let i = 0; i < list.length; i++)
     fn(list[i], i);
 
   return list;

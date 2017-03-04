@@ -25,17 +25,16 @@ import concat from '../_internal/concat';
 export default function partial(fn, leftArgs) {
   if (!(leftArgs instanceof Array))
     throw new TypeError('Expected: array');
-
   const fnLen = fn.length;
-  const leftLen = leftArgs.length;
+
   let ari = fnLen;
-  for (let i = 0; i < leftLen; i++) {
+  for (let i = 0; i < leftArgs.length; i++) {
     if (leftArgs[i] !== partial)
       ari -= 1;
   }
   if (ari < 0) ari = 0;
 
-  if (ari === fnLen - leftLen) {
+  if (ari === fnLen - leftArgs.length) {
     // it's way faster than checking for placeholders we know aren't there
     return arity(ari, function (/* rightArgs */) {
       return fn.apply(undefined, concat(leftArgs, arguments));
@@ -44,7 +43,7 @@ export default function partial(fn, leftArgs) {
 
   return arity(ari, (...rightArgs) => {
     const useArgs = [];
-    for (let i = 0; i < leftLen; i++) {
+    for (let i = 0; i < leftArgs.length; i++) {
       if (leftArgs[i] === partial)
         useArgs[useArgs.length] = rightArgs.shift();
       else

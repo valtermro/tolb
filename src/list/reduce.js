@@ -29,9 +29,8 @@ import curry3 from '../_internal/curry3';
  *   reduce(ids, [], [1, 2]) //=> [{ id: 1 }, { id: 2 }]
  */
 export default curry3((fn, initialValue, list) => {
-  const length = list.length;
   let result = initialValue;
-  for (let i = 0; i < length; i++)
+  for (let i = 0; i < list.length; i++)
     result = fn(result, list[i], i);
   return result;
 });

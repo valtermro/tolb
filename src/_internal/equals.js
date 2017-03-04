@@ -12,7 +12,7 @@
  */
 export default function equals(left, right) {
   // Primitive values??
-  //------------------------------
+  // ------------------------------
   if (left == null || right == null)
     // null === null || undefined === undefined
     return left === right;
@@ -30,13 +30,11 @@ export default function equals(left, right) {
     return left === right;
 
   // Indexed lists??
-  //--------------------------------
-  const leftLen = left.length;
-  const rightLen = right.length;
-  if (typeof leftLen === 'number' && typeof rightLen === 'number') {
-    if (leftLen !== rightLen)
+  // --------------------------------
+  if (typeof left.length === 'number' && typeof right.length === 'number') {
+    if (left.length !== right.length)
       return false;
-    for (let i = 0; i < leftLen; i++) {
+    for (let i = 0; i < left.length; i++) {
       if (!equals(left[i], right[i]))
         return false;
     }
@@ -44,7 +42,7 @@ export default function equals(left, right) {
   }
 
   // Objects??
-  //-------------------------------
+  // -------------------------------
   if (left.constructor === Object && right.constructor === Object) {
     // `left` should have the same keys that `right`
     for (const k in right) {

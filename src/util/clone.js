@@ -33,20 +33,16 @@ export default function clone(obj) {
   if (obj == null || typeof obj !== 'object')
     return obj;
 
-  let result;
   if (obj instanceof Array) {
-    const length = obj.length;
-    result = new Array(length);
-    for (let i = 0; i < length; i++)
+    const result = new Array(obj.length);
+    for (let i = 0; i < obj.length; i++)
       result[i] = clone(obj[i]);
-  } else {
-    result = {};
-    const keys = Object.keys(obj);
-    const length = keys.length;
-    for (let i = 0; i < length; i++) {
-      const key = keys[i];
-      result[key] = clone(obj[key]);
-    }
+    return result;
   }
+
+  const keys = Object.keys(obj);
+  const result = {};
+  for (let i = 0; i < keys.length; i++)
+    result[keys[i]] = clone(obj[keys[i]]);
   return result;
 }

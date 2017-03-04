@@ -24,12 +24,9 @@ export default curry2((value, list) => {
   if (typeof list === 'string')
     return list + value;
 
-  const length = list.length;
-  const result = new Array(length + 1);
-
-  for (let i = 0; i < length; i++)
+  const result = new Array(list.length + 1);
+  for (let i = 0; i < list.length; i++)
     result[i] = list[i];
-  result[length] = value;
-
+  result[list.length] = value;
   return result;
 });

@@ -30,17 +30,15 @@ import curry2 from '../_internal/curry2';
  *   map(toUpper, 'foo') //=> 'FOO'
  */
 export default curry2((fn, list) => {
-  const length = list.length;
-
   if (typeof list === 'string') {
     let result = '';
-    for (let i = 0; i < length; i++)
+    for (let i = 0; i < list.length; i++)
       result += fn(list[i], i);
     return result;
   }
 
-  const result = new Array(length);
-  for (let i = 0; i < length; i++)
+  const result = new Array(list.length);
+  for (let i = 0; i < list.length; i++)
     result[i] = fn(list[i], i);
   return result;
 });

@@ -20,9 +20,8 @@ import _reverse from '../_internal/reverse';
  */
 export default function reverse(list) {
   if (typeof list === 'string') {
-    const length = list.length;
     let result = '';
-    for (let i = length - 1; i >= 0; i--)
+    for (let i = list.length - 1; i >= 0; i--)
       result += list[i];
     return result;
   }

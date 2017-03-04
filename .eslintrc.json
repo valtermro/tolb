@@ -106,10 +106,7 @@
         "allowNamedFunctions": true,
         "allowUnboundThis": true
       }],
-    "spaced-comment": [2, "always", {
-        "exceptions": ["-", "+"],
-        "markers": ["=", "!"]
-      }],
+    "spaced-comment": [2, "always"],
     "valid-typeof": 2,
     "yoda": [2, "never"],
 

@@ -17,8 +17,7 @@ import curry2 from '../_internal/curry2';
  *   every(isEven, [0, 1, 2]) //=> false
  */
 export default curry2((pred, list) => {
-  const length = list.length;
-  for (let i = 0; i < length; i++) {
+  for (let i = 0; i < list.length; i++) {
     if (!pred(list[i], i))
       return false;
   }

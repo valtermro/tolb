@@ -14,10 +14,9 @@
  */
 export default function seq(/* fns */) {
   const fns = arguments;
-  const length = fns.length;
 
   return function (v) {
-    for (let i = 0; i < length; i++)
+    for (let i = 0; i < fns.length; i++)
       fns[i](v);
   };
 }

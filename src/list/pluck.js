@@ -25,9 +25,8 @@ import curry2 from '../_internal/curry2';
  *   pluck('name', list) //=> ['Foo', 'Bar', 'Baz']
  */
 export default curry2((prop, list) => {
-  const length = list.length;
-  const result = new Array(length);
-  for (let i = 0; i < length; i++)
+  const result = new Array(list.length);
+  for (let i = 0; i < list.length; i++)
     result[i] = list[i][prop];
   return result;
 });

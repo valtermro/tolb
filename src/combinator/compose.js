@@ -20,12 +20,11 @@ import arity from '../_internal/arity';
  */
 export default function compose(/* fns */) {
   const fns = arguments;
-  const length = fns.length;
-  const last = fns[length - 1];
+  const last = fns[fns.length - 1];
 
   return arity(last.length, function (/* args */) {
     let result = last.apply(undefined, arguments);
-    for (let i = length - 2; i >= 0; i--)
+    for (let i = fns.length - 2; i >= 0; i--)
       result = fns[i](result);
     return result;
   });

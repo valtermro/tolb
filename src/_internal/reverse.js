@@ -6,9 +6,8 @@
  * @return {Array} A copy of `array` with its values in reverse order
  */
 export default function reverse(array) {
-  const length = array.length;
-  const result = new Array(length);
-  for (let i = length - 1, k = 0; i >= 0; i--)
+  const result = new Array(array.length);
+  for (let i = array.length - 1, k = 0; i >= 0; i--)
     result[k++] = array[i];
   return result;
 }
