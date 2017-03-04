@@ -12,43 +12,56 @@ const babelConfig = require('./build/babel.config');
 // use only relative paths
 const TEST_FILES = ['./src/**/*_test.js'];
 const SRC_FILES = ['./src/**/*.js', '!./src/**/*_test.js'];
-const TEMPLATE = {
-  src:
-'export default function {{name}}({{args}}) {\n}\n',
-
-  test:
-`/* eslint-env mocha */
-import A from 'assert';
-import {{name}} from './{{name}}';
-import util from '../../build/util';
-
-describe('{{name}}({{args}})', () => {
-  it('passes', () => {
-    A.equal({{name}}, {{name}});
-  });
-});\n`,
-
-  bench:
-`require('../../build/babel.register');
-const Benchmark = require('Benchmark');
-const suite = new Benchmark.Suite('{{pack}}.{{name}}()');
-const util = require('../../build/util');
-
-const {{name}} = require('../../src/{{pack}}/{{name}}');
-
-suite
-  .add('{{pack}}.{{name}}', () => {
-  });
-
-module.exports = suite;\n`,
-};
 
 // -----------------------------------------------------------------------------
 // HELPERS
 // -----------------------------------------------------------------------------
-const readFiles = (fullPath, includeTests) => (dir) => {
+const newFileTemplate = {
+  src(name, pack, args) {
+    return `export default function ${name}(${args.replace(/,/g, ', ')}) {\n}\n`;
+  },
+
+  test(name, pack, args) {
+    return [
+      '/* eslint-env mocha */',
+      'import A from \'assert\';',
+      `import ${name} from './${name}';`,
+      'import util from \'../../build/util\';',
+      '',
+      `describe('${name}(${args.replace(/,/g, ', ')})', () => {`,
+      '  it(\'passes\', () => {',
+      `    A.equal(${name}, ${name});`,
+      '  });',
+      '});',
+      '',
+    ].join('\n');
+  },
+
+  bench(name, pack) {
+    return [
+      'require(\'../../build/babel.register\');',
+      'const Benchmark = require(\'Benchmark\');',
+      `const suite = new Benchmark.Suite('${pack}.${name}()');`,
+      'const util = require(\'../../build/util\');',
+      '',
+      `const ${name} = require('../../src/${pack}/${name}');`,
+      '',
+      'suite',
+      `  .add('${pack}.${name}', () => {`,
+      '  });',
+      '',
+      'module.exports = suite;',
+      '',
+    ].join('\n');
+  },
+};
+
+const readFiles = (fullPath, includeTests, includeDangled) => (dir) => {
   let result = fs.readdirSync(dir)
-    .filter(f => f !== 'index.js' && f[0] !== '_');
+    .filter(f => f !== 'index.js');
+
+  if (!includeDangled)
+    result = result.filter(f => f[0] !== '_');
 
   if (!includeTests)
     result = result.filter(f => f.slice(-8) !== '_test.js');
@@ -59,9 +72,10 @@ const readFiles = (fullPath, includeTests) => (dir) => {
   return result;
 };
 
-const PACKAGES = readFiles(false, false)('./src');
+const packageList = readFiles(false, false, true)('./src');
+
 const packExists = (name) => {
-  return PACKAGES.indexOf(name) >= 0;
+  return packageList.indexOf(name) >= 0;
 };
 
 const fileExists = (dir, file) => {
@@ -78,6 +92,7 @@ const log = {
 const pathFromRoot = (relative) => {
   return path.join(__dirname, relative);
 };
+
 const pathFromSrc = (relative) => {
   return path.join(__dirname, 'src', relative);
 };
@@ -242,21 +257,19 @@ const watchBuild = () => function watching(done) {
 };
 
 const create = () => function create(done) {
-  const file = $.util.env.f;
-  const test = $.util.env.t !== undefined ? $.util.env.t : file ? 'true' : 'false';
-  const bench = $.util.env.b !== undefined ? $.util.env.b : 'false';
-  const args = $.util.env.a !== undefined ? $.util.env.a.replace(/,/g, ', ') : undefined;
+  const env = $.util.env;
+  const file = env.f;
+  const test = env.t !== undefined ? env.t : file ? 'true' : 'false';
+  const bench = env.b !== undefined ? env.b : 'false';
+  const args = env.a !== undefined && typeof env.a !== 'boolean' ? env.a : '';
   const fail = (msg) => {
     log.error(msg);
     done();
   };
   const write = (what, file, name, pack, args) => {
-    const contents = TEMPLATE[what]
-      .replace(/{{name}}/g, name)
-      .replace(/{{pack}}/g, pack)
-      .replace(/{{args}}/g, args);
-
-    fs.writeFileSync(file, contents);
+    const contents = newFileTemplate[what](name, pack, args);
+    fs.writeFileSync(file,
+      contents);
   };
 
   if ((file !== undefined || test !== 'false') && args === undefined)
