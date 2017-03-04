@@ -18,47 +18,61 @@ describe('rcurry(fn)', () => {
     A.deepEqual(curried3(1)(2)(3), [3, 2, 1]);
     A.deepEqual(curried4(1)(2)(3)(4), [4, 3, 2, 1]);
 
-    assert(curried6(1)(2)(3)(4)(5)(6));
-    assert(curried6(1)(2, 3, 4, 5, 6));
-    assert(curried6(1, 2)(3, 4, 5, 6));
-    assert(curried6(1, 2, 3)(4, 5, 6));
-    assert(curried6(1, 2, 3, 4)(5, 6));
+    assert(curried6(1, 2, 3, 4, 5, 6));
     assert(curried6(1, 2, 3, 4, 5)(6));
-    assert(curried6(1)(2, 3, 4, 5)(6));
-    assert(curried6(1, 2)(3, 4, 5)(6));
-    assert(curried6(1, 2, 3)(4, 5)(6));
+
+    assert(curried6(1, 2, 3, 4)(5, 6));
     assert(curried6(1, 2, 3, 4)(5)(6));
-    assert(curried6(1)(2, 3, 4)(5)(6));
-    assert(curried6(1)(2)(3, 4)(5)(6));
-    assert(curried6(1, 2)(3, 4)(5)(6));
-    assert(curried6(1, 2, 3)(4)(5)(6));
-    assert(curried6(1, 2)(3)(4)(5)(6));
-    assert(curried6(1)(2)(3, 4, 5, 6));
-    assert(curried6(1)(2, 3)(4)(5)(6));
+
+    assert(curried6(1, 2, 3)(4, 5, 6));
+    assert(curried6(1, 2, 3)(4, 5)(6));
     assert(curried6(1, 2, 3)(4)(5, 6));
-    assert(curried6(1, 2)(3)(4)(5, 6));
+    assert(curried6(1, 2, 3)(4)(5)(6));
+
+    assert(curried6(1, 2)(3, 4, 5, 6));
+    assert(curried6(1, 2)(3, 4, 5)(6));
+    assert(curried6(1, 2)(3, 4)(5, 6));
+    assert(curried6(1, 2)(3, 4)(5)(6));
     assert(curried6(1, 2)(3)(4, 5, 6));
-    assert(curried6(1)(2)(3)(4)(5, 6));
+    assert(curried6(1, 2)(3)(4, 5)(6));
+    assert(curried6(1, 2)(3)(4)(5, 6));
+    assert(curried6(1, 2)(3)(4)(5)(6));
+
+    assert(curried6(1)(2, 3, 4, 5, 6));
+    assert(curried6(1)(2, 3, 4, 5)(6));
+    assert(curried6(1)(2, 3, 4)(5, 6));
+    assert(curried6(1)(2, 3, 4)(5)(6));
+    assert(curried6(1)(2, 3)(4, 5, 6));
+    assert(curried6(1)(2, 3)(4, 5)(6));
+    assert(curried6(1)(2, 3)(4)(5, 6));
+    assert(curried6(1)(2, 3)(4)(5)(6));
+
+    assert(curried6(1)(2)(3, 4, 5, 6));
+    assert(curried6(1)(2)(3, 4, 5)(6));
+    assert(curried6(1)(2)(3, 4)(5, 6));
+    assert(curried6(1)(2)(3, 4)(5)(6));
     assert(curried6(1)(2)(3)(4, 5, 6));
     assert(curried6(1)(2)(3)(4, 5)(6));
-    assert(curried6(1)(2, 3)(4, 5, 6));
-    assert(curried6(1)(2, 3)(4)(5, 6));
-    assert(curried6(1, 2)(3, 4)(5, 6));
-    assert(curried6(1)(2)(3, 4)(5, 6));
-    assert(curried6(1)(2, 3, 4)(5, 6));
-    assert(curried6(1, 2, 3, 4, 5, 6));
+    assert(curried6(1)(2)(3)(4)(5, 6));
+    assert(curried6(1)(2)(3)(4)(5)(6));
 
     // one may pass an extra argument at some point
-    assert(curried6(1)(2)(3)(4)(5)(6, 7, 8));
-    assert(curried6(1, 2)(3)(4)(5)(6, 7, 8));
-    assert(curried6(1, 2, 3)(4)(5)(6, 7, 8));
-    assert(curried6(1, 2, 3, 4)(5)(6, 7, 8));
-    assert(curried6(1, 2, 3, 4, 5)(6, 7, 8));
-    assert(curried6(1)(2)(3)(4)(5, 6, 7, 8));
-    assert(curried6(1)(2)(3)(4, 5, 6, 7, 8));
-    assert(curried6(1)(2)(3, 4, 5, 6, 7, 8));
-    assert(curried6(1)(2, 3, 4, 5, 6, 7, 8));
-    assert(curried6(1, 2, 3, 4, 5, 6, 7, 8));
+    assert(curried6(1, 2, 3, 4, 5, 6, 7));
+    assert(curried6(1, 2, 3, 4)(5, 6, 7));
+    assert(curried6(1, 2, 3)(4, 5, 6, 7));
+    assert(curried6(1, 2, 3)(4)(5, 6, 7));
+    assert(curried6(1, 2)(3, 4, 5, 6, 7));
+    assert(curried6(1, 2)(3, 4)(5, 6, 7));
+    assert(curried6(1, 2)(3)(4, 5, 6, 7));
+    assert(curried6(1, 2)(3)(4)(5, 6, 7));
+    assert(curried6(1)(2, 3, 4, 5, 6, 7));
+    assert(curried6(1)(2, 3, 4)(5, 6, 7));
+    assert(curried6(1)(2, 3)(4, 5, 6, 7));
+    assert(curried6(1)(2, 3)(4)(5, 6, 7));
+    assert(curried6(1)(2)(3, 4, 5, 6, 7));
+    assert(curried6(1)(2)(3, 4)(5, 6, 7));
+    assert(curried6(1)(2)(3)(4, 5, 6, 7));
+    assert(curried6(1)(2)(3)(4)(5, 6, 7));
   });
 
   it('each function holds its state', () => {

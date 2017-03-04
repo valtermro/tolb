@@ -26,16 +26,14 @@ describe('_iternal.curry3(fn, reverse)', () => {
     it('converts "fn" into a function that can be used as a curried function', () => {
       const assert = v => A.deepEqual(v, v0);
 
-      assert(curried(1)(2)(3));
-      assert(curried(1)(2, 3));
-      assert(curried(1, 2)(3));
       assert(curried(1, 2, 3));
+      assert(curried(1, 2)(3));
+      assert(curried(1)(2, 3));
+      assert(curried(1)(2)(3));
 
       // one may pass an extra argument at some point
-      assert(curried(1)(2)(3, 4));
-      assert(curried(1)(2, 3, 4));
-      assert(curried(1, 2)(3, 4));
       assert(curried(1, 2, 3, 4));
+      assert(curried(1)(2, 3, 4));
     });
 
     it('each function holds its state', () => {
