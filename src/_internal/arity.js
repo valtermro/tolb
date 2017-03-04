@@ -53,6 +53,7 @@ export default function arity(n, fn) {
       };
     default:
       throw new Error(
-        'Trying to convert a function into a function with an invalid arity. Max allowed: 8');
+        `Trying to convert ${fn.name ? `"${fn.name}"` : 'a function'} ` +
+        'into a function with an invalid arity. Max allowed: 8');
   }
 }

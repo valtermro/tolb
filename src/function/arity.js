@@ -29,39 +29,39 @@ import curry2 from '../_internal/curry2';
 export default curry2((n, fn) => {
   switch (n) {
     case 0:
-      return () => {
+      return function () {
         return fn();
       };
     case 1:
-      return (a1) => {
+      return function (a1) {
         return fn(a1);
       };
     case 2:
-      return (a1, a2) => {
+      return function (a1, a2) {
         return fn(a1, a2);
       };
     case 3:
-      return (a1, a2, a3) => {
+      return function (a1, a2, a3) {
         return fn(a1, a2, a3);
       };
     case 4:
-      return (a1, a2, a3, a4) => {
+      return function (a1, a2, a3, a4) {
         return fn(a1, a2, a3, a4);
       };
     case 5:
-      return (a1, a2, a3, a4, a5) => {
+      return function (a1, a2, a3, a4, a5) {
         return fn(a1, a2, a3, a4, a5);
       };
     case 6:
-      return (a1, a2, a3, a4, a5, a6) => {
+      return function (a1, a2, a3, a4, a5, a6) {
         return fn(a1, a2, a3, a4, a5, a6);
       };
     case 7:
-      return (a1, a2, a3, a4, a5, a6, a7) => {
+      return function (a1, a2, a3, a4, a5, a6, a7) {
         return fn(a1, a2, a3, a4, a5, a6, a7);
       };
     case 8:
-      return (a1, a2, a3, a4, a5, a6, a7, a8) => {
+      return function (a1, a2, a3, a4, a5, a6, a7, a8) {
         return fn(a1, a2, a3, a4, a5, a6, a7, a8);
       };
     default:
