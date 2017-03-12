@@ -1,7 +1,7 @@
-require('../../_dev/babel.register');
+require('../../build/babel.register');
 const Benchmark = require('Benchmark');
 const suite = new Benchmark.Suite('function.rcurry() arity == 2');
-const util = require('../../_dev/util');
+const util = require('../../build/util');
 
 const rcurry = require('../../src/function/rcurry');
 const { curryRight } = require('lodash/fp');
