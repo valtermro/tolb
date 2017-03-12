@@ -19,9 +19,8 @@ export default curry2((keyList, obj) => {
 
   const result = {};
   for (let i = 0; i < keys.length; i++) {
-    const key = keys[i];
-    if (keyList.indexOf(key) < 0)
-      result[key] = obj[key];
+    if (keyList.indexOf(keys[i]) < 0)
+      result[keys[i]] = obj[keys[i]];
   }
   return result;
 });

@@ -18,18 +18,12 @@ import curry2 from '../_internal/curry2';
  */
 export default curry2((source, target) => {
   const targetKeys = Object.keys(target);
-  const targetLength = targetKeys.length;
   const sourceKeys = Object.keys(source);
-  const sourceLength = sourceKeys.length;
 
   const result = {};
-  for (let i = 0; i < targetLength; i++) {
-    const key = targetKeys[i];
-    result[key] = target[key];
-  }
-  for (let i = 0; i < sourceLength; i++) {
-    const key = sourceKeys[i];
-    result[key] = source[key];
-  }
+  for (let i = 0; i < targetKeys.length; i++)
+    result[targetKeys[i]] = target[targetKeys[i]];
+  for (let i = 0; i < sourceKeys.length; i++)
+    result[sourceKeys[i]] = source[sourceKeys[i]];
   return result;
 });

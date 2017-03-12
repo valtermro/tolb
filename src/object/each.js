@@ -14,9 +14,8 @@ import curry2 from '../_internal/curry2';
  */
 export default curry2((fn, obj) => {
   const keys = Object.keys(obj);
-  for (let i = 0; i < keys.length; i++) {
-    const key = keys[i];
-    fn(obj[key], key);
-  }
+  for (let i = 0; i < keys.length; i++)
+    fn(obj[keys[i]], keys[i]);
+
   return obj;
 });

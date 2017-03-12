@@ -13,12 +13,10 @@ import words from './_internal/words';
  *   toCamel('foo bar') //=> fooBar
  */
 export default function toCamel(str) {
-  const wordList = words(str);
+  const w = words(str);
 
   let result = '';
-  for (let i = 0; i < wordList.length; i++) {
-    const w = wordList[i];
-    result += i === 0 ? w.toLowerCase() : w[0].toUpperCase() + w.slice(1);
-  }
+  for (let i = 0; i < w.length; i++)
+    result += i === 0 ? w[i].toLowerCase() : w[i][0].toUpperCase() + w[i].slice(1);
   return result;
 }

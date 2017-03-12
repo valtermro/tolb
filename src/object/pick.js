@@ -17,9 +17,8 @@ import hasOwnProp from './_internal/hasOwnProp';
 export default curry2((keys, obj) => {
   const result = {};
   for (let i = 0; i < keys.length; i++) {
-    const key = keys[i];
-    if (hasOwnProp.call(obj, key))
-      result[key] = obj[key];
+    if (hasOwnProp.call(obj, keys[i]))
+      result[keys[i]] = obj[keys[i]];
   }
   return result;
 });

@@ -8,12 +8,9 @@
  */
 export default function concat(left, right) {
   const result = [];
-
   for (let i = 0; i < left.length; i++)
     result[result.length] = left[i];
-
   for (let i = 0; i < right.length; i++)
     result[result.length] = right[i];
-
   return result;
 }

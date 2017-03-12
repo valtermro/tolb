@@ -27,6 +27,5 @@ import concat from '../_internal/concat';
 export default curry2((other, list) => {
   if (typeof other === 'string' && typeof list === 'string')
     return list + other;
-
   return concat(list, other);
 });

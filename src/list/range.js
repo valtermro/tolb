@@ -13,8 +13,7 @@ import curry2 from '../_internal/curry2';
  *   range(2, 6) //=> [2, 3, 4, 5, 6]
  */
 export default curry2((start, end) => {
-  const length = end - start;
-  const result = new Array(length > 0 ? length : 0);
+  const result = new Array(Math.max(0, end - start));
   for (let i = start, k = 0; i < end; i++)
     result[k++] = i;
   return result;
