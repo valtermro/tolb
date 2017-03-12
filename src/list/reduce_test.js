@@ -3,11 +3,11 @@ import A from 'assert';
 import reduce from './reduce';
 import util from '../../build/util';
 
-describe('reduce(fn, initialValue, list)', () => {
+describe('reduce(fn, accum, list)', () => {
   const array = ['b', 'c', 'd'];
   const arrayLike = util.arrayLike('b', 'c', 'd');
 
-  it('uses "fn" to reduce "initialValue" and the value in "list" to a single value', () => {
+  it('uses "fn" to reduce "accum" and the values in "list" to a single value', () => {
     A.equal(reduce(util.concat, 'a', array), 'abcd');
     A.equal(reduce(util.concat, 'a', []), 'a');
   });
