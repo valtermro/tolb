@@ -1,6 +1,6 @@
 {
   "name": "tolb",
-  "version": "0.7.4",
+  "version": "0.8.0",
   "description": "My personal set of javascript utility functions",
   "main": "",
   "scripts": {
