@@ -1,4 +1,4 @@
-import slice from './slice';
+import slice from './_internal/slice';
 
 /**
  * The `List` type definition for this method.
