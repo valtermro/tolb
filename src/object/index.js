@@ -1,4 +1,5 @@
 export { default as each } from './each';
+export { default as eachValue } from './eachValue';
 export { default as get } from './get';
 export { default as has } from './has';
 export { default as isArray } from './isArray';
@@ -9,6 +10,7 @@ export { default as isPlainObject } from './isPlainObject';
 export { default as isString } from './isString';
 export { default as keys } from './keys';
 export { default as map } from './map';
+export { default as mapValues } from './mapValues';
 export { default as merge } from './merge';
 export { default as omit } from './omit';
 export { default as pick } from './pick';

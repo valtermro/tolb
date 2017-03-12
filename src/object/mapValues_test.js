@@ -1,10 +1,10 @@
 /* eslint-env mocha */
 import A from 'assert';
-import map from './map';
+import mapValues from './mapValues';
 import util from '../../build/util';
 
-describe('map(fn, obj)', () => {
-  const fn = (_, v) => util.double(v);
+describe('mapValues(fn, obj)', () => {
+  const fn = util.double;
   const wanted = { bar: 4, baz: 6 };
   const literal = { bar: 2, baz: 3 };
   const prototyped = Object.create({ foo: 1 });
@@ -12,18 +12,18 @@ describe('map(fn, obj)', () => {
   prototyped.baz = 3;
 
   it('transforms the own values of "obj" based on "fn"', () => {
-    const assert = input => A.deepEqual(map(fn, input), wanted);
+    const assert = input => A.deepEqual(mapValues(fn, input), wanted);
     assert(literal);
     assert(prototyped);
   });
 
-  it('"fn" receives the current key as its first argument', () => {
+  it('"fn" receives the current key as its second argument', () => {
     const keys = Object.keys(literal);
     let i = 0;
-    map(k => A.equal(k, keys[i++]), literal);
+    mapValues((_, k) => A.equal(k, keys[i++]), literal);
   });
 
   it('allows partial application', () => {
-    A.deepEqual(map(fn)(literal), wanted);
+    A.deepEqual(mapValues(fn)(literal), wanted);
   });
 });

@@ -9,29 +9,21 @@ describe('each(fn, obj)', () => {
   prototyped.foo = 1;
   prototyped.bar = 2;
 
-  it('applies "fn" to each own value in "obj"', () => {
+  it('applies "fn" to each own key/value pair in "obj"', () => {
     const assert = (obj) => {
       const result = [];
-      each(v => result.push(v), obj);
-      A.deepEqual(result, [1, 2]);
+      each((k, v) => result.push([k, v]), obj);
+      A.deepEqual(result, [['foo', 1], ['bar', 2]]);
     };
     assert(literal);
     assert(prototyped);
   });
 
-  it('"fn" receives the current key as its second argument', () => {
-    const keys = Object.keys(literal);
-    let i = 0;
-    each((_, k) => {
-      A.equal(k, keys[i++]);
-    }, literal);
-  });
-
   it('returns "obj"', () => {
-    A.strictEqual(each(util.id, literal), literal);
+    A.strictEqual(each(util.noop, literal), literal);
   });
 
   it('allows partial application', () => {
-    A.strictEqual(each(util.id)(literal), literal);
+    A.strictEqual(each(util.noop)(literal), literal);
   });
 });

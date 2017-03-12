@@ -1,11 +1,11 @@
 import curry2 from '../_internal/curry2';
 
 /**
- * Applies a given function to each own enumerable key/value pair of a given
- * and then returns that object.
+ * Applies a given function to each own enumerable value of a given object and
+ * then returns that object.
  *
- * At each iteration the supplied function receives the current key and value as
- * arguments.
+ * At each iteration the supplied function receives the current key as its second
+ * argument.
  *
  * @function
  * @param {function} fn - The iteratee function
@@ -15,7 +15,7 @@ import curry2 from '../_internal/curry2';
 export default curry2((fn, obj) => {
   const keys = Object.keys(obj);
   for (let i = 0; i < keys.length; i++)
-    fn(keys[i], obj[keys[i]]);
+    fn(obj[keys[i]], keys[i]);
 
   return obj;
 });
