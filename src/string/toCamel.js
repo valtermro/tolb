@@ -16,7 +16,11 @@ export default function toCamel(str) {
   const w = words(str);
 
   let result = '';
-  for (let i = 0; i < w.length; i++)
-    result += i === 0 ? w[i].toLowerCase() : w[i][0].toUpperCase() + w[i].slice(1);
+  for (let i = 0; i < w.length; i++) {
+    if (i === 0)
+      result += w[i].toLowerCase();
+    else
+      result += w[i][0].toUpperCase() + w[i].slice(1);
+  }
   return result;
 }

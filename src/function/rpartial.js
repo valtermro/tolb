@@ -24,8 +24,8 @@ export default function rpartial(fn, rightArgs) {
   if (ari < 0) ari = 0;
 
   return arity(ari, (...leftArgs) => {
-    return fn.apply(undefined, concat(
-      leftArgs.length <= ari ? leftArgs : leftArgs.slice(0, ari),
-      rightArgs));
+    if (leftArgs.length > ari)
+      leftArgs = leftArgs.slice(0, ari); // eslint-disable-line
+    return fn.apply(undefined, concat(leftArgs, rightArgs));
   });
 }

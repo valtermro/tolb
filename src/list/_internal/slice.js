@@ -1,19 +1,18 @@
+/* eslint-disable no-param-reassign */
 export default function slice(start, end, list) {
-  if (typeof list === 'string')
-    return list.slice(start, end != null ? end : undefined);
-
   const length = list.length;
-  let stop = end, begin = start;
+  if (end == null) end = length;
 
-  if (stop == null) stop = length;
-  if (stop < 0) stop = length + stop;
-  if (stop > length) stop = length;
-  if (begin < 0) begin = length + begin;
-  if (begin < 0) begin = 0;
+  if (typeof list === 'string')
+    return list.slice(start, end);
 
-  const len = stop - begin;
-  const result = new Array(len > 0 ? len : 0);
-  for (let i = begin, k = 0; i < stop; i++, k++)
+  if (end < 0) end = length + end;
+  if (end > length) end = length;
+  if (start < 0) start = length + start;
+  if (start < 0) start = 0;
+
+  const result = new Array(Math.max(0, end - start));
+  for (let i = start, k = 0; i < end; i++, k++)
     result[k] = list[i];
   return result;
 }

@@ -25,13 +25,22 @@
  *   toString(new String('abc')) // 'String("abc")'
  */
 export default function toString(obj) {
-  return obj == null ? String(obj) :
-    typeof obj === 'string' ? `"${obj}"` :
-    obj instanceof Array ? stringfy(obj, true) :
-    obj instanceof String ? `String("${obj}")` :
-    obj instanceof Number ? `Number(${obj})` :
-    typeof obj === 'object' ? stringfy(obj, false) :
-    String(obj);
+  if (typeof obj === 'string')
+    return `"${obj}"`;
+
+  if (obj instanceof Array)
+    return stringfy(obj, true);
+
+  if (obj instanceof String)
+    return `String("${obj}")`;
+
+  if (obj instanceof Number)
+    return `Number(${obj})`;
+
+  if (obj && typeof obj === 'object')
+    return stringfy(obj, false);
+
+  return String(obj);
 }
 
 function stringfy(obj, array) {
