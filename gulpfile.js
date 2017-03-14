@@ -324,27 +324,26 @@ const create = () => function create(done) {
 };
 
 gulp.task('new', create());
-gulp.task('clean', clean());
 gulp.task('benchmark', benchmark());
+gulp.task('karma', karma());
+gulp.task('dev', gulp.series(
+  gulp.parallel(writeIndex('all'), eslint('all', false), mocha('all', false)),
+  watchBuild()));
+
 gulp.task('bundle-node', bundle('node', false));
 gulp.task('bundle-next', bundle('next', false));
-gulp.task('mocha', mocha('all', false));
-gulp.task('eslint', eslint('all', false));
-gulp.task('karma', karma());
-gulp.task('test', gulp.parallel(
-  eslint('all', true),
-  mocha('all', true)));
-gulp.task('bundle', gulp.parallel(
-  'bundle-node',
-  'bundle-next'));
+gulp.task('bundle', gulp.parallel('bundle-node', 'bundle-next'));
+gulp.task('clean', clean());
+
+gulp.task('mocha', mocha('all', true));
+gulp.task('eslint', eslint('all', true));
 gulp.task('test-bundle', gulp.series(
   'bundle',
   mocha('./build/bundle_test.js', true),
   'clean'));
-gulp.task('build', gulp.series(
-  writeIndex('all'),
-  gulp.parallel('test', 'test-bundle'),
-  'bundle'));
-gulp.task('dev', gulp.series(
-  gulp.parallel(writeIndex('all'), 'eslint', 'mocha'),
-  watchBuild()));
+
+gulp.task('test', gulp.series(
+  gulp.parallel('eslint', 'mocha'),
+  'test-bundle'));
+
+gulp.task('build', gulp.series(writeIndex('all'), 'test', 'bundle'));

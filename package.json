@@ -4,8 +4,8 @@
   "description": "My personal set of javascript utility functions",
   "main": "",
   "scripts": {
-    "test": "gulp test && gulp test-bundle",
-    "prepublish": "gulp clean && gulp build && gulp test-bundle",
+    "test": "gulp test",
+    "prepublish": "gulp clean && gulp build",
     "postpublish": "gulp clean"
   },
   "repository": {
