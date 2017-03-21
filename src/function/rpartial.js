@@ -20,8 +20,7 @@ export default function rpartial(fn, rightArgs) {
   if (!(rightArgs instanceof Array))
     throw new TypeError('Expected: array');
 
-  let ari = fn.length - rightArgs.length;
-  if (ari < 0) ari = 0;
+  const ari = Math.max(0, fn.length - rightArgs.length);
 
   return arity(ari, (...leftArgs) => {
     if (leftArgs.length > ari)
