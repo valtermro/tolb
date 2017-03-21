@@ -11,7 +11,7 @@
 - (perf performance)   Introduces performance optimisations.
 - (re refactor)        Changes structure, but doesn't introduce new features nor fixes bugs.
 - (test)               Improves tests.
-- (fix)                Fixes the behaviour of exiting methods.
+- (fix)                Fixes any kind of broken behavior, such as bugs in code and typos in documentation.
 - (chore)              Updates build tasks, npm metadata, dependencies, etc.
 
 
