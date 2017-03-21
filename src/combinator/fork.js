@@ -2,8 +2,8 @@ import curry3 from '../_internal/curry3';
 
 /**
  * Takes three functions (join, f and g) and returns a function that takes one
- * argument and returns `join` applied to both values of`f` and `g` applied to
- * that argument.
+ * argument (v) and returns `join` applied to the values of both `f` and `g` applied
+ * to `v`.
  *
  * @function
  * @param {function} join - The function whose result will be returned

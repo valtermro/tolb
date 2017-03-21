@@ -4,8 +4,8 @@ import curry2 from '../_internal/curry2';
  * Creates an object literal with all own enumerable values of a source object
  * transformed by a given function. Keys are preserved.
  *
- * At each iteration the supplied function receives the current key and  value
- * as arguments.
+ * At each iteration, the supplied function receives the object's current key and
+ * value as arguments.
  *
  * @function
  * @param {function} fn - The transformer function

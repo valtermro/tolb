@@ -3,7 +3,7 @@ import arity from '../_internal/arity';
 /**
  * Performs right-to-left function composition.
  *
- * The rightmost function may take any number of arguments, the others functions
+ * The rightmost function may take any number of arguments, the other functions
  * should have only one parameter.
  * The resulting new function will report the same arity as the rightmost function.
  *

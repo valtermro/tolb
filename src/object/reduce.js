@@ -11,7 +11,7 @@ import curry3 from '../_internal/curry3';
  * @function
  * @param {function} fn - The reducer function
  * @param {*} accum - The initial value for the operation
- * @param {Object} - The object whose values should be reduced
+ * @param {Object} obj - The object whose values should be reduced
  * @return {*} The final value of the accumulator
  * @example
  *

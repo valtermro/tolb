@@ -21,7 +21,7 @@ import curry2 from '../_internal/curry2';
  *   const isEven = x => x % 2 === 0
  *
  *   findIndex(isEven, [1, 2, 3, 4, 5]) // => 1
- *   findIndex(isEven, [1, 3, 5]) // => undefined
+ *   findIndex(isEven, [1, 3, 5]) // => -1
  */
 export default curry2((pred, list) => {
   for (let i = 0; i < list.length; i++) {

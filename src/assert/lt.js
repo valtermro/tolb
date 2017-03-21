@@ -4,11 +4,11 @@ import curry2 from '../_internal/curry2';
  * Takes two values (a, b) and tests if `b` is smaller than `a`.
  * Works with any value supported by the less than operator (<).
  *
- * Note that, like the others functions in the lib, `lt` takes the value to
+ * Note that, like the other functions in the lib, `lt` takes the value to
  * operate on as its last argument. So `lt(1, 2)` => `false`.
  *
  * @function
- * @param {*} other - The base value to the comparison
+ * @param {*} other - The base value for the comparison
  * @param {*} value - The value to compare against `other`
  * @return {boolean} `value` < `other`
  * @example

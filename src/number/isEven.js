@@ -1,6 +1,6 @@
 /**
- * Checks if an object is an even number.
- * An object is an even number if it's an integer evenly divisible by two.
+ * Checks if a given number is even.
+ * A number is even if it's an integer evenly divisible by two.
  *
  * `Number` objects are not supported.
  *

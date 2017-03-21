@@ -3,7 +3,7 @@ import curry3 from '../_internal/curry3';
 /**
  * Ensures a number stays within a range.
  *
- * It takes a minimum (min) value, a maximum value (max) and some number (num) and:
+ * It takes a minimum value (min), a maximum value (max) and some number (num) and:
  * - if `num` is smaller than `min`, returns `min`; or
  * - if `num` is greater than `max`, returns `max`; or
  * - returns `num`

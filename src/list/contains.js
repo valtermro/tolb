@@ -11,7 +11,7 @@ import equals from '../_internal/equals';
 /**
  * Checks if a list contains a given value.
  *
- * Compares the values the same way `assert.equals` does.
+ * The values are compared by the means of `assert.equals`
  *
  * @function
  * @param {*} value - The value to search for

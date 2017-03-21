@@ -4,8 +4,8 @@ import curry2 from '../_internal/curry2';
  * Adds two numbers.
  * Doesn't try to convert any of its arguments before the operation.
  *
- * Technically it takes the first addend as its last argument but, like our teachers
- * used to tell us: "Changing the order of the addends does not change the sum".
+ * Technically it takes the first addend as its last argument but:
+ * "Changing the order of the addends does not change the sum".
  *
  * @function
  * @param {number} y - The second addend

@@ -9,7 +9,7 @@ import concat from '../_internal/concat';
  * placeholders will be replaced with values from the arguments passed to `g`.
  *
  * @function
- * @param {function} fn - The function to be partially applied
+ * @param {function} fn - The function to partially apply
  * @param {Array} leftArgs - The first part of the arguments for `fn`
  * @return {function} A function that takes the final arguments to be passed to `fn`
  * @example

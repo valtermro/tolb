@@ -2,9 +2,9 @@ import curry2 from '../_internal/curry2';
 import _equals from '../_internal/equals';
 
 /**
- * Deeply compares two object.
+ * Deeply compares two objects.
  *
- * The values are compared as follow:
+ * The values are compared as follows:
  * - Arrays are equals if they have the same length and values in the same order.
  * - Objects are equals if both have the same keys and their values are equals.
  * - Numbers are compared following the spec for the `Number` type in the SameValue

@@ -13,7 +13,7 @@ import concat from '../_internal/concat';
  *
  * The target list should be passed as the second argument.
  * Both lists should be of the same type.
- * Array-like are merged into an array.
+ * Array-like objects are treated as, and converted into, arrays.
  *
  * @function
  * @param {List} other - The source list

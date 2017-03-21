@@ -1,14 +1,14 @@
 import curry2 from '../_internal/curry2';
 
 /**
- * Wraps a function in a function with a fixed arity.
- * Any argument passed after the defined threshold will be ignored.
+ * Wraps a function in a function with the specified arity.
+ * Any argument passed after the defined arity will be ignored.
  *
  * Based on https://github.com/ramda/ramda/blob/master/src/internal/_arity.js.
  *
  * @function
  * @param {number} n - The arity of the wrapper function
- * @param {function} fn - The funciton to be wrapped
+ * @param {function} fn - The function to wrap
  * @return {function} A function that will apply `fn` to `n` arguments
  *
  *   const fn = function () {
@@ -16,7 +16,7 @@ import curry2 from '../_internal/curry2';
  *   }
  *   const fixed = arity(2, fn)
  *
- *   // returns an array with all of the arguments passed in
+ *   // returns an array with all arguments passed in
  *   fn(1, 2, 3, 4) //=> [1, 2, 3, 4]
  *
  *   // limit to 2 arguments

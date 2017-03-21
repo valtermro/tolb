@@ -8,7 +8,7 @@ import curry2 from '../_internal/curry2';
  */
 
 /**
- * Transforms each value in a list by applying a given function to them.
+ * Transforms a list by applying a function on each of its elements.
  *
  * At each iteration, the supplied function receives the current index as its
  * second argument. This may cause unexpected results if the function takes

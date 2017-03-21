@@ -1,7 +1,6 @@
 /**
- * Checks if an object is an odd number.
- * An object is an odd number if it's an integer that cannot be evenly divided
- * by two.
+ * Checks if a given number is odd.
+ * A number is odd if it's an integer that cannot be evenly divided by two.
  *
  * `Number` objects are not supported.
  *

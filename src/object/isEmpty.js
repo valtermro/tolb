@@ -1,12 +1,12 @@
 /**
  * Checks if a given object is empty.
  *
- * Types are tested as follow:
+ * Types are tested as follows:
  * - String: is empty if its length is 0.
  * - Array: is empty if its length is 0.
  * - Array-like object: is empty if its length is 0.
- * - Object literal: is empty if it has no values in it.
- * - Any other value is never empty
+ * - Object literal: is empty if it has no own values.
+ * - Values of any other type are never empty
  *
  * @function
  * @param {*} subject - The object to test

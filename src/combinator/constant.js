@@ -1,6 +1,8 @@
 /**
  * Takes an argument and returns a function that always returns that argument.
  *
+ * The returned function has arity of 1.
+ *
  * @function
  * @param {*} value - The value to be returned by every call to the created function
  * @return {function} A function that always returns `value`

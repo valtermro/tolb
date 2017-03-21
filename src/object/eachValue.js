@@ -2,10 +2,10 @@ import curry2 from '../_internal/curry2';
 
 /**
  * Applies a given function to each own enumerable value of a given object and
- * then returns that object.
+ * returns that object.
  *
- * At each iteration the supplied function receives the current key as its second
- * argument.
+ * At each iteration, the supplied function receives the object's current key as
+ * its second argument.
  *
  * @function
  * @param {function} fn - The iteratee function

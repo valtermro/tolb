@@ -1,5 +1,5 @@
 /**
- * Checks if a given object is a floating point number.
+ * Checks if a given number is a floating point number.
  *
  * If the object is a number with only zeros in its decimal part it's an integer
  * and not a float.

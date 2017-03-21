@@ -10,7 +10,7 @@ import curry2 from '../_internal/curry2';
 /**
  * Applies a given function to each value in a list and returns the list after that.
  *
- * At each iteration the current index is passed as the second argument to the
+ * At each iteration, the current index is passed as the second argument to the
  * supplied function.
  *
  * @function

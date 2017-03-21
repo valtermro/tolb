@@ -23,7 +23,7 @@ import curry2 from '../_internal/curry2';
  *   const isEven = x => x % 2 === 0
  *
  *   findLastIndex(isEven, [1, 2, 3, 4, 5]) // => 3
- *   findLastIndex(isEven, [1, 3, 5]) // => undefined
+ *   findLastIndex(isEven, [1, 3, 5]) // => -1
  */
 export default curry2((pred, list) => {
   for (let i = list.length - 1; i >= 0; i--) {

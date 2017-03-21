@@ -9,11 +9,9 @@ import curry4 from '../_internal/curry4';
  * Converts a function into a function that can be used as if it was curried.
  *
  * The new function "can be used as if it was curried" because it's not really
- * curried. As we all know, a curried function takes only one argument. And `curry`
- * creates a function (that creates a function that creates a function...) that
- * can take any number of arguments (even 0) up to the original function's arity.
- * What we are really creating is a function that is kind of a mix of a curried
- * and partially applied function.
+ * curried. A curried function takes only one argument. And `curry` creates a
+ * function (that creates a function that creates a function...) that can take
+ * any number of arguments (even 0) up to the original function's arity.
  *
  * @function
  * @param {function} fn - The function to convert
