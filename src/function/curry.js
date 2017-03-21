@@ -41,12 +41,11 @@ export default function curry(fn) {
 
 function accumulator(fn, accumulated) {
   const length = accumulated.length;
-  const ari = fn.length;
 
-  if (length >= ari)
+  if (length >= fn.length)
     return fn.apply(undefined, accumulated);
 
-  return arity(ari - length, function (/* args */) {
+  return arity(fn.length - length, function (/* args */) {
     return accumulator(fn, concat(accumulated, curryArgs(arguments)));
   });
 }

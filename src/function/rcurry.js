@@ -38,12 +38,11 @@ export default function rcurry(fn) {
 
 function accumulator(fn, accumulated) {
   const length = accumulated.length;
-  const ari = fn.length;
 
-  if (length >= ari)
-    return fn.apply(undefined, reverse(accumulated).slice(length - ari));
+  if (length >= fn.length)
+    return fn.apply(undefined, reverse(accumulated).slice(length - fn.length));
 
-  return arity(ari - length, function (/* args */) {
+  return arity(fn.length - length, function (/* args */) {
     return accumulator(fn, concat(accumulated, curryArgs(arguments)));
   });
 }

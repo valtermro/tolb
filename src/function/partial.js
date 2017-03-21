@@ -25,16 +25,15 @@ import concat from '../_internal/concat';
 export default function partial(fn, leftArgs) {
   if (!(leftArgs instanceof Array))
     throw new TypeError('Expected: array');
-  const fnLen = fn.length;
 
-  let ari = fnLen;
+  let ari = fn.length;
   for (let i = 0; i < leftArgs.length; i++) {
     if (leftArgs[i] !== partial)
       ari -= 1;
   }
   if (ari < 0) ari = 0;
 
-  if (ari === fnLen - leftArgs.length) {
+  if (ari === fn.length - leftArgs.length) {
     // it's way faster than checking for placeholders we know aren't there
     return arity(ari, function (/* rightArgs */) {
       return fn.apply(undefined, concat(leftArgs, arguments));
