@@ -2,6 +2,7 @@
 import A from 'assert';
 import rpartial from './rpartial';
 import util from '../../build/util';
+import config from '../../build/constants.config';
 
 describe('rpartial(fn, rightArgs)', () => {
   const fn = util.foo4;
@@ -21,5 +22,9 @@ describe('rpartial(fn, rightArgs)', () => {
     assert(['', '', ''], 1);
     assert(['', '', '', ''], 0);
     assert(['', '', '', '', ''], 0);
+  });
+
+  it('throws if "rightArgs" is not an array', () => {
+    A.throws(() => rpartial(fn, 'foo'), config.EXPECTED_ARRAY_ERRMSG);
   });
 });

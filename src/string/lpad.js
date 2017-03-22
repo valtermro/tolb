@@ -21,6 +21,9 @@ import strRepeat from '../_internal/strRepeat';
  *   lpad(4, '-', 'abcde') //=> 'abcd'
  */
 export default curry3((length, fill, str) => {
+  if (typeof length !== 'number')
+    throw new TypeError('Expected: number');
+
   const diff = length - str.length;
   if (diff < 1)
     return str;

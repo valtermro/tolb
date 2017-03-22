@@ -15,6 +15,9 @@ import hasOwnProp from './_internal/hasOwnProp';
  *   pick(['name', 'age'], user) //=> { name: 'Foo', age: 25 }
  */
 export default curry2((keys, obj) => {
+  if (!(keys instanceof Array))
+    throw new TypeError('Expected: array');
+
   const result = {};
   for (let i = 0; i < keys.length; i++) {
     if (hasOwnProp.call(obj, keys[i]))

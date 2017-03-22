@@ -1,6 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import omit from './omit';
+import config from '../../build/constants.config';
 
 describe('omit(keys, obj)', () => {
   function Foo() { this.foo = 1; }
@@ -16,6 +17,10 @@ describe('omit(keys, obj)', () => {
 
   it('fetches only the object\'s own values', () => {
     A.deepEqual(omit(['baz'], prototyped), { foo: 1 });
+  });
+
+  it('throws if "keys" is not an array', () => {
+    A.throws(() => omit('foo', obj), config.EXPECTED_ARRAY_ERRMSG);
   });
 
   it('allows partial application', () => {

@@ -1,6 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import pick from './pick';
+import config from '../../build/constants.config';
 
 describe('pick(keys, obj)', () => {
   function Foo() { this.foo = 1; }
@@ -19,6 +20,10 @@ describe('pick(keys, obj)', () => {
 
   it('fetches on the object\'s own values', () => {
     A.deepEqual(pick(['foo', 'bar'], prototyped), { foo: 1 });
+  });
+
+  it('throws if "keys" is not an array', () => {
+    A.throws(() => pick('foo', obj), config.EXPECTED_ARRAY_ERRMSG);
   });
 
   it('allows partial application', () => {

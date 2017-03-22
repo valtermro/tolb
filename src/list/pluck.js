@@ -25,6 +25,9 @@ import curry2 from '../_internal/curry2';
  *   pluck('name', list) //=> ['Foo', 'Bar', 'Baz']
  */
 export default curry2((prop, list) => {
+  if (typeof prop !== 'string')
+    throw new TypeError('Expected: string');
+
   const result = new Array(list.length);
   for (let i = 0; i < list.length; i++)
     result[i] = list[i][prop];

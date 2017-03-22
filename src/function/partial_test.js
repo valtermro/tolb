@@ -2,6 +2,7 @@
 import A from 'assert';
 import partial from './partial';
 import util from '../../build/util';
+import config from '../../build/constants.config';
 
 describe('partial(fn, leftArgs)', () => {
   const fn = util.foo4;
@@ -32,5 +33,9 @@ describe('partial(fn, leftArgs)', () => {
     assert(['', partial, ''], 2);
     assert(['', partial, '', partial], 2);
     assert(['', partial, '', partial, '', '', '', ''], 0);
+  });
+
+  it('throws if "leftArgs" is not an array', () => {
+    A.throws(() => partial(fn, 'foo'), config.EXPECTED_ARRAY_ERRMSG);
   });
 });
