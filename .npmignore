@@ -1,9 +1,10 @@
 build
-.vscode
 benchmark
 src
+.vscode
 .editorconfig
 .eslintrc.json
 .gitignore
 .npmignore
+.gitlabels
 gulpfile.js
