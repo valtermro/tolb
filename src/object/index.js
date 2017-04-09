@@ -1,6 +1,5 @@
 export { default as each } from './each';
 export { default as eachValue } from './eachValue';
-export { default as get } from './get';
 export { default as has } from './has';
 export { default as isArray } from './isArray';
 export { default as isEmpty } from './isEmpty';
@@ -14,6 +13,8 @@ export { default as mapValues } from './mapValues';
 export { default as merge } from './merge';
 export { default as omit } from './omit';
 export { default as pick } from './pick';
+export { default as prop } from './prop';
+export { default as props } from './props';
 export { default as reduce } from './reduce';
 export { default as reduceValues } from './reduceValues';
 export { default as values } from './values';
