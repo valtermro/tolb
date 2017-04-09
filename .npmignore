@@ -7,4 +7,5 @@ src
 .gitignore
 .npmignore
 .gitlabels
+**/.tern-port
 gulpfile.js
