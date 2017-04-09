@@ -5,7 +5,6 @@ const chalk = require('chalk');
 const path = require('path');
 const rmdir = require('rmdir');
 const gulp = require('gulp');
-const Server = require('karma').Server;
 const $ = require('gulp-load-plugins')();
 const babelConfig = require('./build/babel.config');
 
@@ -58,7 +57,7 @@ const newFileTemplate = {
 
 const readFiles = (fullPath, includeTests, includeDangled) => (dir) => {
   let result = fs.readdirSync(dir)
-    .filter(f => f !== 'index.js');
+    .filter(f => f !== 'index.js' && f[0] !== '.');
 
   if (!includeDangled)
     result = result.filter(f => f[0] !== '_');
@@ -148,7 +147,12 @@ const bundle = name => function bundle() {
 };
 
 const eslint = (file, fail) => function eslint() {
-  const src = file === 'all' ? './**/*.js' : file;
+  const src = file !== 'all' ? file : [
+    './src/**/*.js',
+    './build/**/*.js',
+    './benchmark/**/*.js',
+  ];
+
   let stream = gulp.src(src)
     .pipe($.eslint())
     .pipe($.eslint.format());
@@ -175,16 +179,6 @@ const mocha = (file, fail) => function mocha() {
   }
 
   return stream;
-};
-
-const karma = () => function karma(done) {
-  const single = $.util.env.s !== undefined;
-  const server = new Server({
-    configFile: path.join(__dirname, 'build/karma.config.js'),
-    singleRun: single,
-  }, done);
-
-  server.start();
 };
 
 const benchmark = () => function benchmark() {
@@ -324,18 +318,19 @@ const create = () => function create(done) {
 };
 
 gulp.task('new', create());
-gulp.task('mocha', mocha('all', false));
-gulp.task('karma', karma());
-gulp.task('eslint', eslint('all', false));
+gulp.task('clean', clean());
+
+gulp.task('benchmark', benchmark());
 gulp.task('test', gulp.parallel(eslint('all', true), mocha('all', true)));
 gulp.task('test-bundle', mocha('./build/bundle_test.js', true));
-gulp.task('bundle-node', bundle('node', false));
-gulp.task('bundle-next', bundle('next', false));
-gulp.task('bundle', gulp.parallel('bundle-node', 'bundle-next'));
-gulp.task('build', gulp.series(writeIndex('all'), 'test', 'bundle'));
-gulp.task('benchmark', benchmark());
-gulp.task('clean', clean());
+
+gulp.task('bundle', gulp.series(
+  writeIndex('all'),
+  gulp.parallel(bundle('node'), bundle('next'))
+));
+gulp.task('build', gulp.series('clean', 'test', 'bundle', 'test-bundle'));
+
 gulp.task('dev', gulp.series(
-  gulp.parallel(writeIndex('all'), 'eslint', 'mocha'),
+  gulp.parallel(writeIndex('all'), eslint('all', false), mocha('all', false)),
   watchBuild()
 ));
