@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import pick from './pick';
-import config from '../../build/constants.config';
+import config from '../../config/constants';
 
-describe('pick(keys, obj)', () => {
+describe('object.pick(keys, obj)', () => {
   function Foo() { this.foo = 1; }
   Foo.prototype.bar = 2;
   const prototyped = new Foo();

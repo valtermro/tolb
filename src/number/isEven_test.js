@@ -2,7 +2,7 @@
 import A from 'assert';
 import isEven from './isEven';
 
-describe('isEven(subject)', () => {
+describe('number.isEven(subject)', () => {
   function test(value, wanted) {
     A.equal(isEven(value), wanted);
   }

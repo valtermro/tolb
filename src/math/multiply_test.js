@@ -2,7 +2,7 @@
 import A from 'assert';
 import multiply from './multiply';
 
-describe('multiply(multiplier, multiplicand)', () => {
+describe('math.multiply(multiplier, multiplicand)', () => {
   it('multiplies two numbers', () => {
     const assert = (x, y) => A.equal(multiply(x, y), x * y);
     assert(1, 2);

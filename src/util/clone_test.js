@@ -2,7 +2,7 @@
 import A from 'assert';
 import clone from './clone';
 
-describe('clone(obj)', () => {
+describe('util.clone(obj)', () => {
   function Foo() { this.foo = 1; }
   Foo.prototype.bar = 2;
   const prototyped = new Foo();

@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import alt from './alt';
-import util from '../../build/util';
+import util from '../../lib/stubs';
 
-describe('alt(f, g)', () => {
+describe('combinator.alt(f, g)', () => {
   const f = util.double;
   const g = (x) => {
     g.called = true;

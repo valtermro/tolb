@@ -2,7 +2,7 @@
 import A from 'assert';
 import merge from './merge';
 
-describe('merge(source, target)', () => {
+describe('object.merge(source, target)', () => {
   function Foo() { this.foo = 1; }
   Foo.prototype.blegh = 3;
 

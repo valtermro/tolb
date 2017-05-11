@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import reverse from './reverse';
-import util from '../../build/util';
+import util from '../../lib/stubs';
 
 describe('_internal.reverse(array)', () => {
   const array = util.makeArray(100);

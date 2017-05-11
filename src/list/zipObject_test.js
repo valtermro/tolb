@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import zipObject from './zipObject';
-import util from '../../build/util';
+import util from '../../lib/stubs';
 
-describe('zipObject(keys, list)', () => {
+describe('list.zipObject(keys, list)', () => {
   it('creates an object by pairing up "keys" with the values in "list"', () => {
     const keys = ['foo', 'bar', 'baz'];
     const wanted = { foo: 'a', bar: 'b', baz: 'c' };

@@ -1,10 +1,10 @@
 /* eslint-env mocha */
 import A from 'assert';
 import rpartial from './rpartial';
-import util from '../../build/util';
-import config from '../../build/constants.config';
+import util from '../../lib/stubs';
+import config from '../../config/constants';
 
-describe('rpartial(fn, rightArgs)', () => {
+describe('function.rpartial(fn, rightArgs)', () => {
   const fn = util.foo4;
 
   it('uses "rightArgs" as the right part of the arguments that get applied', () => {

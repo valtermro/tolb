@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import nth from './nth';
-import util from '../../build/util';
+import util from '../../lib/stubs';
 
-describe('nth(n, list)', () => {
+describe('list.nth(n, list)', () => {
   function test(src) {
     for (let i = -1; i < src.length + 1; i++)
       A.equal(nth(i, src), src[i]);

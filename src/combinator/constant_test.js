@@ -2,7 +2,7 @@
 import A from 'assert';
 import constant from './constant';
 
-describe('constant(value)', () => {
+describe('combinator.constant(value)', () => {
   const fn = constant(2);
 
   it('creates a function that always returns "value"', () => {

@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import mapValues from './mapValues';
-import util from '../../build/util';
+import util from '../../lib/stubs';
 
-describe('mapValues(fn, obj)', () => {
+describe('object.mapValues(fn, obj)', () => {
   const fn = util.double;
   const wanted = { bar: 4, baz: 6 };
   const literal = { bar: 2, baz: 3 };

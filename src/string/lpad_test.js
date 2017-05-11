@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import lpad from './lpad';
-import config from '../../build/constants.config';
+import config from '../../config/constants';
 
-describe('lpad(length, fill, str)', () => {
+describe('string.lpad(length, fill, str)', () => {
   it('pads "str" to left until "length"', () => {
     A.equal(lpad(3, '-', 'a'), '--a');
     A.equal(lpad(3, '-', 'ab'), '-ab');

@@ -2,7 +2,7 @@
 import A from 'assert';
 import isNumber from './isNumber';
 
-describe('isNumber(subject)', () => {
+describe('object.isNumber(subject)', () => {
   it('checks if "subject" is a number', () => {
     const assert = (sub, wanted) => A.equal(isNumber(sub), wanted);
     assert(0, true);

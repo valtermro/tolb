@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import reduce from './reduce';
-import util from '../../build/util';
+import util from '../../lib/stubs';
 
-describe('reduce(fn, accum, list)', () => {
+describe('list.reduce(fn, accum, list)', () => {
   const array = ['b', 'c', 'd'];
   const arrayLike = util.arrayLike('b', 'c', 'd');
 

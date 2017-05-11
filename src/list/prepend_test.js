@@ -2,7 +2,7 @@
 import A from 'assert';
 import prepend from './prepend';
 
-describe('prepend(value, list)', () => {
+describe('list.prepend(value, list)', () => {
   const array = [2, 3, 4];
   const arrayLike = (function () { return arguments; })(2, 3, 4);
 

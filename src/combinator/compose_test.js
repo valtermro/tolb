@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import compose from './compose';
-import util from '../../build/util';
+import util from '../../lib/stubs';
 
-describe('compose(...fns)', () => {
+describe('combinator.compose(...fns)', () => {
   const divBy5 = x => x / 5;
   const div10 = x => 10 / x;
 

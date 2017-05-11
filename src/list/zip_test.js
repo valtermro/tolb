@@ -2,7 +2,7 @@
 import A from 'assert';
 import zip from './zip';
 
-describe('zip(left, right)', () => {
+describe('list.zip(left, right)', () => {
   it('returns a list of pairs', () => {
     const left = [1, 2, 3];
     const right = [4, 5, 6];

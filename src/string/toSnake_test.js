@@ -2,7 +2,7 @@
 import A from 'assert';
 import toSnake from './toSnake';
 
-describe('toSnake(str)', () => {
+describe('string.toSnake(str)', () => {
   it('converts "str" to snake_case', () => {
     const assert = (input, wanted) => A.equal(toSnake(input), wanted);
     assert('', '');

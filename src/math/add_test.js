@@ -2,7 +2,7 @@
 import A from 'assert';
 import add from './add';
 
-describe('add(y, x)', () => {
+describe('math.add(y, x)', () => {
   it('adds `x` to `y`', () => {
     A.equal(add(1, 2), 3);
     A.equal(add(3, 2), 5);

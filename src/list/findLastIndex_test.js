@@ -2,7 +2,7 @@
 import A from 'assert';
 import findLastIndex from './findLastIndex';
 
-describe('findLastIndex(pred, list)', () => {
+describe('list.findLastIndex(pred, list)', () => {
   const gt2 = x => x > 2;
   const lt2 = x => x < 2;
 

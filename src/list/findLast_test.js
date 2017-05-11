@@ -2,7 +2,7 @@
 import A from 'assert';
 import findLast from './findLast';
 
-describe('findLast(pred, list)', () => {
+describe('list.findLast(pred, list)', () => {
   const gt2 = x => x > 2;
   const lt2 = x => x < 2;
 

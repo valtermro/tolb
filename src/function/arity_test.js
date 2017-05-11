@@ -1,10 +1,10 @@
 /* eslint-env mocha */
 import A from 'assert';
 import arity from './arity';
-import util from '../../build/util';
-import config from '../../build/constants.config';
+import util from '../../lib/stubs';
+import config from '../../config/constants';
 
-describe('arity(n, fn)', () => {
+describe('function.arity(n, fn)', () => {
   const fn = function () { return Array.prototype.slice.call(arguments); };
   const MAX = config.MAX_ARITY;
 

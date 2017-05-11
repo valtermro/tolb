@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import join from './join';
-import util from '../../build/util';
+import util from '../../lib/stubs';
 
-describe('join(glue, list)', () => {
+describe('list.join(glue, list)', () => {
   const array = util.makeArray(1000);
 
   it('joins the values in "list" using "glue" as the separator', () => {

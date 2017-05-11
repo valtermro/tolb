@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import pluck from './pluck';
-import config from '../../build/constants.config';
+import config from '../../config/constants';
 
-describe('pluck(prop, list)', () => {
+describe('list.pluck(prop, list)', () => {
   const list = [
     { name: 'foo', age: 11 },
     { name: 'bar', age: 12 },

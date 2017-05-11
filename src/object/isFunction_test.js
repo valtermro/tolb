@@ -3,7 +3,7 @@
 import A from 'assert';
 import isFunction from './isFunction';
 
-describe('isFunction(subject)', () => {
+describe('object.isFunction(subject)', () => {
   it('checks if "subject" is a function', () => {
     const assert = (sub, wanted) => A.equal(isFunction(sub), wanted);
     assert(function () { /**/ }, true);

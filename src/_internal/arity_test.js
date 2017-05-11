@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 import A from 'assert';
 import arity from './arity';
-import config from '../../build/constants.config';
-import util from '../../build/util';
+import config from '../../config/constants';
+import util from '../../lib/stubs';
 
 describe('_internal.arity(n, fn)', () => {
   function fn() { return Array.prototype.slice.call(arguments); }

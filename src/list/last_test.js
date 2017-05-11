@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import last from './last';
-import util from '../../build/util';
+import util from '../../lib/stubs';
 
-describe('last(list)', () => {
+describe('list.last(list)', () => {
   it('deals with strings', () => {
     A.equal(last('abcd'), 'd');
     A.equal(last(''), undefined);

@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import omit from './omit';
-import config from '../../build/constants.config';
+import config from '../../config/constants';
 
-describe('omit(keys, obj)', () => {
+describe('object.omit(keys, obj)', () => {
   function Foo() { this.foo = 1; }
   Foo.prototype.bar = 2;
   const prototyped = new Foo();

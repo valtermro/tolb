@@ -2,7 +2,7 @@
 import A from 'assert';
 import equals from './equals';
 
-describe('equals(left, right)', () => {
+describe('_internal.equals(left, right)', () => {
   function test(left, right, wanted) {
     A.equal(equals(left, right), wanted);
   }

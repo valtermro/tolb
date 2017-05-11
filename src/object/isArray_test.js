@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import isArray from './isArray';
-import util from '../../build/util';
+import util from '../../lib/stubs';
 
-describe('isArray(subject)', () => {
+describe('object.isArray(subject)', () => {
   function MyArray() { /**/ }
   MyArray.prototype = Object.create(Array.prototype);
 

@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import each from './each';
-import util from '../../build/util';
+import util from '../../lib/stubs';
 
-describe('each(fn, list)', () => {
+describe('list.each(fn, list)', () => {
   const array = ['a', 'b', 'c', 'd'];
   const arrayLike = util.arrayLike('a', 'b', 'c', 'd');
   const str = 'abcd';

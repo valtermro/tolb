@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import reduceValues from './reduceValues';
-import util from '../../build/util';
+import util from '../../lib/stubs';
 
-describe('reduceValues(fn, accum, obj)', () => {
+describe('object.reduceValues(fn, accum, obj)', () => {
   const obj = { foo: 'b', bar: 'c' };
 
   it('uses "fn" to reduce "accum" and the own values of "obj" to a single value', () => {

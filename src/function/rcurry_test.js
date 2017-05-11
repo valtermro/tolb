@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import rcurry from './rcurry';
-import util from '../../build/util';
+import util from '../../lib/stubs';
 
-describe('rcurry(fn)', () => {
+describe('function.rcurry(fn)', () => {
   const curried2 = rcurry(util.foo2);
   const curried3 = rcurry(util.foo3);
   const curried4 = rcurry(util.foo4);

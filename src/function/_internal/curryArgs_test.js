@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import curryArgs from './curryArgs';
-import util from '../../../build/util';
+import util from '../../../lib/stubs';
 
-describe('_internal.curryArgs(input)', () => {
+describe('function._internal.curryArgs(input)', () => {
   it('returns "input" if its length is greater than 0', () => {
     const assert = value => A.deepEqual(curryArgs(value), value);
     assert([1]);

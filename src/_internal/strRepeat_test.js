@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import strRepeat from './strRepeat';
-import util from '../../build/util';
+import util from '../../lib/stubs';
 
 describe('_iternal.strRepeat(n, char)', () => {
   it('repeats "char" "n" times', () => {

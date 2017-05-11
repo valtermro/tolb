@@ -7,7 +7,6 @@
 - (new)                Introduces new methods or packages.
 - (rm remove)          Removes methods or packages.
 - (doc documentation)  Introduces new, or improves existing, documentation.
-- (bench benchmark)    Introduces new, or improves existing, benchmarks.
 - (perf performance)   Introduces performance optimisations.
 - (re refactor)        Changes structure, but doesn't introduce new features nor fixes bugs.
 - (test)               Improves tests.

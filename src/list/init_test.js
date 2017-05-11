@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import init from './init';
-import util from '../../build/util';
+import util from '../../lib/stubs';
 
-describe('init(list)', () => {
+describe('list.init(list)', () => {
   it('deals with strings', () => {
     A.equal(init('abc'), 'ab');
     A.equal(init('a'), '');

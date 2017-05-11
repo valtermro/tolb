@@ -1,10 +1,10 @@
 /* eslint-env mocha */
 import A from 'assert';
 import partial from './partial';
-import util from '../../build/util';
-import config from '../../build/constants.config';
+import util from '../../lib/stubs';
+import config from '../../config/constants';
 
-describe('partial(fn, leftArgs)', () => {
+describe('function.partial(fn, leftArgs)', () => {
   const fn = util.foo4;
 
   it('uses "leftArgs" as the left part of the arguments to "fn"', () => {

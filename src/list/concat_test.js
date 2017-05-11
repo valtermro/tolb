@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import concat from './concat';
-import util from '../../build/util';
+import util from '../../lib/stubs';
 
-describe('concat(other, list)', () => {
+describe('list.concat(other, list)', () => {
   it('deals with strings', () => {
     A.equal(concat('ab', 'de'), 'deab');
   });

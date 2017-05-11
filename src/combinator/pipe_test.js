@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import pipe from './pipe';
-import util from '../../build/util';
+import util from '../../lib/stubs';
 
-describe('pipe(...fns)', () => {
+describe('combinator.pipe(...fns)', () => {
   const divBy5 = x => x / 5;
   const div10 = x => 10 / x;
 

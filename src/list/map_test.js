@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import map from './map';
-import util from '../../build/util';
+import util from '../../lib/stubs';
 
-describe('map(fn, list)', () => {
+describe('list.map(fn, list)', () => {
   const array = ['f', 'o', 'o'];
   const arrayLike = util.arrayLike('f', 'o', 'o');
   const str = 'foo';

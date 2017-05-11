@@ -2,7 +2,7 @@
 import A from 'assert';
 import reduce from './reduce';
 
-describe('reduce(fn, accum, obj)', () => {
+describe('object.reduce(fn, accum, obj)', () => {
   const obj = { a: 1, b: 2, c: 3 };
   const fn = (a, k, v) => a + k + v;
 

@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import contains from './contains';
-import util from '../../build/util';
+import util from '../../lib/stubs';
 
-describe('contains(value, subject)', () => {
+describe('list.contains(value, subject)', () => {
   const str = 'foo bar';
   const array = ['foo', 'bar', 'b'];
   const arrayLike = util.arrayLike('foo', 'bar', 'b');

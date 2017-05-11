@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import tail from './tail';
-import util from '../../build/util';
+import util from '../../lib/stubs';
 
-describe('tail(list)', () => {
+describe('list.tail(list)', () => {
   it('deals with strings', () => {
     A.equal(tail('abc'), 'bc');
     A.equal(tail('a'), '');

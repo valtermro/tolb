@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import eachValue from './eachValue';
-import util from '../../build/util';
+import util from '../../lib/stubs';
 
-describe('eachValue(fn, obj)', () => {
+describe('object.eachValue(fn, obj)', () => {
   const literal = { foo: 1, bar: 2 };
   const prototyped = Object.create({ baz: 3 });
   prototyped.foo = 1;

@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import slice from './slice';
-import util from '../../build/util';
+import util from '../../lib/stubs';
 
-describe('slice(start, end, list)', () => {
+describe('list.slice(start, end, list)', () => {
   function test(src) {
     const T = typeof src === 'string' ? String : Array;
     A.deepEqual(slice(0, null, src), T.prototype.slice.call(src, 0));

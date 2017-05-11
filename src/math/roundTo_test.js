@@ -2,7 +2,7 @@
 import A from 'assert';
 import roundTo from './roundTo';
 
-describe('roundTo(places, value)', () => {
+describe('math.roundTo(places, value)', () => {
   it('rounds "value" to a value with "places" decimal values', () => {
     A.equal(roundTo(0, 2.4), 2);
     A.equal(roundTo(0, 2.6), 3);

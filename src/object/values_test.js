@@ -2,7 +2,7 @@
 import A from 'assert';
 import values from './values';
 
-describe('values(obj)', () => {
+describe('object.values(obj)', () => {
   function Foo() { this.foo = 1; }
   Foo.prototype.bar = 2;
 

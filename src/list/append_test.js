@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import append from './append';
-import util from '../../build/util';
+import util from '../../lib/stubs';
 
-describe('append(value, list)', () => {
+describe('list.append(value, list)', () => {
   const array = [2, 3, 4];
   const arrayLike = util.arrayLike(2, 3, 4);
 

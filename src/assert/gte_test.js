@@ -2,7 +2,7 @@
 import A from 'assert';
 import gte from './gte';
 
-describe('gte(other, value)', () => {
+describe('assert.gte(other, value)', () => {
   function test(other, value, wanted) {
     A.equal(gte(other, value), wanted);
   }

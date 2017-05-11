@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import find from './find';
-import util from '../../build/util';
+import util from '../../lib/stubs';
 
-describe('find(pred, list)', () => {
+describe('list.find(pred, list)', () => {
   const array = util.makeArray(10);
   const gt8 = x => x > 8;
   const lt1 = x => x < 1;

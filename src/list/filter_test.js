@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import filter from './filter';
-import util from '../../build/util';
+import util from '../../lib/stubs';
 
-describe('filter(pred, list)', () => {
+describe('list.filter(pred, list)', () => {
   const array0 = util.makeArray(8, false);
   const array1 = util.makeArray(8, true);
 

@@ -2,7 +2,7 @@
 import A from 'assert';
 import keys from './keys';
 
-describe('keys(obj)', () => {
+describe('object.keys(obj)', () => {
   function Foo() { this.foo = 1; }
   Foo.prototype.bar = 2;
 

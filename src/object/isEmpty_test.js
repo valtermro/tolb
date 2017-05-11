@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import isEmpty from './isEmpty';
-import util from '../../build/util';
+import util from '../../lib/stubs';
 
-describe('isEmpty(subject)', () => {
+describe('object.isEmpty(subject)', () => {
   function Foo() { /**/ }
 
   it('checks if "subject" is empty', () => {

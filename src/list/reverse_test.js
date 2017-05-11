@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import reverse from './reverse';
-import util from '../../build/util';
+import util from '../../lib/stubs';
 
-describe('reverse(list)', () => {
+describe('list.reverse(list)', () => {
   it('reverses strings', () => {
     A.deepEqual(reverse('abcde'), 'edcba');
   });

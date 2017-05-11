@@ -2,7 +2,7 @@
 import A from 'assert';
 import repeat from './repeat';
 
-describe('repeat(n, value)', () => {
+describe('list.repeat(n, value)', () => {
   it('builds a string if "value" is string', () => {
     A.equal(repeat(3, 'a'), 'aaa');
     A.equal(repeat(3, 'foo'), 'foofoofoo');

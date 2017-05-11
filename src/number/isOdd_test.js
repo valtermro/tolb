@@ -2,7 +2,7 @@
 import A from 'assert';
 import isOdd from './isOdd';
 
-describe('isOdd(subject)', () => {
+describe('number.isOdd(subject)', () => {
   function test(value, wanted) {
     A.equal(isOdd(value), wanted);
   }

@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import every from './every';
-import util from '../../build/util';
+import util from '../../lib/stubs';
 
-describe('every(pred, list)', () => {
+describe('list.every(pred, list)', () => {
   function test(list, wanted) {
     A.equal(every(util.isEven, list), wanted);
   }

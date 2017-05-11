@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import length from './length';
-import util from '../../build/util';
+import util from '../../lib/stubs';
 
-describe('length(list)', () => {
+describe('list.length(list)', () => {
   it('returns the length of "list"', () => {
     const assert = (list, wanted) => A.equal(length(list), wanted);
     assert('a', 1);
