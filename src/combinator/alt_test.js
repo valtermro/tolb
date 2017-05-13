@@ -1,10 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import alt from './alt';
-import util from '../../lib/stubs';
 
 describe('combinator.alt(f, g)', () => {
-  const f = util.double;
+  const f = x => x * 2;
   const g = (x) => {
     g.called = true;
     return x * 3;
@@ -13,7 +12,7 @@ describe('combinator.alt(f, g)', () => {
 
   it('if "f" returns a value, return it and exit', () => {
     A.equal(alt(f, g)(2), 4);
-    A.equal(g.called, false, '"g" should not have been called');
+    A.equal(g.called, false, 'the second function should not be called');
   });
 
   it('if "f" does not returns a value, calls "g"', () => {

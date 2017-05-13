@@ -4,21 +4,20 @@ import isFloat from './isFloat';
 
 describe('number.isFloat(subject)', () => {
   it('checks if "subject" is a floating point number', () => {
-    const assert = (sub, wanted) => A.equal(isFloat(sub), wanted);
-    assert(1.8, true);
-    assert(-1.8, true);
-    assert(Math.PI, true);
-    assert(1, false);
-    assert(1.0, false);
-    assert(-1.0, false);
-    assert(new Number(1), false);
-    assert(NaN, false);
-    assert(Infinity, false);
-    assert(-Infinity, false);
-    assert('foo', false);
-    assert([], false);
-    assert({}, false);
-    assert(null, false);
-    assert(undefined, false);
+    A.equal(isFloat(1.8), true);
+    A.equal(isFloat(-1.8), true);
+    A.equal(isFloat(Math.PI), true);
+    A.equal(isFloat(1), false);
+    A.equal(isFloat(1.0), false);
+    A.equal(isFloat(-1.0), false);
+    A.equal(isFloat(new Number(1)), false);
+    A.equal(isFloat(NaN), false);
+    A.equal(isFloat(Infinity), false);
+    A.equal(isFloat(-Infinity), false);
+    A.equal(isFloat('foo'), false);
+    A.equal(isFloat([]), false);
+    A.equal(isFloat({}), false);
+    A.equal(isFloat(null), false);
+    A.equal(isFloat(undefined), false);
   });
 });

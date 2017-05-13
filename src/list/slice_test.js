@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import slice from './slice';
-import util from '../../lib/stubs';
+import util from '../../lib/util';
 
 describe('list.slice(start, end, list)', () => {
   function test(src) {

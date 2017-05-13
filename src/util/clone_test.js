@@ -3,45 +3,62 @@ import A from 'assert';
 import clone from './clone';
 
 describe('util.clone(obj)', () => {
-  function Foo() { this.foo = 1; }
-  Foo.prototype.bar = 2;
-  const prototyped = new Foo();
-  prototyped.baz = 3;
-
   it('returns a copy of "obj"', () => {
-    const assert = (input, immutable) => {
-      const res = clone(input);
-      A.deepEqual(res, input);
-      if (!immutable)
-        A.notStrictEqual(res, input);
-    };
-    assert([1, 2, 3], false);
-    assert({ a: 1, b: 2, c: 3 }, false);
-    assert('abcd', true);
-    assert(null, true);
-    assert(undefined, true);
-    assert(true, true);
+    [ // mutable values
+      [1, 2, 3],
+      { a: 1, b: 2 },
+    ].forEach((value) => {
+      const cloned = clone(value);
+      A.deepEqual(value, cloned);
+
+      // ensures the value was copied rather than just returned
+      A.notStrictEqual(value, cloned);
+    });
+
+    [ // primitive values
+      'abc',
+      null,
+      true,
+      undefined,
+    ].forEach((value) => {
+      // primitives are immutable by default so no need to make a copy
+      A.equal(value, clone(value));
+    });
   });
 
-  it('ignores prototoype chain', () => {
-    A.deepEqual(clone(prototyped), { foo: 1, baz: 3 }) ;
+  it('ignores the prototype chain of an object', () => {
+    const prototyped = Object.create({ foo: 1 });
+    prototyped.baz = 3;
+
+    A.deepEqual(clone(prototyped), { baz: 3 }) ;
   });
 
   it('clones deeply', () => {
+    let value, cloned;
+
+    value = { a: { b: { c: 1 } } };
+    cloned = clone(value);
+    cloned.a.b.c = 2;
+
+    // the cloned object was updated,...
+    A.equal(cloned.a.b.c, 2);
+
+    // ...the original wasn't
+    A.equal(value.a.b.c, 1);
+
     const o = { a: 1 };
-    let input, res;
+    value = [1, o];
+    cloned = clone(value);
+    cloned[0] = 2;
+    cloned[1].a = 2;
 
-    input = { a: { b: { c: 1 } } };
-    res = clone(input);
-    res.a.b.c = 2;
-    A.equal(input.a.b.c, 1);
+    // the cloned object has the new values
+    A.equal(cloned[0], 2);
+    A.equal(cloned[1].a, 2);
 
-    input = [1, o];
-    res = clone(input);
-    res[0] = 2;
-    res[1].a = 2;
-    A.equal(input[0], 1);
-    A.equal(input[1].a, 1);
+    // the original objects have not changed
+    A.equal(value[0], 1);
+    A.equal(value[1].a, 1);
     A.equal(o.a, 1);
   });
 });

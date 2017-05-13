@@ -6,16 +6,15 @@ describe('object.isPlainObject(subject)', () => {
   function Foo() { /**/ }
 
   it('checks if "subject" is a object literal', () => {
-    const assert = (sub, wanted) => A.equal(isPlainObject(sub), wanted);
-    assert({}, true);
-    assert({ foo: 1 }, true);
-    assert(Object.create(null), true);
-    assert('foo', false);
-    assert([], false);
-    assert(0, false);
-    assert(new String(''), false);
-    assert(new Foo(), false);
-    assert(Object.create({}), false);
-    assert((function () { return arguments; })(), false);
+    A.equal(isPlainObject({}), true);
+    A.equal(isPlainObject({ foo: 1 }), true);
+    A.equal(isPlainObject(Object.create(null)), true);
+    A.equal(isPlainObject('foo'), false);
+    A.equal(isPlainObject([]), false);
+    A.equal(isPlainObject(0), false);
+    A.equal(isPlainObject(new String('')), false);
+    A.equal(isPlainObject(new Foo()), false);
+    A.equal(isPlainObject(Object.create({})), false);
+    A.equal(isPlainObject((function () { return arguments; })()), false);
   });
 });

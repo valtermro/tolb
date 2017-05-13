@@ -3,20 +3,16 @@ import A from 'assert';
 import lt from './lt';
 
 describe('assert.lt(other, value)', () => {
-  function test(other, value, wanted) {
-    A.equal(lt(other, value), wanted);
-  }
-
   it('checks if "value" is smaller than "other"', () => {
-    test(2, 1, true);
-    test(2, 2, false);
-    test(1, 2, false);
+    A.equal(lt(2, 1), true);
+    A.equal(lt(2, 2), false);
+    A.equal(lt(1, 2), false);
   });
 
   it('compares strings', () => {
-    test('bc', 'ab', true);
-    test('bc', 'de', false);
-    test('bc', 'd', false);
+    A.equal(lt('bc', 'ab'), true);
+    A.equal(lt('bc', 'de'), false);
+    A.equal(lt('bc', 'd'), false);
   });
 
   it('allows partial application', () => {

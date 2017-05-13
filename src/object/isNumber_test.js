@@ -4,17 +4,16 @@ import isNumber from './isNumber';
 
 describe('object.isNumber(subject)', () => {
   it('checks if "subject" is a number', () => {
-    const assert = (sub, wanted) => A.equal(isNumber(sub), wanted);
-    assert(0, true);
-    assert(1, true);
-    assert(-1, true);
-    assert(Math.PI, true);
-    assert(NaN, false);
-    assert(Infinity, false);
-    assert('foo', false);
-    assert(new Number(), false);
-    assert([], false);
-    assert(undefined, false);
-    assert(null, false);
+    A.equal(isNumber(0), true);
+    A.equal(isNumber(1), true);
+    A.equal(isNumber(-1), true);
+    A.equal(isNumber(Math.PI), true);
+    A.equal(isNumber(NaN), false);
+    A.equal(isNumber(Infinity), false);
+    A.equal(isNumber('foo'), false);
+    A.equal(isNumber(new Number()), false);
+    A.equal(isNumber([]), false);
+    A.equal(isNumber(undefined), false);
+    A.equal(isNumber(null), false);
   });
 });

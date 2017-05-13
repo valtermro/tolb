@@ -1,18 +1,17 @@
 /* eslint-env mocha */
 import A from 'assert';
 import isString from './isString';
-import util from '../../lib/stubs';
+import util from '../../lib/util';
 
 describe('object.isString(subject)', () => {
   it('checks if "subject" is a string', () => {
-    const assert = (sub, wanted) => A.equal(isString(sub), wanted);
-    assert('', true);
-    assert('foo', true);
-    assert(new String(''), false);
-    assert([], false);
-    assert(util.arrayLike(1), false);
-    assert(0, false);
-    assert(null, false);
-    assert(undefined, false);
+    A.equal(isString(''), true);
+    A.equal(isString('foo'), true);
+    A.equal(isString(new String('')), false);
+    A.equal(isString([]), false);
+    A.equal(isString(util.arrayLike(1)), false);
+    A.equal(isString(0), false);
+    A.equal(isString(null), false);
+    A.equal(isString(undefined), false);
   });
 });

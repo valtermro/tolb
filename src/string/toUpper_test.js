@@ -4,9 +4,8 @@ import toUpper from './toUpper';
 
 describe('string.toUpper(str)', () => {
   it('converts "str" to upper case', () => {
-    const assert = str => A.equal(toUpper(str), str.toUpperCase());
-    assert('Foo');
-    assert('FoA');
-    assert('FoA BAr');
+    A.equal(toUpper('Foo'), 'FOO');
+    A.equal(toUpper('FoO'), 'FOO');
+    A.equal(toUpper('Foo BAr'), 'FOO BAR');
   });
 });

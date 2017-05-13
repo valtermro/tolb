@@ -5,6 +5,6 @@ import identity from './identity';
 describe('combinator.identity(v)', () => {
   it('returns its argument', () => {
     const v = [1, 2];
-    A.equal(identity(v), v);
+    A.strictEqual(identity(v), v);
   });
 });

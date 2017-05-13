@@ -8,6 +8,8 @@ describe('_internal.concat(left, right)', () => {
     const right = [4, 5];
 
     A.deepEqual(concat(left, right), [1, 2, 3, 4, 5]);
+
+    // the original values should not change
     A.deepEqual(left, [1, 2, 3]);
     A.deepEqual(right, [4, 5]);
   });

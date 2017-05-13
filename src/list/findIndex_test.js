@@ -1,28 +1,45 @@
 /* eslint-env mocha */
 import A from 'assert';
 import findIndex from './findIndex';
-import util from '../../lib/stubs';
+import util from '../../lib/util';
 
 describe('list.findIndex(pred, list)', () => {
-  const array = util.makeArray(10);
-  const gt8 = x => x > 8;
-  const gt0 = x => x > 0;
+  // a list of lists with one uppercased letter, at index 2
+  const hasUpper = [
+    ['a', 'a', 'A', 'A', 'A'],
+    util.arrayLike('a', 'a', 'A', 'A', 'A'),
+    'aaAAA',
+  ];
+
+  // a list of lists without any uppercased letters
+  const noUpper = [
+    ['a', 'a', 'a', 'a', 'a'],
+    util.arrayLike('a', 'a', 'a', 'a', 'a'),
+    'aaaaa',
+  ];
 
   it('returns the index of the first item in "list" that matches "pred"', () => {
-    A.equal(findIndex(gt8, array), 9);
-    A.equal(findIndex(gt0, array), 1);
+    hasUpper.forEach((list) => {
+      A.equal(findIndex(util.isUpper, list), 2);
+    });
   });
 
   it('returns -1 if nothing is found', () => {
-    A.equal(findIndex(x => x > 9, array), -1);
+    noUpper.forEach((list) => {
+      A.equal(findIndex(util.isUpper, list), -1);
+    });
   });
 
   it('"pred" receives the current index as its second argument', () => {
-    let k = 0;
-    findIndex((_, i) => A.equal(i, k++), array);
+    hasUpper.forEach((list) => {
+      let k = 0;
+      findIndex((_, i) => A.equal(i, k++), list);
+    });
   });
 
   it('allows partial application', () => {
-    A.equal(findIndex(gt8)(array), 9);
+    hasUpper.forEach((list) => {
+      A.equal(findIndex(util.isUpper)(list), 2);
+    });
   });
 });

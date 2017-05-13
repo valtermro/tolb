@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import reverse from './reverse';
-import util from '../../lib/stubs';
+import util from '../../lib/util';
 
 describe('list.reverse(list)', () => {
   it('reverses strings', () => {

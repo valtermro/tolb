@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import tail from './tail';
-import util from '../../lib/stubs';
+import util from '../../lib/util';
 
 describe('list.tail(list)', () => {
   it('deals with strings', () => {
@@ -13,9 +13,10 @@ describe('list.tail(list)', () => {
   it('deals with arrays', () => {
     const array = [1, 2, 3];
     A.deepEqual(tail(array), [2, 3]);
+    A.deepEqual(array, [1, 2, 3]);
+
     A.deepEqual(tail([1]), []);
     A.deepEqual(tail([]), []);
-    A.deepEqual(array, [1, 2, 3]);
   });
 
   it('deals with array-like objects', () => {

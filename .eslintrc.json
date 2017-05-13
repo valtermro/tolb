@@ -27,7 +27,6 @@
     "indent": [2, 2, { "SwitchCase": 1, "MemberExpression": 1 }],
     "key-spacing": [2, { "beforeColon": false, "afterColon": true }],
     "keyword-spacing": [2, { "after": true, "before": true }],
-    "line-comment-position": [2, { "position": "above" }],
     "max-len": [2, 100, 2, { "ignoreUrls": true, "ignoreComments": true }],
     "newline-per-chained-call": [2, { "ignoreChainWithDepth": 3 }],
     "no-multiple-empty-lines": [2, { "max": 2, "maxEOF": 1 }],

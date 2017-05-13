@@ -3,21 +3,17 @@ import A from 'assert';
 import lte from './lte';
 
 describe('assert.lte(other, value)', () => {
-  function test(other, value, wanted) {
-    A.equal(lte(other, value), wanted);
-  }
-
   it('checks if "value" is smaller than, or equal to, "other"', () => {
-    test(2, 1, true);
-    test(2, 2, true);
-    test(1, 2, false);
+    A.equal(lte(2, 1), true);
+    A.equal(lte(2, 2), true);
+    A.equal(lte(1, 2), false);
   });
 
   it('compares strings', () => {
-    test('bc', 'ac', true);
-    test('bc', 'ba', true);
-    test('bc', 'bc', true);
-    test('bc', 'd', false);
+    A.equal(lte('bc', 'ac'), true);
+    A.equal(lte('bc', 'ba'), true);
+    A.equal(lte('bc', 'bc'), true);
+    A.equal(lte('bc', 'd'), false);
   });
 
   it('allows partial application', () => {

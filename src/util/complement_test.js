@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import complement from './complement';
-import util from '../../lib/stubs';
+import util from '../../lib/util';
 
 describe('util.complement(fn)', () => {
   const isOdd = complement(util.isEven);

@@ -4,15 +4,14 @@ import isNaN from './isNaN';
 
 describe('number.isNaN(subject)', () => {
   it('checks if "subject" is NaN', () => {
-    const assert = (sub, wanted) => A.equal(isNaN(sub), wanted);
-    assert(NaN, true);
-    assert(Number.NaN, true);
-    assert('foo', false);
-    assert(1, false);
-    assert('1', false);
-    assert([], false);
-    assert({}, false);
-    assert(undefined, false);
-    assert(null, false);
+    A.equal(isNaN(NaN), true);
+    A.equal(isNaN(Number.NaN), true);
+    A.equal(isNaN('foo'), false);
+    A.equal(isNaN(1), false);
+    A.equal(isNaN('1'), false);
+    A.equal(isNaN([]), false);
+    A.equal(isNaN({}), false);
+    A.equal(isNaN(undefined), false);
+    A.equal(isNaN(null), false);
   });
 });

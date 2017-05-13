@@ -3,17 +3,33 @@ import A from 'assert';
 import reduce from './reduce';
 
 describe('object.reduce(fn, accum, obj)', () => {
-  const obj = { a: 1, b: 2, c: 3 };
-  const fn = (a, k, v) => a + k + v;
+  const fn = (a, _, v) => a + v;
 
-  it('uses "fn" to reduce "accum" and the own values of "obj" to a single value', () => {
-    A.equal(reduce(fn, '-', obj), '-a1b2c3');
+  it('uses "fn" to reduce "accum" and the values of "obj" to a single value', () => {
+    A.equal(reduce(fn, '-', { a: 'b', c: 'd' }), '-bd');
     A.equal(reduce(fn, '-', {}), '-');
   });
 
+  it("uses only the object's own properties", () => {
+    const prototyped = Object.create({ ignored: 'a' });
+    prototyped.b = 'b';
+    prototyped.c = 'c';
+
+    A.equal(reduce(fn, '-', prototyped), '-bc');
+  });
+
+  it('"fn" receives the current key as its second argument', () => {
+    const obj = { a: 1, b: 2, c: 3 };
+    const keys = Object.keys(obj);
+    let i = 0;
+    reduce((__, k, _) => A.equal(k, keys[i++]), '', obj);
+  });
+
   it('allows partial application', () => {
-    A.equal(reduce(fn)('-')(obj), '-a1b2c3');
-    A.equal(reduce(fn)('-', obj), '-a1b2c3');
-    A.equal(reduce(fn, '-')(obj), '-a1b2c3');
+    const obj = { a: 'a' };
+
+    A.equal(reduce(fn)('-')(obj), '-a');
+    A.equal(reduce(fn)('-', obj), '-a');
+    A.equal(reduce(fn, '-')(obj), '-a');
   });
 });

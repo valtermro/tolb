@@ -25,6 +25,7 @@ export { default as reverse } from './reverse';
 export { default as slice } from './slice';
 export { default as some } from './some';
 export { default as tail } from './tail';
+export { default as uniq } from './uniq';
 export { default as unzip } from './unzip';
 export { default as zip } from './zip';
 export { default as zipObject } from './zipObject';

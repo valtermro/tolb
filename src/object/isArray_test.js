@@ -1,21 +1,20 @@
 /* eslint-env mocha */
 import A from 'assert';
 import isArray from './isArray';
-import util from '../../lib/stubs';
+import util from '../../lib/util';
 
 describe('object.isArray(subject)', () => {
-  function MyArray() { /**/ }
+  function MyArray() { /* */ }
   MyArray.prototype = Object.create(Array.prototype);
 
   it('checks if "subject" is an array', () => {
-    const assert = (sub, wanted) => A.equal(isArray(sub), wanted);
-    assert([], true);
-    assert(new Array(), true);
-    assert(new MyArray(), false);
-    assert('', false);
-    assert(util.arrayLike(1), false);
-    assert(0, false);
-    assert(null, false);
-    assert(undefined, false);
+    A.equal(isArray([]), true);
+    A.equal(isArray(new Array()), true);
+    A.equal(isArray(new MyArray()), false);
+    A.equal(isArray(''), false);
+    A.equal(isArray(util.arrayLike(1)), false);
+    A.equal(isArray(0), false);
+    A.equal(isArray(null), false);
+    A.equal(isArray(undefined), false);
   });
 });

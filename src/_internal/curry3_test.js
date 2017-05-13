@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import curry3 from './curry3';
-import util from '../../lib/stubs';
+import stub from '../../lib/stub';
 
 describe('_iternal.curry3(fn, reverse)', () => {
   const values = [
@@ -16,7 +16,7 @@ describe('_iternal.curry3(fn, reverse)', () => {
   describe('"reverse" = true', () => test(true));
 
   function test(reverse) {
-    const curried = curry3(util.foo3, reverse);
+    const curried = curry3(stub.foo3, reverse);
     const v0 = reverse ? values[0].slice(0).reverse() : values[0];
     const v1 = reverse ? values[1].slice(0).reverse() : values[1];
     const v2 = reverse ? values[2].slice(0).reverse() : values[2];
@@ -24,16 +24,14 @@ describe('_iternal.curry3(fn, reverse)', () => {
     const v4 = reverse ? values[4].slice(0).reverse() : values[4];
 
     it('converts "fn" into a function that can be used as a curried function', () => {
-      const assert = v => A.deepEqual(v, v0);
-
-      assert(curried(1, 2, 3));
-      assert(curried(1, 2)(3));
-      assert(curried(1)(2, 3));
-      assert(curried(1)(2)(3));
+      A.deepEqual(curried(1, 2, 3), v0);
+      A.deepEqual(curried(1, 2)(3), v0);
+      A.deepEqual(curried(1)(2, 3), v0);
+      A.deepEqual(curried(1)(2)(3), v0);
 
       // one may pass an extra argument at some point
-      assert(curried(1, 2, 3, 4));
-      assert(curried(1)(2, 3, 4));
+      A.deepEqual(curried(1, 2, 3, 4), v0);
+      A.deepEqual(curried(1)(2, 3, 4), v0);
     });
 
     it('each function holds its state', () => {
@@ -47,12 +45,10 @@ describe('_iternal.curry3(fn, reverse)', () => {
     });
 
     it('the new functions report their arity', () => {
-      const assert = (f, a) => A.equal(f.length, a);
-
-      assert(curried, 3);
-      assert(curried(1), 2);
-      assert(curried(1)(2), 1);
-      assert(curried(1, 2), 1);
+      A.equal(curried.length, 3);
+      A.equal(curried(1).length, 2);
+      A.equal(curried(1)(2).length, 1);
+      A.equal(curried(1, 2).length, 1);
     });
 
     it('counts no argument as argument', () => {

@@ -9,6 +9,9 @@ import curry2 from '../_internal/curry2';
 /**
  * Removes all elements in a list that match a given predicate.
  *
+ * If the list is a string, the resulting list will be an array with the characters
+ * in the original string that don't match the predicate.
+ *
  * The predicate receives the current index as its second argument.
  *
  * @function

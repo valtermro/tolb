@@ -4,24 +4,23 @@ import isInteger from './isInteger';
 
 describe('number.isInteger(subject)', () => {
   it('checks if "subject" is an integer', () => {
-    const assert = (sub, wanted) => A.equal(isInteger(sub), wanted);
-    assert(1, true);
-    assert(0, true);
-    assert(-0, true);
-    assert(-1, true);
-    assert(1.0, true);
-    assert(-1.0, true);
-    assert(1.8, false);
-    assert(-1.8, false);
-    assert(Math.PI, false);
-    assert(NaN, false);
-    assert(Infinity, false);
-    assert(-Infinity, false);
-    assert(new Number(1), false) // eslint-disable-line
-    assert('foo', false);
-    assert([], false);
-    assert({}, false);
-    assert(null, false);
-    assert(undefined, false);
+    A.equal(isInteger(1), true);
+    A.equal(isInteger(0), true);
+    A.equal(isInteger(-0), true);
+    A.equal(isInteger(-1), true);
+    A.equal(isInteger(1.0), true);
+    A.equal(isInteger(-1.0), true);
+    A.equal(isInteger(1.8), false);
+    A.equal(isInteger(-1.8), false);
+    A.equal(isInteger(Math.PI), false);
+    A.equal(isInteger(NaN), false);
+    A.equal(isInteger(Infinity), false);
+    A.equal(isInteger(-Infinity), false);
+    A.equal(isInteger(new Number(1)), false) // eslint-disable-line
+    A.equal(isInteger('foo'), false);
+    A.equal(isInteger([]), false);
+    A.equal(isInteger({}), false);
+    A.equal(isInteger(null), false);
+    A.equal(isInteger(undefined), false);
   });
 });

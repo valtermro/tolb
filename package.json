@@ -6,10 +6,10 @@
   "scripts": {
     "build": "node bin/build.js",
     "clean": "node bin/clean.js",
-    "lint": "eslint",
+    "lint": "eslint .",
     "new": "node bin/new.js",
     "test": "node bin/test.js",
-    "prepublish": "npm run test && npm run lint . && npm run build && npm run test build",
+    "prepublish": "npm run test && npm run lint && npm run build && npm run test build",
     "postpublish": "npm run clean"
   },
   "repository": {
