@@ -1,5 +1,5 @@
 import curry2 from '../_internal/curry2';
-import equals from '../_internal/equals';
+import equal from '../_internal/equal';
 
 /**
  * The `List` type definition for this method.
@@ -11,7 +11,7 @@ import equals from '../_internal/equals';
 /**
  * Checks if a list contains a given value.
  *
- * The values are compared by the means of `assert.equals`
+ * The values are compared by the means of `is.equal`
  *
  * @function
  * @param {*} value - The value to search for
@@ -29,7 +29,7 @@ export default curry2((value, subject) => {
 
   for (let i = 0; i < subject.length; i++) {
     if (typeof value === 'number' || typeof value === 'object')
-      return equals(subject[i], value);
+      return equal(subject[i], value);
 
     if (subject[i] === value)
       return true;
