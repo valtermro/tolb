@@ -2,7 +2,7 @@
 import A from 'assert';
 import prop from './prop';
 
-describe('prop(key, obj)', () => {
+describe('object.prop(key, obj)', () => {
   const obj = {
     foo: 1,
     bar: {

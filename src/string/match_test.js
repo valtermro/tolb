@@ -2,14 +2,13 @@
 import A from 'assert';
 import match from './match';
 
-describe('match(pattern, str)', () => {
+describe('string.match(pattern, str)', () => {
   const str = 'some little thing';
 
   it('applies "str".match to "pattern"', () => {
-    const assert = p => A.deepEqual(match(p, str), str.match(p));
-    assert(/some/);
-    assert(/(s.+)t/);
-    assert('some');
+    [/some/, /(s.+)t/, 'some'].forEach((pattern) => {
+      A.deepEqual(match(pattern, str), str.match(pattern));
+    });
   });
 
   it('returns an empty array if "str" does not match "pattern"', () => {

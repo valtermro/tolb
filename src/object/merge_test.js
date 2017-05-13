@@ -2,37 +2,39 @@
 import A from 'assert';
 import merge from './merge';
 
-describe('merge(source, target)', () => {
-  function Foo() { this.foo = 1; }
-  Foo.prototype.blegh = 3;
-
-  const prototyped = new Foo();
-  prototyped.bar = 2;
-
-  const obj1 = { foo: 1, bar: 2 };
-  const obj2 = { baz: 3 };
-
-  const wanted = { foo: 1, bar: 2, baz: 3 };
-
+describe('object.merge(source, target)', () => {
   it('merges "source" and "target"', () => {
-    A.deepEqual(merge(obj1, obj2), wanted);
+    const merged = merge({ a: 1, b: 2 }, { c: 3 });
+
+    A.deepEqual(merged, { a: 1, b: 2, c: 3 });
+
+    // target's keys come before the source's
+    A.deepEqual(Object.keys(merged), ['c', 'a', 'b']);
   });
 
   it('does not mutate the original objects', () => {
-    A.deepEqual(obj1, { foo: 1, bar: 2 });
-    A.deepEqual(obj2, { baz: 3 });
+    const obj1 = { a: 1 };
+    const obj2 = { b: 2 };
+
+    merge(obj1, obj2);
+
+    A.deepEqual(obj1, { a: 1 });
+    A.deepEqual(obj2, { b: 2 });
   });
 
   it('keys in "source" override keys in "target"', () => {
-    A.deepEqual(merge({ bar: 10 }, obj1), { bar: 10, foo: 1 });
+    A.deepEqual(merge({ a: 10 }, { a: 1, b: 2 }), { a: 10, b: 2 });
   });
 
   it('merges only the object\'s own values', () => {
-    A.deepEqual(merge(prototyped, obj2), wanted);
-    A.deepEqual(merge(obj2, prototyped), wanted);
+    const prototyped = Object.create({ ignored: 1 });
+    prototyped.a = 1;
+
+    A.deepEqual(merge(prototyped, { b: 2 }), { a: 1, b: 2 });
+    A.deepEqual(merge({ b: 2 }, prototyped), { b: 2, a: 1 });
   });
 
   it('allows partial application', () => {
-    A.deepEqual(merge(obj1)(obj2), wanted);
+    A.deepEqual(merge({ a: 1 })({ b: 2 }), { b: 2, a: 1 });
   });
 });

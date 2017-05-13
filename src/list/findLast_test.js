@@ -1,26 +1,50 @@
 /* eslint-env mocha */
 import A from 'assert';
 import findLast from './findLast';
+import util from '../../lib/util';
 
-describe('findLast(pred, list)', () => {
-  const gt2 = x => x > 2;
-  const lt2 = x => x < 2;
+describe('list.findLast(pred, list)', () => {
+  // a list of lists containing some uppercased letters
+  const hasUpper = [
+    ['a', 'B', 'c', 'D', 'e', 'f'],
+    util.arrayLike('a', 'B', 'c', 'D', 'e', 'f'),
+    'aBcDef',
+  ];
+
+  // a list of lists without any uppercased letters
+  const noUpper = [
+    ['a', 'b', 'c', 'd'],
+    util.arrayLike('a', 'b', 'c', 'd'),
+    'abcd',
+  ];
 
   it('returns the last element in "list" that matches "pred"', () => {
-    A.equal(findLast(gt2, [2, 3, 4, 2, 3]), 3);
-    A.equal(findLast(lt2, [1, 2, 3]), 1);
+    hasUpper.forEach((list) => {
+      A.equal(findLast(util.isUpper, list), 'D');
+    });
+
+    // it doesn't matter the index the element is at
+    A.equal(findLast(util.isUpper, ['a', 'b', 'C']), 'C');
+    A.equal(findLast(util.isUpper, ['A', 'b']), 'A');
+    A.equal(findLast(util.isUpper, ['A']), 'A');
   });
 
   it('returns undefined if nothing is found', () => {
-    A.equal(findLast(lt2, [2, 3]), undefined);
+    noUpper.forEach((list) => {
+      A.equal(findLast(util.isUpper, list), undefined);
+    });
   });
 
   it('"pred" receives the current index as its second argument', () => {
-    let k = 3;
-    findLast((_, i) => A.equal(i, k--), [1, 2, 3, 4]);
+    hasUpper.forEach((list) => {
+      let k = list.length - 1;
+      findLast((_, i) => A.equal(i, k--), list);
+    });
   });
 
   it('allows partial application', () => {
-    A.equal(findLast(lt2)([1, 2, 3]), 1);
+    hasUpper.forEach((list) => {
+      A.equal(findLast(util.isUpper)(list), 'D');
+    });
   });
 });

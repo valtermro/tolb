@@ -2,16 +2,15 @@
 import A from 'assert';
 import multiply from './multiply';
 
-describe('multiply(multiplier, multiplicand)', () => {
+describe('math.multiply(multiplier, multiplicand)', () => {
   it('multiplies two numbers', () => {
-    const assert = (x, y) => A.equal(multiply(x, y), x * y);
-    assert(1, 2);
-    assert(3, 2);
-    assert(3, -2);
-    assert(-3, -2);
+    A.equal(multiply(1, 2), 2 * 1);
+    A.equal(multiply(3, 2), 2 * 3);
+    A.equal(multiply(3, -2), -2 * 3);
+    A.equal(multiply(-3, -2), -2 * -3);
   });
 
   it('allows partial application', () => {
-    A.equal(multiply(2)(3), 6);
+    A.equal(multiply(2)(3), 3 * 2);
   });
 });

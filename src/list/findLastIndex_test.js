@@ -1,26 +1,50 @@
 /* eslint-env mocha */
 import A from 'assert';
 import findLastIndex from './findLastIndex';
+import util from '../../lib/util';
 
-describe('findLastIndex(pred, list)', () => {
-  const gt2 = x => x > 2;
-  const lt2 = x => x < 2;
+describe('list.findLastIndex(pred, list)', () => {
+  // a list of lists with uppercased letters from index 1 to index 3
+  const hasUpper = [
+    ['a', 'A', 'A', 'A', 'a', 'a'],
+    util.arrayLike('a', 'A', 'A', 'A', 'a', 'a'),
+    'aAAAaa',
+  ];
+
+  // a list of lists without any uppercased letters
+  const noUpper = [
+    ['a', 'a', 'a', 'a', 'a'],
+    util.arrayLike('a', 'a', 'a', 'a', 'a'),
+    'aaaaa',
+  ];
 
   it('returns the index of the last element in "list" that matches "pred"', () => {
-    A.equal(findLastIndex(gt2, [2, 3, 4, 2, 3]), 4);
-    A.equal(findLastIndex(lt2, [1, 2, 3]), 0);
+    hasUpper.forEach((list) => {
+      A.equal(findLastIndex(util.isUpper, list), 3);
+    });
+
+    // it doesn't matter the index the element is at
+    A.equal(findLastIndex(util.isUpper, ['a', 'a', 'A']), 2);
+    A.equal(findLastIndex(util.isUpper, ['A', 'a']), 0);
+    A.equal(findLastIndex(util.isUpper, ['A']), 0);
   });
 
   it('returns -1 if nothing is found', () => {
-    A.equal(findLastIndex(lt2, [2, 3]), -1);
+    noUpper.forEach((list) => {
+      A.equal(findLastIndex(util.isUpper, list), -1);
+    });
   });
 
   it('"pred" receives the current index as its second argument', () => {
-    let k = 3;
-    findLastIndex((_, i) => A.equal(i, k--), [1, 2, 3, 4]);
+    hasUpper.forEach((list) => {
+      let k = list.length - 1;
+      findLastIndex((_, i) => A.equal(i, k--), list);
+    });
   });
 
   it('allows partial application', () => {
-    A.equal(findLastIndex(lt2)([1, 2, 3]), 0);
+    hasUpper.forEach((list) => {
+      A.equal(findLastIndex(util.isUpper)(list), 3);
+    });
   });
 });

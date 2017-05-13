@@ -1,78 +1,77 @@
 /* eslint-env mocha */
 import A from 'assert';
 import rcurry from './rcurry';
-import util from '../../build/util';
+import stub from '../../lib/stub';
 
-describe('rcurry(fn)', () => {
-  const curried2 = rcurry(util.foo2);
-  const curried3 = rcurry(util.foo3);
-  const curried4 = rcurry(util.foo4);
-  const curried6 = rcurry(util.foo6);
+describe('function.rcurry(fn)', () => {
+  const curried2 = rcurry(stub.foo2);
+  const curried3 = rcurry(stub.foo3);
+  const curried4 = rcurry(stub.foo4);
+  const curried6 = rcurry(stub.foo6);
 
   it('converts "fn" into a function that can be used as a curried function', () => {
     const values = [6, 5, 4, 3, 2, 1];
-    const assert = v => A.deepEqual(v, values);
 
     // just make sure the optimized curry functions are properly used
     A.deepEqual(curried2(1)(2), [2, 1]);
     A.deepEqual(curried3(1)(2)(3), [3, 2, 1]);
     A.deepEqual(curried4(1)(2)(3)(4), [4, 3, 2, 1]);
 
-    assert(curried6(1, 2, 3, 4, 5, 6));
-    assert(curried6(1, 2, 3, 4, 5)(6));
+    A.deepEqual(curried6(1, 2, 3, 4, 5, 6), values);
+    A.deepEqual(curried6(1, 2, 3, 4, 5)(6), values);
 
-    assert(curried6(1, 2, 3, 4)(5, 6));
-    assert(curried6(1, 2, 3, 4)(5)(6));
+    A.deepEqual(curried6(1, 2, 3, 4)(5, 6), values);
+    A.deepEqual(curried6(1, 2, 3, 4)(5)(6), values);
 
-    assert(curried6(1, 2, 3)(4, 5, 6));
-    assert(curried6(1, 2, 3)(4, 5)(6));
-    assert(curried6(1, 2, 3)(4)(5, 6));
-    assert(curried6(1, 2, 3)(4)(5)(6));
+    A.deepEqual(curried6(1, 2, 3)(4, 5, 6), values);
+    A.deepEqual(curried6(1, 2, 3)(4, 5)(6), values);
+    A.deepEqual(curried6(1, 2, 3)(4)(5, 6), values);
+    A.deepEqual(curried6(1, 2, 3)(4)(5)(6), values);
 
-    assert(curried6(1, 2)(3, 4, 5, 6));
-    assert(curried6(1, 2)(3, 4, 5)(6));
-    assert(curried6(1, 2)(3, 4)(5, 6));
-    assert(curried6(1, 2)(3, 4)(5)(6));
-    assert(curried6(1, 2)(3)(4, 5, 6));
-    assert(curried6(1, 2)(3)(4, 5)(6));
-    assert(curried6(1, 2)(3)(4)(5, 6));
-    assert(curried6(1, 2)(3)(4)(5)(6));
+    A.deepEqual(curried6(1, 2)(3, 4, 5, 6), values);
+    A.deepEqual(curried6(1, 2)(3, 4, 5)(6), values);
+    A.deepEqual(curried6(1, 2)(3, 4)(5, 6), values);
+    A.deepEqual(curried6(1, 2)(3, 4)(5)(6), values);
+    A.deepEqual(curried6(1, 2)(3)(4, 5, 6), values);
+    A.deepEqual(curried6(1, 2)(3)(4, 5)(6), values);
+    A.deepEqual(curried6(1, 2)(3)(4)(5, 6), values);
+    A.deepEqual(curried6(1, 2)(3)(4)(5)(6), values);
 
-    assert(curried6(1)(2, 3, 4, 5, 6));
-    assert(curried6(1)(2, 3, 4, 5)(6));
-    assert(curried6(1)(2, 3, 4)(5, 6));
-    assert(curried6(1)(2, 3, 4)(5)(6));
-    assert(curried6(1)(2, 3)(4, 5, 6));
-    assert(curried6(1)(2, 3)(4, 5)(6));
-    assert(curried6(1)(2, 3)(4)(5, 6));
-    assert(curried6(1)(2, 3)(4)(5)(6));
+    A.deepEqual(curried6(1)(2, 3, 4, 5, 6), values);
+    A.deepEqual(curried6(1)(2, 3, 4, 5)(6), values);
+    A.deepEqual(curried6(1)(2, 3, 4)(5, 6), values);
+    A.deepEqual(curried6(1)(2, 3, 4)(5)(6), values);
+    A.deepEqual(curried6(1)(2, 3)(4, 5, 6), values);
+    A.deepEqual(curried6(1)(2, 3)(4, 5)(6), values);
+    A.deepEqual(curried6(1)(2, 3)(4)(5, 6), values);
+    A.deepEqual(curried6(1)(2, 3)(4)(5)(6), values);
 
-    assert(curried6(1)(2)(3, 4, 5, 6));
-    assert(curried6(1)(2)(3, 4, 5)(6));
-    assert(curried6(1)(2)(3, 4)(5, 6));
-    assert(curried6(1)(2)(3, 4)(5)(6));
-    assert(curried6(1)(2)(3)(4, 5, 6));
-    assert(curried6(1)(2)(3)(4, 5)(6));
-    assert(curried6(1)(2)(3)(4)(5, 6));
-    assert(curried6(1)(2)(3)(4)(5)(6));
+    A.deepEqual(curried6(1)(2)(3, 4, 5, 6), values);
+    A.deepEqual(curried6(1)(2)(3, 4, 5)(6), values);
+    A.deepEqual(curried6(1)(2)(3, 4)(5, 6), values);
+    A.deepEqual(curried6(1)(2)(3, 4)(5)(6), values);
+    A.deepEqual(curried6(1)(2)(3)(4, 5, 6), values);
+    A.deepEqual(curried6(1)(2)(3)(4, 5)(6), values);
+    A.deepEqual(curried6(1)(2)(3)(4)(5, 6), values);
+    A.deepEqual(curried6(1)(2)(3)(4)(5)(6), values);
 
     // one may pass an extra argument at some point
-    assert(curried6(1, 2, 3, 4, 5, 6, 7));
-    assert(curried6(1, 2, 3, 4)(5, 6, 7));
-    assert(curried6(1, 2, 3)(4, 5, 6, 7));
-    assert(curried6(1, 2, 3)(4)(5, 6, 7));
-    assert(curried6(1, 2)(3, 4, 5, 6, 7));
-    assert(curried6(1, 2)(3, 4)(5, 6, 7));
-    assert(curried6(1, 2)(3)(4, 5, 6, 7));
-    assert(curried6(1, 2)(3)(4)(5, 6, 7));
-    assert(curried6(1)(2, 3, 4, 5, 6, 7));
-    assert(curried6(1)(2, 3, 4)(5, 6, 7));
-    assert(curried6(1)(2, 3)(4, 5, 6, 7));
-    assert(curried6(1)(2, 3)(4)(5, 6, 7));
-    assert(curried6(1)(2)(3, 4, 5, 6, 7));
-    assert(curried6(1)(2)(3, 4)(5, 6, 7));
-    assert(curried6(1)(2)(3)(4, 5, 6, 7));
-    assert(curried6(1)(2)(3)(4)(5, 6, 7));
+    A.deepEqual(curried6(1, 2, 3, 4, 5, 6, 7), values);
+    A.deepEqual(curried6(1, 2, 3, 4)(5, 6, 7), values);
+    A.deepEqual(curried6(1, 2, 3)(4, 5, 6, 7), values);
+    A.deepEqual(curried6(1, 2, 3)(4)(5, 6, 7), values);
+    A.deepEqual(curried6(1, 2)(3, 4, 5, 6, 7), values);
+    A.deepEqual(curried6(1, 2)(3, 4)(5, 6, 7), values);
+    A.deepEqual(curried6(1, 2)(3)(4, 5, 6, 7), values);
+    A.deepEqual(curried6(1, 2)(3)(4)(5, 6, 7), values);
+    A.deepEqual(curried6(1)(2, 3, 4, 5, 6, 7), values);
+    A.deepEqual(curried6(1)(2, 3, 4)(5, 6, 7), values);
+    A.deepEqual(curried6(1)(2, 3)(4, 5, 6, 7), values);
+    A.deepEqual(curried6(1)(2, 3)(4)(5, 6, 7), values);
+    A.deepEqual(curried6(1)(2)(3, 4, 5, 6, 7), values);
+    A.deepEqual(curried6(1)(2)(3, 4)(5, 6, 7), values);
+    A.deepEqual(curried6(1)(2)(3)(4, 5, 6, 7), values);
+    A.deepEqual(curried6(1)(2)(3)(4)(5, 6, 7), values);
   });
 
   it('each function holds its state', () => {
@@ -92,42 +91,40 @@ describe('rcurry(fn)', () => {
   });
 
   it('the new functions report their arity', () => {
-    const assert = (f, a) => A.equal(f.length, a);
+    A.equal(curried6.length, 6);
+    A.equal(curried6(1).length, 5);
+    A.equal(curried6(1)(2).length, 4);
+    A.equal(curried6(1, 2).length, 4);
+    A.equal(curried6(1)(2)(3).length, 3);
+    A.equal(curried6(1, 2)(3).length, 3);
+    A.equal(curried6(1)(2, 3).length, 3);
+    A.equal(curried6(1, 2, 3).length, 3);
+    A.equal(curried6(1)(2)(3)(4).length, 2);
+    A.equal(curried6(1, 2, 3)(4).length, 2);
+    A.equal(curried6(1)(2, 3)(4).length, 2);
+    A.equal(curried6(1)(2, 3, 4).length, 2);
+    A.equal(curried6(1)(2)(3, 4).length, 2);
+    A.equal(curried6(1, 2)(3, 4).length, 2);
+    A.equal(curried6(1)(2)(3, 4).length, 2);
+    A.equal(curried6(1, 2)(3)(4).length, 2);
+    A.equal(curried6(1, 2, 3, 4).length, 2);
 
-    assert(curried6, 6);
-    assert(curried6(1), 5);
-    assert(curried6(1)(2), 4);
-    assert(curried6(1, 2), 4);
-    assert(curried6(1)(2)(3), 3);
-    assert(curried6(1, 2)(3), 3);
-    assert(curried6(1)(2, 3), 3);
-    assert(curried6(1, 2, 3), 3);
-    assert(curried6(1)(2)(3)(4), 2);
-    assert(curried6(1, 2, 3)(4), 2);
-    assert(curried6(1)(2, 3)(4), 2);
-    assert(curried6(1)(2, 3, 4), 2);
-    assert(curried6(1)(2)(3, 4), 2);
-    assert(curried6(1, 2)(3, 4), 2);
-    assert(curried6(1)(2)(3, 4), 2);
-    assert(curried6(1, 2)(3)(4), 2);
-    assert(curried6(1, 2, 3, 4), 2);
-
-    assert(curried6(1)(2)(3)(4)(5), 1);
-    assert(curried6(1, 2, 3, 4)(5), 1);
-    assert(curried6(1, 2, 3)(4)(5), 1);
-    assert(curried6(1, 2, 3)(4, 5), 1);
-    assert(curried6(1, 2)(3)(4)(5), 1);
-    assert(curried6(1, 2)(3)(4, 5), 1);
-    assert(curried6(1, 2)(3, 4)(5), 1);
-    assert(curried6(1, 2)(3, 4, 5), 1);
-    assert(curried6(1)(2, 3, 4)(5), 1);
-    assert(curried6(1)(2, 3)(4)(5), 1);
-    assert(curried6(1)(2, 3)(4, 5), 1);
-    assert(curried6(1)(2)(3, 4)(5), 1);
-    assert(curried6(1)(2)(3)(4, 5), 1);
-    assert(curried6(1)(2)(3, 4, 5), 1);
-    assert(curried6(1)(2, 3, 4, 5), 1);
-    assert(curried6(1, 2, 3, 4, 5), 1);
+    A.equal(curried6(1)(2)(3)(4)(5).length, 1);
+    A.equal(curried6(1, 2, 3, 4)(5).length, 1);
+    A.equal(curried6(1, 2, 3)(4)(5).length, 1);
+    A.equal(curried6(1, 2, 3)(4, 5).length, 1);
+    A.equal(curried6(1, 2)(3)(4)(5).length, 1);
+    A.equal(curried6(1, 2)(3)(4, 5).length, 1);
+    A.equal(curried6(1, 2)(3, 4)(5).length, 1);
+    A.equal(curried6(1, 2)(3, 4, 5).length, 1);
+    A.equal(curried6(1)(2, 3, 4)(5).length, 1);
+    A.equal(curried6(1)(2, 3)(4)(5).length, 1);
+    A.equal(curried6(1)(2, 3)(4, 5).length, 1);
+    A.equal(curried6(1)(2)(3, 4)(5).length, 1);
+    A.equal(curried6(1)(2)(3)(4, 5).length, 1);
+    A.equal(curried6(1)(2)(3, 4, 5).length, 1);
+    A.equal(curried6(1)(2, 3, 4, 5).length, 1);
+    A.equal(curried6(1, 2, 3, 4, 5).length, 1);
   });
 
   it('counts no argument as argument', () => {

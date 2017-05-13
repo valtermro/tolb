@@ -1,0 +1,4 @@
+#!/bin/bash
+
+self_dir=$(dirname $(realpath $0))
+/usr/bin/env node $self_dir/new.js "$@"

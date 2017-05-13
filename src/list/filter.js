@@ -9,6 +9,9 @@ import curry2 from '../_internal/curry2';
 /**
  * Filters a list based on a given predicate.
  *
+ * If the list is a string, the resulting list will be an array witch the characters
+ * in the original string that match the predicate.
+ *
  * The current index is passed as the second argument to the predicate.
  *
  * @function
@@ -17,10 +20,12 @@ import curry2 from '../_internal/curry2';
  * @return {Array} An array with all elements in `list` that match `pred`
  * @example
  *
- *   const isEven = x => x % 2 === 0
+ *   const isEven = x => x % 2 === 0;
+ *   const isUpper = x => x === x.toUpperCase();
  *
- *   filter(isEven, [1, 2, 3, 4, 5, 6]) //=> [2, 4, 6]
- *   filter(isEven, [1, 3, 5]) //=> []
+ *   filter(isEven, [1, 2, 3, 4, 5, 6]); //=> [2, 4, 6]
+ *   filter(isEven, [1, 3, 5]); //=> []
+ *   filter(isUpper, 'AbCde'); //=> ['A', 'C']
  */
 export default curry2((pred, list) => {
   const result = [];

@@ -2,7 +2,7 @@
 import A from 'assert';
 import has from './has';
 
-describe('has(key, subject)', () => {
+describe('object.has(key, subject)', () => {
   function Foo() { this.foo = 1; }
   Foo.prototype.bar = 2;
   // one can override native methods, which can cause problems.

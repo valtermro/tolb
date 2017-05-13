@@ -2,15 +2,14 @@
 import A from 'assert';
 import values from './values';
 
-describe('values(obj)', () => {
-  function Foo() { this.foo = 1; }
-  Foo.prototype.bar = 2;
-
-  const f = new Foo();
-  f.baz = 3;
-
+describe('object.values(obj)', () => {
   it('returns the list of own values in "obj"', () => {
-    A.deepEqual(values({ foo: 1, bar: 'foo', baz: undefined }), [1, 'foo', undefined]);
-    A.deepEqual(values(f), [1, 3]);
+    const literal = { a: 1, b: 'foo', c: undefined };
+    const prototyped = Object.create({ a: 1 });
+    prototyped.b = 2;
+    prototyped.c = 3;
+
+    A.deepEqual(values(literal), [1, 'foo', undefined]);
+    A.deepEqual(values(prototyped), [2, 3]);
   });
 });

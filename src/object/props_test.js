@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import props from './props';
-import config from '../../build/constants.config';
+import config from '../../config/constants';
 
-describe('props(keys, obj)', () => {
+describe('object.props(keys, obj)', () => {
   const obj = {
     foo: 1,
     bar: {

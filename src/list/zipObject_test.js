@@ -1,28 +1,31 @@
 /* eslint-env mocha */
 import A from 'assert';
 import zipObject from './zipObject';
-import util from '../../build/util';
+import util from '../../lib/util';
 
-describe('zipObject(keys, list)', () => {
+describe('list.zipObject(keys, list)', () => {
   it('creates an object by pairing up "keys" with the values in "list"', () => {
-    const keys = ['foo', 'bar', 'baz'];
-    const wanted = { foo: 'a', bar: 'b', baz: 'c' };
-    const assert = list => A.deepEqual(zipObject(keys, list), wanted);
+    const keys = ['a', 'b', 'c'];
+    const valueLists = [
+      ['d', 'e', 'f'],
+      util.arrayLike('d', 'e', 'f'),
+      'def',
+    ];
 
-    assert(['a', 'b', 'c']);
-    assert(util.arrayLike('a', 'b', 'c'));
-    assert('abc');
+    valueLists.forEach((list) => {
+      A.deepEqual(zipObject(keys, list), { a: 'd', b: 'e', c: 'f' });
+    });
   });
 
   it('ignores extra values in both sides', () => {
-    const assert = (keys, wanted) => {
-      A.deepEqual(zipObject(keys, ['a', 'b', 'c']), wanted);
-    };
-    assert(['foo', 'bar'], { foo: 'a', bar: 'b' });
-    assert(['foo', 'bar', 'baz', 'bleh'], { foo: 'a', bar: 'b', baz: 'c' });
+    // extra keys
+    A.deepEqual(zipObject(['a', 'b'], ['c']), { a: 'c' });
+
+    // extra values
+    A.deepEqual(zipObject(['a'], ['c', 'd']), { a: 'c' });
   });
 
   it('allows partial application', () => {
-    A.deepEqual(zipObject(['foo'])([1]), { foo: 1 });
+    A.deepEqual(zipObject(['a'])([1]), { a: 1 });
   });
 });

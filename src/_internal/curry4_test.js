@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import A from 'assert';
 import curry4 from './curry4';
-import util from '../../build/util';
+import stub from '../../lib/stub';
 
 describe('_iternal.curry4(fn, reverse)', () => {
   const values = [
@@ -18,7 +18,7 @@ describe('_iternal.curry4(fn, reverse)', () => {
   describe('"reverse" = true', () => test(true));
 
   function test(reverse) {
-    const curried = curry4(util.foo4, reverse);
+    const curried = curry4(stub.foo4, reverse);
     const v0 = reverse ? values[0].slice(0).reverse() : values[0];
     const v1 = reverse ? values[1].slice(0).reverse() : values[1];
     const v2 = reverse ? values[2].slice(0).reverse() : values[2];
@@ -28,22 +28,20 @@ describe('_iternal.curry4(fn, reverse)', () => {
     const v6 = reverse ? values[6].slice(0).reverse() : values[6];
 
     it('converts "fn" into a function that can be used as a curried function', () => {
-      const assert = v => A.deepEqual(v, v0);
-
-      assert(curried(1, 2, 3, 4));
-      assert(curried(1, 2, 3)(4));
-      assert(curried(1, 2)(3, 4));
-      assert(curried(1, 2)(3)(4));
-      assert(curried(1)(2, 3, 4));
-      assert(curried(1)(2, 3)(4));
-      assert(curried(1)(2)(3, 4));
-      assert(curried(1)(2)(3)(4));
+      A.deepEqual(curried(1, 2, 3, 4), v0);
+      A.deepEqual(curried(1, 2, 3)(4), v0);
+      A.deepEqual(curried(1, 2)(3, 4), v0);
+      A.deepEqual(curried(1, 2)(3)(4), v0);
+      A.deepEqual(curried(1)(2, 3, 4), v0);
+      A.deepEqual(curried(1)(2, 3)(4), v0);
+      A.deepEqual(curried(1)(2)(3, 4), v0);
+      A.deepEqual(curried(1)(2)(3)(4), v0);
 
       // one may pass extra arguments at some point
-      assert(curried(1, 2, 3, 4, 5));
-      assert(curried(1, 2)(3, 4, 5));
-      assert(curried(1)(2, 3, 4, 5));
-      assert(curried(1)(2)(3, 4, 5));
+      A.deepEqual(curried(1, 2, 3, 4, 5), v0);
+      A.deepEqual(curried(1, 2)(3, 4, 5), v0);
+      A.deepEqual(curried(1)(2, 3, 4, 5), v0);
+      A.deepEqual(curried(1)(2)(3, 4, 5), v0);
     });
 
     it('each function holds its state', () => {
@@ -59,16 +57,14 @@ describe('_iternal.curry4(fn, reverse)', () => {
     });
 
     it('the new functions report their arity', () => {
-      const assert = (f, a) => A.equal(f.length, a);
-
-      assert(curried, 4);
-      assert(curried(1), 3);
-      assert(curried(1)(2), 2);
-      assert(curried(1, 2), 2);
-      assert(curried(1)(2)(3), 1);
-      assert(curried(1, 2)(3), 1);
-      assert(curried(1)(2, 3), 1);
-      assert(curried(1, 2, 3), 1);
+      A.equal(curried.length, 4);
+      A.equal(curried(1).length, 3);
+      A.equal(curried(1)(2).length, 2);
+      A.equal(curried(1, 2).length, 2);
+      A.equal(curried(1)(2)(3).length, 1);
+      A.equal(curried(1, 2)(3).length, 1);
+      A.equal(curried(1)(2, 3).length, 1);
+      A.equal(curried(1, 2, 3).length, 1);
     });
 
     it('counts no argument as argument', () => {

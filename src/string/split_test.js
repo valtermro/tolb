@@ -2,7 +2,7 @@
 import A from 'assert';
 import split from './split';
 
-describe('split(sep, str)', () => {
+describe('string.split(sep, str)', () => {
   const str = 'foo,bar';
 
   it('applies "str".split to "sep"', () => {

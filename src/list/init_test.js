@@ -1,9 +1,9 @@
 /* eslint-env mocha */
 import A from 'assert';
 import init from './init';
-import util from '../../build/util';
+import util from '../../lib/util';
 
-describe('init(list)', () => {
+describe('list.init(list)', () => {
   it('deals with strings', () => {
     A.equal(init('abc'), 'ab');
     A.equal(init('a'), '');
@@ -13,9 +13,10 @@ describe('init(list)', () => {
   it('deals with arrays', () => {
     const array = [1, 2, 3];
     A.deepEqual(init(array), [1, 2]);
+    A.deepEqual(array, [1, 2, 3]);
+
     A.deepEqual(init([1]), []);
     A.deepEqual(init([]), []);
-    A.deepEqual(array, [1, 2, 3]);
   });
 
   it('deals with array-like objects', () => {

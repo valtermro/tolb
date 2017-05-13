@@ -2,7 +2,7 @@
 import A from 'assert';
 import norm from './norm';
 
-describe('norm(min, max, value)', () => {
+describe('math.norm(min, max, value)', () => {
   it('normalizes "value" based on the range from "min" to "max"', () => {
     A.equal(norm(0, 50, 15), 0.3);
     A.equal(norm(10, 50, 15), 0.125);

@@ -2,11 +2,10 @@
 import A from 'assert';
 import toLower from './toLower';
 
-describe('toLower(str)', () => {
+describe('string.toLower(str)', () => {
   it('converts "str" to lower case', () => {
-    const assert = str => A.equal(toLower(str), str.toLowerCase());
-    assert('Foo');
-    assert('FoA');
-    assert('FoA BAr');
+    A.equal(toLower('Foo'), 'foo');
+    A.equal(toLower('FoO'), 'foo');
+    A.equal(toLower('FoO BAr'), 'foo bar');
   });
 });

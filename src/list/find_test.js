@@ -1,28 +1,50 @@
 /* eslint-env mocha */
 import A from 'assert';
 import find from './find';
-import util from '../../build/util';
+import util from '../../lib/util';
 
-describe('find(pred, list)', () => {
-  const array = util.makeArray(10);
-  const gt8 = x => x > 8;
-  const lt1 = x => x < 1;
+describe('list.find(pred, list)', () => {
+  // a list of lists containing some uppercased letters
+  const hasUpper = [
+    ['a', 'B', 'c', 'D', 'e', 'f'],
+    util.arrayLike('a', 'B', 'c', 'D', 'e', 'f'),
+    'aBcDef',
+  ];
 
-  it('returns the first item in "list" that matches "pred"', () => {
-    A.equal(find(gt8, array), 9);
-    A.equal(find(lt1, array), 0);
+  // a list of lists without any uppercased letters
+  const noUpper = [
+    ['a', 'b', 'c', 'd'],
+    util.arrayLike('a', 'b', 'c', 'd'),
+    'abcd',
+  ];
+
+  it('returns the first element in "list" that matches "pred"', () => {
+    hasUpper.forEach((list) => {
+      A.equal(find(util.isUpper, list), 'B');
+    });
+
+    // it doesn't matter the index the element is at
+    A.equal(find(util.isUpper, ['a', 'b', 'C']), 'C');
+    A.equal(find(util.isUpper, ['A', 'b']), 'A');
+    A.equal(find(util.isUpper, ['A']), 'A');
   });
 
   it('returns undefined if nothing is found', () => {
-    A.equal(find(x => x > 9, array), undefined);
+    noUpper.forEach((list) => {
+      A.equal(find(util.isUpper, list), undefined);
+    });
   });
 
   it('"pred" receives the current index as its second argument', () => {
-    let k = 0;
-    find((_, i) => A.equal(i, k++), array);
+    hasUpper.forEach((list) => {
+      let k = 0;
+      find((_, i) => A.equal(i, k++), list);
+    });
   });
 
   it('allows partial application', () => {
-    A.equal(find(gt8)(array), 9);
+    hasUpper.forEach((list) => {
+      A.equal(find(util.isUpper)(list), 'B');
+    });
   });
 });

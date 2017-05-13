@@ -1,13 +1,13 @@
 /* eslint-env mocha */
 import A from 'assert';
 import curryArgs from './curryArgs';
-import util from '../../../build/util';
+import util from '../../../lib/util';
 
-describe('_internal.curryArgs(input)', () => {
+describe('function._internal.curryArgs(input)', () => {
   it('returns "input" if its length is greater than 0', () => {
-    const assert = value => A.deepEqual(curryArgs(value), value);
-    assert([1]);
-    assert(util.arrayLike(1));
+    [[1, 2], util.arrayLike(1, 2)].forEach((input) => {
+      A.deepEqual(curryArgs(input), input);
+    });
   });
 
   it('returns an array holding "undefined" if "value" is empty', () => {

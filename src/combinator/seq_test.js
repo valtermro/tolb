@@ -2,7 +2,7 @@
 import A from 'assert';
 import seq from './seq';
 
-describe('seq(...fns)', () => {
+describe('combinator.seq(...fns)', () => {
   const calls = [];
   const foo1 = (value) => {
     foo1.value = value;
@@ -23,6 +23,6 @@ describe('seq(...fns)', () => {
     A.equal(foo1.value, 10);
     A.equal(foo2.value, 10);
     A.equal(foo3.value, 10);
-    A.deepEqual(calls, [foo1, foo2, foo3], '"fns" should have been called in order');
+    A.deepEqual(calls, [foo1, foo2, foo3], '"fns" should be called in order');
   });
 });

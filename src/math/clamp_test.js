@@ -1,9 +1,10 @@
 /* eslint-env mocha */
 import A from 'assert';
 import clamp from './clamp';
+import config from '../../config/constants';
 
-describe('clamp(min, max, num)', () => {
-  it('ensure "num" is within range', () => {
+describe('math.clamp(min, max, num)', () => {
+  it('ensures "num" is within the range defined by "min" and "max"', () => {
     A.equal(clamp(10, 20, 30), 20);
     A.equal(clamp(10, 20, 5), 10);
     A.equal(clamp(10, 20, 15), 15);
@@ -12,9 +13,8 @@ describe('clamp(min, max, num)', () => {
   });
 
   it('throws if the range is invalid', () => {
-    const msg = /invalid/i;
-    A.throws(() => clamp(30, 10, 5), msg);
-    A.throws(() => clamp(-10, -30, 5), msg);
+    A.throws(() => clamp(30, 10, 5), config.RANGE_ERRMSG);
+    A.throws(() => clamp(-10, -30, 5), config.RANGE_ERRMSG);
   });
 
   it('allows partial application', () => {

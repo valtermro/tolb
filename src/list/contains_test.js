@@ -1,30 +1,26 @@
 /* eslint-env mocha */
 import A from 'assert';
 import contains from './contains';
-import util from '../../build/util';
+import util from '../../lib/util';
 
-describe('contains(value, subject)', () => {
-  const str = 'foo bar';
-  const array = ['foo', 'bar', 'b'];
-  const arrayLike = util.arrayLike('foo', 'bar', 'b');
-
-  function test(subject) {
-    A.equal(contains('foo', subject), true);
-    A.equal(contains('bar', subject), true);
-    A.equal(contains('b', subject), true);
-    A.equal(contains('baz', subject), false);
-  }
-
+describe('list.contains(value, subject)', () => {
   it('deals with strings', () => {
-    test(str);
+    A.equal(contains('fo', 'foo'), true);
+    A.equal(contains('r', 'bar'), true);
+    A.equal(contains('foo', 'foo bar'), true);
+    A.equal(contains('bar', 'foo bar baz'), true);
+    A.equal(contains('bar', 'foo'), false);
+    A.equal(contains('z', 'foo'), false);
   });
 
   it('deals with arrays', () => {
-    test(array);
+    A.equal(contains(1, [1, 2]), true);
+    A.equal(contains(1, [2]), false);
   });
 
   it('deals with array like objects', () => {
-    test(arrayLike);
+    A.equal(contains(1, util.arrayLike(1, 2)), true);
+    A.equal(contains(1, util.arrayLike(2)), false);
   });
 
   it('tests equality deeply', () => {
@@ -34,6 +30,6 @@ describe('contains(value, subject)', () => {
   });
 
   it('allows partial application', () => {
-    A.equal(contains('foo')(array), true);
+    A.equal(contains('foo')(['foo']), true);
   });
 });
