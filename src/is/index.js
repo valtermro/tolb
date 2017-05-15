@@ -10,6 +10,7 @@ export { default as integer } from './integer';
 export { default as lt } from './lt';
 export { default as lte } from './lte';
 export { default as nan } from './nan';
+export { default as not } from './not';
 export { default as number } from './number';
 export { default as odd } from './odd';
 export { default as plainObject } from './plainObject';

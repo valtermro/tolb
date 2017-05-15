@@ -9,13 +9,13 @@ import arity from '../_internal/arity';
  * @example
  *
  *   const isEven = x => x % 2 === 0
- *   const isOdd = complement(isEven)
+ *   const isOdd = not(isEven)
  *
  *   isEven(2) //=> true
  *   isOdd(2) //=> false
  *   isOdd(1) //=> true
  */
-export default function complement(fn) {
+export default function not(fn) {
   return arity(fn.length, function (/* args */) {
     return !fn.apply(undefined, arguments);
   });
