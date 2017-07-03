@@ -5,17 +5,14 @@ import match from './match';
 describe('string.match(pattern, str)', () => {
   const str = 'some little thing';
 
-  it('applies "str".match to "pattern"', () => {
-    [/some/, /(s.+)t/, 'some'].forEach((pattern) => {
-      A.deepEqual(match(pattern, str), str.match(pattern));
-    });
-  });
-
-  it('returns an empty array if "str" does not match "pattern"', () => {
-    A.deepEqual(match(/foo/, 'bar'), []);
+  it('checks if "str" matches "patter"', () => {
+    A.deepEqual(match(/some/, str), true);
+    A.deepEqual(match(/(s.+)t/, str), true);
+    A.deepEqual(match('some', str), true);
+    A.deepEqual(match(/foo/, str), false);
   });
 
   it('allows partial application', () => {
-    A.deepEqual(match(/l.+t/)(str), str.match(/l.+t/));
+    A.deepEqual(match(/little/)(str), true);
   });
 });

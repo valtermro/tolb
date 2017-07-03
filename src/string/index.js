@@ -1,3 +1,4 @@
+export { default as grep } from './grep';
 export { default as lpad } from './lpad';
 export { default as match } from './match';
 export { default as replace } from './replace';
