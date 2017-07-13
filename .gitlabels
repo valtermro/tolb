@@ -27,12 +27,12 @@
 # --------------------
 
 - (scoped) The scope of changes
-  - (assert)      The assert package
+
   - (combinator)  The combinator package
   - (function)    The function package
+  - (is)          The is package
   - (list)        The list package
   - (math)        The math package
-  - (number)      The number package
   - (object)      The object package
   - (string)      The string package
   - (util)        The util package
