@@ -15,3 +15,5 @@ export { default as number } from './number';
 export { default as odd } from './odd';
 export { default as plainObject } from './plainObject';
 export { default as string } from './string';
+export { default as truthy } from './truthy';
+export { default as value } from './value';
