@@ -1,4 +1,5 @@
 export { default as alt } from './alt';
+export { default as complement } from './complement';
 export { default as compose } from './compose';
 export { default as constant } from './constant';
 export { default as fork } from './fork';

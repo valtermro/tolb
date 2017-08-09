@@ -1,11 +1,11 @@
 /* eslint-env mocha */
 import A from 'assert';
-import not from './not';
+import complement from './complement';
 import util from '../../lib/util';
 
-describe('is.not(fn)', () => {
-  const isOdd = not(util.isEven);
-  const isNotEqual = not(util.isEqual);
+describe('combinator.complement(fn)', () => {
+  const isOdd = complement(util.isEven);
+  const isNotEqual = complement(util.isEqual);
 
   it('negates the result of "fn"', () => {
     A.equal(isOdd(1), true);
