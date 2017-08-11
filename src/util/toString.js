@@ -1,3 +1,5 @@
+import plainObject from '../is/plainObject';
+
 /**
  * Creates a string that visually represents a given object.
  *
@@ -37,7 +39,7 @@ export default function toString(obj) {
   if (obj instanceof Number)
     return `Number(${obj})`;
 
-  if (obj && typeof obj === 'object')
+  if (obj && plainObject(obj))
     return stringfy(obj, false);
 
   return String(obj);

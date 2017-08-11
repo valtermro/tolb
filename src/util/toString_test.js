@@ -61,4 +61,11 @@ describe('util.toString(obj)', () => {
     equal(toString({ foo: [1, 2, 3, { bar: false }] }),
          '{"foo":[1,2,3,{"bar":false}]}');
   });
+
+  it('regex', () => {
+    equal(toString(/foo/), '/foo/');
+    equal(toString(/foo/g), '/foo/g');
+    equal(toString(new RegExp('foo')), '/foo/');
+    equal(toString(new RegExp('foo', 'g')), '/foo/g');
+  });
 });
