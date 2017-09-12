@@ -8,6 +8,7 @@ export { default as find } from './find';
 export { default as findIndex } from './findIndex';
 export { default as findLast } from './findLast';
 export { default as findLastIndex } from './findLastIndex';
+export { default as flatten } from './flatten';
 export { default as head } from './head';
 export { default as init } from './init';
 export { default as join } from './join';
