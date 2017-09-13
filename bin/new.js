@@ -76,9 +76,9 @@ const templates = {
 };
 
 const args = process.argv.slice(process.argv.indexOf(__filename) + 1);
-const fail = (msg) => {
+const fail = (msg, code) => {
   console.error(`Error: ${msg}`);
-  process.exit(2);
+  process.exit(code || 2);
 };
 
 if (args.length < 1 || args.length > 3)
@@ -134,7 +134,6 @@ toCreate.forEach((type) => {
     if (type === 'source' && !filename.includes('/_'))
       build.writeIndexes({ verbose: false, dir: packSRC });
   } catch (error) {
-    console.error(error.stack);
-    process.exit(error.errno);
+    fail(error.stack, error.errno);
   }
 });

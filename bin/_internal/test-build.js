@@ -37,7 +37,7 @@ describe('node build', () => {
         .filter(shouldBeExported)
         .map(removeExtension);
 
-      // an index file should have export statements for all functions in the package
+      // an index file should have 'export' statements for all functions in the package
       fnNames.forEach((fnName) => {
         if (!icontents.includes(`exports.${fnName} =`))
           A.fail(null, null, `${ifile} should export ${fnName}`);

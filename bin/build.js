@@ -19,10 +19,9 @@ requested.forEach((target) => {
 console.log('Writing index files');
 build.writeIndexes({ verbose: true, dir: 'all' });
 
-const packages = fs.ls(fs.SRC)
-  .reduce((accum, pack) => {
-    return Object.assign(accum, { [pack]: fs.findSources(path.join(fs.SRC, pack)) });
-  }, {});
+const packages = fs.ls(fs.SRC).reduce((accum, pack) => {
+  return Object.assign(accum, { [pack]: fs.findSources(path.join(fs.SRC, pack)) });
+}, {});
 
 console.log(`Building: ${requested.join(' and ')}`);
 Object.keys(packages).forEach((pack) => {
@@ -39,7 +38,7 @@ Object.keys(packages).forEach((pack) => {
         fs.writeFile(dest, code);
       } catch (error) {
         console.error(error.stack);
-        console.log('Cleaning up');
+        console.error('Cleaning up');
         build.cleanUp();
         process.exit(error.errno);
       }
