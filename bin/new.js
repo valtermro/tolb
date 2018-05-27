@@ -85,8 +85,8 @@ if (args.length < 1 || args.length > 3)
   fail('Wrong number of arguments');
 
 let fnPath = args.find(f => f[0] !== '-');
-let codeList = args.find(f => f.match(/-[^a]/));
-let argList = args.find(f => f.match(/-a/));
+let codeList = args.find(f => /-[^a]/.test(f));
+let argList = args.find(f => /-a/.test(f));
 
 if (!fnPath)
   fail('a function path must be given');
@@ -99,7 +99,7 @@ fnPath = fnPath.replace(/\./g, '/');
 codeList = codeList.slice(1);
 argList = argList.slice(2);
 
-if (codeList.match(/[^st]/))
+if (/[^st]/.test(codeList))
   fail(`invalid option list: -${codeList}`);
 
 const packName = path.dirname(fnPath);

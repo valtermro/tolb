@@ -16,7 +16,6 @@ requested.forEach((target) => {
 });
 
 
-console.log('Writing index files');
 build.writeIndexes({ verbose: true, dir: 'all' });
 
 const packages = fs.ls(fs.SRC).reduce((accum, pack) => {
@@ -28,12 +27,12 @@ Object.keys(packages).forEach((pack) => {
   console.log(`- ${pack}`);
 
   requested.forEach((target) => {
-    const destBase = target === 'node' ? '' : 'next/';
+    const destBase = target === 'node' ? '' : `next${path.sep}`;
 
     packages[pack].forEach((file) => {
       try {
         const { code } = transformFileSync(file, babelConfig[target]);
-        const dest = file.replace('src/', destBase);
+        const dest = file.replace(`src${path.sep}`, destBase);
 
         fs.writeFile(dest, code);
       } catch (error) {

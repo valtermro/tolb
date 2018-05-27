@@ -3,12 +3,12 @@ const A = require('assert');
 const path = require('path');
 const fs = require('../../lib/fs');
 
-const shouldBeExported = f => !f.match(/_|index\.js/);
+const shouldBeExported = f => !/_|index\.js/.test(f);
 const removeExtension = f => f.replace('.js', '');
 
 describe('node build', () => {
   const packages = fs.ls(fs.SRC).map(f => path.join(fs.ROOT, f));
-  const indexed = packages.filter(f => !f.includes('/_'));
+  const indexed = packages.filter(f => !f.includes(`${path.sep}_`));
 
   it('exports one function per file', () => {
     packages
